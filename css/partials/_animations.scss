@@ -1,0 +1,17 @@
+// Circular Button 'Ping'
+@-webkit-keyframes image-zoom {
+  0%   {  transform: scale(1); -webkit-transform: scale(1); }
+  100% {  transform: scale(1.1); -webkit-transform: scale(1.1); }
+}
+@-moz-keyframes image-zoom {
+  0%   { transform: scale(1); -webkit-transform: scale(1); }
+  100% { transform: scale(1.1); -webkit-transform: scale(1.1); }
+}
+@-o-keyframes image-zoom {
+  0%   { transform: scale(1); -webkit-transform: scale(1); }
+  100% { transform: scale(1.1); -webkit-transform: scale(1.1); }
+}
+@keyframes image-zoom {
+ 0%   { transform: scale(1); -webkit-transform: scale(1); }
+ 100% { transform: scale(1.1); -webkit-transform: scale(1.1); }
+}
