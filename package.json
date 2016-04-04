@@ -1,0 +1,24 @@
+{
+  "name": "sportngin",
+  "version": "1.0.0",
+  "description": "Tournament Poster Generator",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-multi-step-form": "^1.2.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avantbaker/sportNgin.git"
+  },
+  "author": "Avant Baker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avantbaker/sportNgin/issues"
+  },
+  "homepage": "https://github.com/avantbaker/sportNgin#readme"
+}
