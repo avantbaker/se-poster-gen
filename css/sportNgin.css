@@ -238,8 +238,7 @@ select {
  *    `input` and others.
  */
 button,
-html input[type="button"],
-input[type="reset"],
+html input[type="button"], input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -361,6 +360,7 @@ th {
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
+
 @-moz-keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -368,6 +368,7 @@ th {
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
+
 @-o-keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -375,6 +376,7 @@ th {
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
+
 @keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -382,6 +384,7 @@ th {
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
+
 html {
   font-size: 100%;
   margin: 0 !important;
@@ -464,6 +467,7 @@ footer {
 
 #container h1, #container p {
   color: white; }
+
 #container .sn-share h3, #container .sn-share h1 {
   color: white;
   margin: 0; }
@@ -479,27 +483,34 @@ a {
   float: left;
   margin: 0 0;
   margin-left: 3%; }
+
 .gen-content-left h2 {
   font-size: 20px; }
+
 .gen-content-left p {
   color: #777; }
+
 .gen-content-left hr {
   clear: both; }
+
 .gen-content-left .gen-pagi {
   display: inline;
   list-style: none; }
   .gen-content-left .gen-pagi li {
     margin-left: 10px;
     float: left; }
+
 .gen-content-left form .gen-formfield {
   float: left;
   width: 50%;
   margin-top: 5%;
   padding-left: 2%; }
+
 .gen-content-left form input, .gen-content-left form label {
   display: block;
   width: 98%;
   margin-bottom: 1%; }
+
 .gen-content-left .ns-link {
   width: 90%;
   margin: 0 auto;
@@ -517,5 +528,3 @@ a {
   margin: 0 auto;
   margin-top: 6%;
   border: 2px solid #dfdfdf; }
-
-/*# sourceMappingURL=sportNgin.css.map */
