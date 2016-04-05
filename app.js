@@ -6,10 +6,17 @@ sportNgin.config([
 		
 		$stateProvider
 		
+			
 			.state('home', {
 				url: '/home',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home.html'
+			})
+			
+			.state('home.welcome', {
+				url: '/welcome',
+				controller: 'homeCntrl',
+				templateUrl: 'steps/home-welcome.html'
 			})
 			
 			.state('home.yourInfo', {
@@ -43,7 +50,7 @@ sportNgin.config([
 			});
 			
 		
-		$urlRouterProvider.otherwise('/home/info');
+		$urlRouterProvider.otherwise('/home/welcome');
 	}	
 ]);
 
