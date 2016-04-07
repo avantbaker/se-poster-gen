@@ -1,0 +1,205 @@
+/*# sourceMappingURL=sportNgin.scss.map */
+
+// FILE SECTIONS //////////////
+
+// 1. Variables
+// 2. Imported Partials
+// 3. Page Structure
+// 4. Typography
+// 5. Header & Hero
+// 6. Builder Elements
+// 7. Poster Elements
+// 8. Footer/CTA
+
+
+// //////////////////////////
+// 1. VARIABLES
+// //////////////////////////
+
+$black: #23282b;
+$dkgray: #49545a;
+$gray: #777;
+$ltgray: #6f7f89;
+$offwhite: #f2f3f4;
+$padding-standard: 24px;
+$container-width-landscape: 820px;
+$container-width-vertical: 700px;
+$heading: "futura-pt", sans-serif;
+$body: 'Open Sans', sans-serif;
+
+
+// //////////////////////////
+// 2. PARTIALS
+// //////////////////////////
+
+@import 'partials/normalize';
+@import 'partials/reset';
+@import 'partials/mixins';
+@import 'partials/animations';
+
+
+// //////////////////////////
+// 3. PAGE STRUCTURE
+// //////////////////////////
+
+body, html { 
+	margin: 0;
+	padding: 0; 
+	font-family: $body;
+	font-weight: normal;
+	font-style: normal;
+	background-color: transparent;
+	&.noScroll {
+		position: fixed;
+		width: 100%;
+	}
+}
+
+main, header, footer, section {
+	@extend %clearfix;
+	position: relative;
+	width: 100%;
+}
+
+.container {
+	@extend %clearfix;
+	width: 100%;
+	@include landscape {
+		max-width: $container-width-landscape;
+	}
+	@include vertical {
+		max-width: $container-width-vertical;
+	}
+}
+
+
+// //////////////////////////
+// 4. TYPOGRAPHY
+// //////////////////////////
+
+
+
+
+
+// //////////////////////////
+// 5. HEADER & HERO
+// //////////////////////////
+
+.poster-builder-intro {
+	padding: 36px 24px 88px 24px;
+	h1, h2, h3, h4, h5, p {
+		color: #fff;
+	}
+}
+
+.poster-builder-hero {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 360px;
+	background: $dkgray; 
+	z-index: -2;
+}
+
+
+// //////////////////////////
+// 6. BUILDER ELEMENTS
+// //////////////////////////
+
+.gen-container {
+    position: relative;
+    margin-top: -32px;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid $ltgray;
+    
+    .ng-scope {
+	    height: 100%;
+	    width: 45%;
+	    float: left;
+	    
+	    #form-views {
+		    width: 100%;
+	    }
+	    
+	    > div {
+		    width: 100%;
+	    }
+    }
+    
+    .gen-content-left{
+	    width: 100%;
+	    height: 100%;
+	    float: left;
+	    padding-left: 3%;
+	    padding-right: 1%;
+    }
+    
+    .gen-content-right{
+	    width: 55%;
+	    height: 100%;
+	    float: right;
+    }
+}
+
+.gen-content {
+	height: 100%;
+}
+
+// Builder Intro & Steps
+
+
+
+// Form Elements	
+form {
+	@extend %clearfix;
+}
+
+.gen-formfield {
+	float: left;
+    width: 50%;
+    padding-left: 2%;
+    &.fullfield {
+	    width: 100%;
+    }
+}
+.gen-button {
+	width: 100%;
+	padding: 2% 0;
+}	
+		
+input, label {
+	display: block;
+	-webkit-appearance: none;
+}
+
+button, .button {
+	-webkit-appearance: none;
+}
+
+
+// //////////////////////////
+// 7. POSTER ELEMENTS
+// //////////////////////////
+	
+.poster-canvas {
+	width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    margin-top: 6%;
+    border: 2px solid $ltgray;
+}
+
+
+// //////////////////////////
+// 8. FOOTER - CTA
+// //////////////////////////
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 64px $padding-standard;
+	z-index: -1;
+}
+
