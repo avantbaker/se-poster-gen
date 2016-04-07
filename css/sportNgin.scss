@@ -1,0 +1,255 @@
+/*# sourceMappingURL=sportNgin.scss.map */
+
+// FILE SECTIONS //////////////
+
+// 1. Variables
+// 2. Imported Partials
+// 3. Page Structure
+// 4. Typography
+// 5. Sitewide Elements
+
+
+// //////////////////////////
+// 1. VARIABLES
+// //////////////////////////
+
+$black: #1a1a1a;
+$dkgray: #444;
+$gray: #777;
+$ltgray: #dfdfdf;
+$offwhite: #fafafa;
+$heading: "futura-pt", sans-serif;
+$body: 'Open Sans', sans-serif;
+$footer-height: 18%;
+
+
+// //////////////////////////
+// 2. PARTIALS
+// //////////////////////////
+
+@import 'partials/normalize';
+@import 'partials/mixins';
+@import 'partials/animations';
+
+
+// //////////////////////////
+// 3. PAGE STRUCTURE
+// //////////////////////////
+
+html {
+	font-size: 100%;
+	margin: 0 !important;
+	position: relative;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: $body;
+// 	margin: 0 0 $footer-height;
+	height: 100%;
+	width: 100%;
+}
+
+#wrapper {
+	width: 100%;
+	height:	100%;
+}
+
+header {
+	background-color: $dkgray;
+	width: 100%;
+	height: 30%;
+	
+	#container {
+		width: 85%;
+		margin: 0 auto;
+		padding-top: 3%;
+		max-width: 960px;
+		
+		img {
+			float: left;
+		}
+		.sn-share {
+			float: right;
+			h3, span {
+				float: left
+			}
+			h3{
+				padding-top: 0;
+			}
+		}
+		h1 {
+			clear: both;
+		}
+	}
+}
+
+.gen-container {
+    
+    width: 79.166667%;
+    margin: 0 auto;
+    height: 54.166667%;
+    background-color: white;
+    position: relative;
+    border: 2px solid #dfdfdf;
+    top: -60px;
+    max-width: 720px;
+    max-height: 520px;
+    
+    a {
+	    text-decoration: none;
+	    color: black;
+    }
+    
+    .ng-scope {
+	    height: 100%;
+	    width: 45%;
+	    float: left;
+	    
+	    #form-views {
+		    width: 100%;
+	    }
+	    
+	    > div {
+		    width: 100%;
+	    }
+    }
+    .gen-content-left{
+	    width: 100%;
+	    height: 100%;
+	    float: left;
+	    padding-left: 3%;
+	    padding-right: 1%;
+    }
+    
+    .gen-content-right{
+	    width: 55%;
+	    height: 100%;
+	    float: right;
+    }
+}
+
+footer {
+	background-color: $ltgray;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: $footer-height;
+	width: 100%;
+	text-align: center;
+}
+
+
+// //////////////////////////
+// 4. TYPOGRAPHY
+// //////////////////////////
+
+#container {
+	
+	h1, p {
+		color: white;
+	}
+	
+	.sn-share {
+		
+		h3, h1 {
+			color: white;
+			margin: 0;
+		}
+	}
+}
+
+a {
+	text-decoration: none;
+	color: white
+}
+
+.gen-content {
+	height: 100%;
+}
+
+.gen-content-left {
+	
+	h5 {
+		float: left;
+		margin: 0 0;
+		margin-left: 3%;
+	}
+	
+	h2 {
+		font-size: 20px;
+	}
+	
+	p {
+// 		padding-left: 3%;
+		color: $gray;
+	}
+	hr {
+		clear: both;
+	}
+	.gen-pagi {
+		display: inline;
+		list-style: none;
+		
+		li {
+			margin-left: 10px;
+			float:left;
+		}
+	}
+	
+	
+	form {
+		
+		.gen-formfield {
+			float: left;
+		    width: 50%;
+		    margin-top: 5%; 
+		    padding-left: 2%;
+		}	
+			
+		input, label {
+			display: block;
+			width: 98%;
+			margin-bottom: 1%;
+// 			margin-left: 5%;
+		}
+		
+	}
+	
+	.ns-link {
+		width: 90%;
+	    margin: 0 auto;
+	    clear: both;
+	    text-align: center;
+	    padding-top: 10%;
+	    
+	    .next_step {
+		    padding: 5% 35% 5% 35%;
+			background-color: $gray;
+			color: white;
+	    }
+	}
+	
+}
+
+.gen-content-right {
+	
+	.canvas {
+		width: 90%;
+	    height: 90%;
+	    margin: 0 auto;
+	    margin-top: 6%;
+	    border: 2px solid $ltgray;
+	}
+}
+
+// Hi :: I made a branch
+
+// New test for front-end branch
+
+// Hopefully this shit works
