@@ -28,7 +28,6 @@ $ltgray: #c3cace;
 $offwhite: #f2f3f4;
 $green: #13aa37;
 $greenhover: #0c6d23;
-$grayborder: #c3cace;
 $red: #ea322f;
 
 // Fonts
@@ -125,7 +124,7 @@ h3 {
 }
 
 h4 {
-	@include font-size(16px);
+	@include font-size(17px);
 	font-family: $vitesse;
 	font-weight: 700;
 	line-height: 1.3;
@@ -178,6 +177,14 @@ p {
   }
 }
 
+a {
+	text-decoration: none;
+}
+
+strong {
+	font-weight: 700;
+}
+
 
 
 // //////////////////////////
@@ -208,14 +215,11 @@ p {
 				display: inline-block;
 				float: left;
 				height: 24px;
-				padding-right: 12px;
+				padding-right: 8px;
 				line-height: 24px;
 			}
 			a {
-				display: inline-block;
-				width: 24px;
-				height: 24px;
-				margin: 0 2px;
+				@include circle-link;
 				background-color: $offwhite;
 				background-repeat: no-repeat;
 				background-position: center center;
@@ -253,65 +257,233 @@ p {
     background-color: #fff;
     border: 1px solid $ltgray;
     
-    .ng-scope {
-	    height: 100%;
-	    width: 47.5%;
+    .gen-content-left {
 	    float: left;
-	    
+	    width: 47.5%;
+	    padding-right: 8px;
 	    #form-views {
 		    width: 100%;
 	    }
-	    
-	    > div {
-		    width: 100%;
-	    }
-    }
-    
-    .gen-content-left {
-	    width: 100%;
-	    height: 100%;
-	    float: left;
-	    padding-left: 3%;
-	    padding-right: 1%;
     }
     
     .gen-content-right {
-	    width: 52.5%;
-	    height: 100%;
 	    float: right;
+	    width: 52.5%;
+	    padding-left: 8px;
     }
 }
 
 
 // Builder Intro & Steps
+.gen-intro-wrapper,
+.gen-steps-wrapper {
+	padding: 0 5px;
+}
 
+.gen-intro-wrapper {
+	
+}
 
+.gen-steps-wrapper {
+	@extend %clearfix;
+	height: 44px;
+	border-top: 1px solid $ltgray;
+	border-bottom: 1px solid $ltgray;
+	h5 {
+		display: inline-block;
+		float: left;
+		line-height: 44px;
+		height: 100%;
+		padding-right: 8px;
+	}
+	.gen-pagi {
+		@extend %clearfix;
+		float: left;
+		height: 100%;
+		padding: 8px 0;
+	}
+	a {
+		position: relative;
+		@include circle-link;
+		float: left;
+		margin-left: 10px;
+		@include font-size(15px);
+		font-family: $vitesse;
+		font-weight: 500;
+		color: $ltgray;
+		text-align: center;
+		background: #fff;
+		border: 1px solid $ltgray;
+		@include border-radius(50%);
+		@include transition(all .2s);
+		&:hover {
+			background: $blue;
+			border: 1px solid $blue;
+			color: #fff;
+		}
+		&:before {
+			content:"";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 10px;
+			height: 2px;
+			background: $ltgray;
+			margin: -1px 0 0 -11px;
+		}
+		&:first-of-type {
+			margin-left: 0;
+			&:before {
+				display: none;
+			}
+		}
+		&.active {
+			background: $blue;
+			border: 1px solid $blue;
+			color: #fff;
+		}
+	}
+}
 
-// Form Elements	
+// Form Layout	
 form {
 	@extend %clearfix;
+	padding: 0 5px;
+}
+
+.gen-formrow {
+	@extend %clearfix;
+	&.step-heading {
+		padding: 15px 0;
+	}
 }
 
 .gen-formfield {
+	position: relative;
 	float: left;
     width: 50%;
-    padding-left: 2%;
+    padding-bottom: 15px;
     &.fullfield {
 	    width: 100%;
     }
+    &.left {
+	    padding-right: 5px;
+	    @include mobile {
+		    padding-right: 0;
+	    }
+    }
+    &.right {
+	  	padding-left: 5px;
+	    @include mobile {
+		    padding-left: 0;
+	    }  
+    }
 }
+
 .gen-button {
 	width: 100%;
-	padding: 2% 0;
+	padding: 5px;
 }	
-		
+
+
+// Form Elements	
 input, label {
-	display: block;
+	display: inline-block;
+	width: 100%;
 	-webkit-appearance: none;
 }
 
-button, .button {
+label {
+	padding-bottom: 5px;
+	@include font-size(12px);
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=tel],
+input[type=number],
+input[type=date],
+select,
+textarea {
+	height: 28px;
+	padding: 0 8px;
+	border: 1px solid $ltgray;
+	background: #fbfbfc;
+	@include font-size(16px);
+	font-weight: 500;
+	@include transition(all .2s);
+	&:hover {
+		border: 1px solid $mdgray;
+	}
+	&:focus {
+		background: #fff;
+		border: 1px solid $blue;
+		outline: 0;
+	}
+}
+
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=tel],
+input[type=number],
+input[type=date],
+textarea {
+	box-shadow: inset 0 1px 0 rgba(35,40,43,0.15);
+}
+
+select {
+	width: 100%;
+	border-radius: 0;
+	box-shadow: 0 1px 0 rgba(35,40,43,0.15);
+}
+
+input[type=submit],
+button, 
+.button {
+	display: inline-block;
+	width: 100%;
+	max-width: 200px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 16px;
+	@include font-size(16px);
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	border: 1px solid $green;
+	background: $green;
+	box-shadow: 0 1px 0 rgba(35,40,43,0.15);
+	@include border-radius(2px);
+	@include transition(all .2s);
 	-webkit-appearance: none;
+	&:hover {
+		background: $greenhover;
+	}
+	&:focus {
+		outline: 0;
+	}
+	&.full {
+		max-width: 100%;
+	}
+	&.next-step {
+		@include gray-button;
+		&:after {
+			content:"";
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-left: 4px;
+			background: url('../assets/img/icon-arrow.svg') no-repeat center center;
+			transform: translateY(2px);
+			-webkit-transform: translateY(2px);
+		}
+	}
 }
 
 
@@ -320,11 +492,9 @@ button, .button {
 // //////////////////////////
 	
 .poster-canvas {
-	width: 90%;
-    height: 90%;
-    margin: 0 auto;
-    margin-top: 6%;
-    border: 2px solid $ltgray;
+	width: 100%;
+    background-color: $offwhite;
+    @include aspect-ratio(17,22);
 }
 
 

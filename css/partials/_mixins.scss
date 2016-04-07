@@ -66,7 +66,6 @@
 }
 
 // Mixins
-
 @function calculateRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
@@ -192,13 +191,37 @@
 }
 
 @mixin background-opacity($color, $opacity: 0.7) {
-    background: $color; /* The Fallback */
+    background: $color;
     background: rgba($color, $opacity);
 }
 
+@mixin circle-link {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+}
+
+// Button mixins
+$buttongray-bottom: #94a0a8;
+$buttongray-top: #b0b9bf;
+
+@mixin gray-button {
+	border: 1px solid $buttongray-bottom;
+	background: $buttongray-top;
+	background: -moz-linear-gradient(top,  $buttongray-top 1%, $buttongray-bottom 100%);
+	background: -webkit-linear-gradient(top,  $buttongray-top 1%,$buttongray-bottom 100%);
+	background: linear-gradient(to bottom,  $buttongray-top 1%,$buttongray-bottom 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$buttongray-top', endColorstr='$buttongray-bottom',GradientType=0 );
+	&:hover {
+		background: $buttongray-bottom;
+		background: -moz-linear-gradient(top,  $buttongray-bottom 1%, $buttongray-bottom 100%);
+		background: -webkit-linear-gradient(top,  $buttongray-bottom 1%,$buttongray-bottom 100%);
+		background: linear-gradient(to bottom,  $buttongray-bottom 1%,$buttongray-bottom 100%);
+	}
+}
 
 // Clearfix
-
 %clearfix {
   *zoom: 1;
   &:before, &:after {
