@@ -117,7 +117,7 @@ h3 {
 	@include font-size(18px);
 	font-weight: 500;
 	line-height: 1.3;
-	margin: 0 0 15px 0;
+	margin: 0 0 5px 0;
 	text-transform: uppercase;
 	@include mobile {
 		@include font-size(16px);
@@ -140,11 +140,11 @@ h4 {
 }
 
 h5 {
-	@include font-size(16px);
+	@include font-size(12px);
 	font-weight:300;
 	line-height:115%;
 	text-transform:uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	margin: 0;
 	@include mobile-medium{
   		@include font-size(13px);
@@ -186,8 +186,42 @@ p {
 
 .poster-builder-intro {
 	padding: 36px 24px 88px 24px;
-	h1, h2, h3, h4, h5, p {
+	h2, h3, h4, h5, p {
 		color: #fff;
+	}
+	.masthead {
+		padding-bottom: 32px;
+		h1 {
+			display: inline-block;
+			width: 148px;
+			height: 26px;
+			background: url('../assets/img/sn-logo-white.svg');
+			background-size: 148px 26px;
+			overflow: hidden;
+			text-indent: -9999px;
+		}
+		.sn-share {
+			@extend %clearfix;
+			display: inline-block;
+			float: right;
+			h5 {
+				display: inline-block;
+				float: left;
+				height: 24px;
+				padding-right: 12px;
+				line-height: 24px;
+			}
+			a {
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+				margin: 0 2px;
+				background-color: $offwhite;
+				background-repeat: no-repeat;
+				background-position: center center;
+				@include border-radius(50%);
+			}
+		}
 	}
 }
 
@@ -196,7 +230,8 @@ p {
 	top: 0;
 	left: 0;
 	height: 360px;
-	background: $dkgray; 
+	background: $dkgray;
+	border-top: 5px solid $blue;
 	z-index: -2;
 }
 
@@ -205,12 +240,18 @@ p {
 // 6. BUILDER ELEMENTS
 // //////////////////////////
 
+.poster-builder-app {
+	background: #fff;
+	padding: 0 $padding-standard 64px $padding-standard;
+	border-bottom: 5px solid $blue;
+}
+
 .gen-container {
     position: relative;
     margin-top: -32px;
     padding: 15px;
     background-color: #fff;
-    border: 2px solid $ltgray;
+    border: 1px solid $ltgray;
     
     .ng-scope {
 	    height: 100%;
@@ -226,7 +267,7 @@ p {
 	    }
     }
     
-    .gen-content-left{
+    .gen-content-left {
 	    width: 100%;
 	    height: 100%;
 	    float: left;
@@ -234,16 +275,13 @@ p {
 	    padding-right: 1%;
     }
     
-    .gen-content-right{
-	    width: 55%;
+    .gen-content-right {
+	    width: 52.5%;
 	    height: 100%;
 	    float: right;
     }
 }
 
-.gen-content {
-	height: 100%;
-}
 
 // Builder Intro & Steps
 
@@ -294,11 +332,19 @@ button, .button {
 // 8. FOOTER - CTA
 // //////////////////////////
 
+.poster-builder-cta-spacer {
+	margin: 0;
+	padding: 0;
+	width: 1px;
+}
+
 footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	padding: 64px $padding-standard;
+	background: $offwhite;
+	text-align: center;
 	z-index: -1;
 }
 
