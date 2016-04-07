@@ -48,5 +48,14 @@ $(document).ready(function() {
 	          window.location.hash = target;
 	    });
 	});
+	
+	// Add spacer height for fixed footer
+	var footerHeight = $("footer").outerHeight();
+	$(".poster-builder-cta-spacer").height(footerHeight);
+	
+	$(window).resize(function(){
+    	var footerHeight = $("footer").outerHeight();
+		$(".poster-builder-cta-spacer").height(footerHeight);
+	});
   
 });

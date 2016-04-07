@@ -55,7 +55,7 @@ sportNgin.config([
 			});
 			
 		
-		$urlRouterProvider.otherwise('home.start');
+		$urlRouterProvider.otherwise('home/start/info');
 	}	
 ]);
 
