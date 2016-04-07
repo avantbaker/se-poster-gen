@@ -6,51 +6,56 @@ sportNgin.config([
 		
 		$stateProvider
 		
-			
-			.state('home', {
+			.state('root', {
 				url: '/home',
+				controller: 'homeCntrl',
+				templateUrl: 'steps/container.html'
+			})
+			
+			.state('root.start', {
+				url: '/start',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home.html'
 			})
 			
-			.state('home.welcome', {
+			.state('root.start.welcome', {
 				url: '/welcome',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-welcome.html'
 			})
 			
-			.state('home.yourInfo', {
+			.state('root.start.yourInfo', {
 				url: '/info',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-yourInfo.html'
 			})
 			
-			.state('home.selectTemplate', {
+			.state('root.start.selectTemplate', {
 				url: '/selectTemplate',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-selectTemplate.html'
 			})
 			
-			.state('home.tournamentInfo', {
+			.state('root.start.tournamentInfo', {
 				url: '/tournamentInfo',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentInfo.html'
 			})
 			
-			.state('home.tournamentDes', {
+			.state('root.start.tournamentDes', {
 				url: '/tournamentDescription',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
 			
-			.state('home.tournamentContact', {
+			.state('root.start.tournamentContact', {
 				url: '/tournamentContact',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentContact.html'
 			});
 			
 		
-		$urlRouterProvider.otherwise('/home/welcome');
+		$urlRouterProvider.otherwise('home.start');
 	}	
 ]);
 
