@@ -51,11 +51,23 @@ $(document).ready(function() {
 	
 	// Add spacer height for fixed footer
 	var footerHeight = $("footer").outerHeight();
-	$(".page-wrapper").css('margin-bottom', footerHeight + "px");
+	$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
 	
 	$(window).resize(function(){
     	var footerHeight = $("footer").outerHeight();
-		$(".page-wrapper").css('margin-bottom', footerHeight + "px");
+		$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
 	});
+	
+	// AVANT REWORK IN ANGULAR
+	// Toggle class for template selection
+	$("#template-two").click(function () {
+    	$(this).addClass("selected");
+    	$("#template-one").removeClass("selected");
+    });
+    
+    $("#template-one").click(function () {
+    	$(this).addClass("selected");
+    	$("#template-one").removeClass("selected");
+    });
   
 });

@@ -1,1 +1,64 @@
-<h2>Select Tournament Info</h2>
+<div class="gen-formrow step-heading third">
+	<h4>Basic Tournament Information</h4>
+</div>
+<div class="gen-formrow">
+	<div class="gen-formfield left required">
+		<label for="tournament_name">Tournament Name</label>
+		<input id="tournament-name" name="tournament-name" type="text" tabindex="1" />
+		<span class="error-message">Enter tournament name</span>
+	</div>								
+	<div class="gen-formfield right required">
+		<label for="host_organization">Host Organization</label>
+		<input id="host_organization" name="host_organization" type="text" tabindex="2" />
+		<span class="error-message">Enter host organization</span>
+	</div>
+</div>
+
+<div class="gen-formrow">										
+	<div class="gen-formfield left required">
+		<label for="tournament_city">Tournament City</label>
+		<input id="tournament_city" name="tournament_city" type="tournament_city" tabindex="3" />
+		<span class="error-message">Enter tournament city</span>
+	</div>									
+	<div class="gen-formfield right">
+		<label for="phone">Phone</label>
+		<input id="phone" name="phone" type="text" tabindex="4" />
+	</div>
+</div>
+
+<div class="gen-formrow">
+	<div class="gen-formfield left required">
+		<label for="org-type">Organization Type</label>
+		<select id="org-type" name="org-type" tabindex="5" >
+			<option value=""></option>
+			<option value="Youth Sports Association">Youth Sports Association</option>
+			<option value="Youth Sports League">Youth Sports League</option>
+			<option value="Prep Sports">Prep Sports</option>
+			<option value="Collegiate Sports">Collegiate Sports</option>
+			<option value="Adult Sports Association">Adult Sports Association</option>
+			<option value="Adult Sport League">Adult Sport League</option>
+			<option value="Tournament/Series">Tournament/Series</option>
+			<option value="Event/Race">Event/Race</option>
+			<option value="State Governing Body">State Governing Body</option>
+			<option value="National Governing Body">National Governing Body</option>
+			<option value="Camp/Clinic/Training">Camp/Clinic/Training</option>
+			<option value="Facility/Complex">Facility/Complex</option>
+			<option value="Parks &amp; Rec">Parks &amp; Rec</option>
+			<option value="Athletic Association">Athletic Association</option>
+			<option value="Media Outlet">Media Outlet</option>
+			<option value="Advertiser">Advertiser</option>
+			<option value="Foundation">Foundation</option>
+			<option value="Sport Business">Sport Business</option>
+			<option value="Individual Team">Individual Team</option>
+			<option value="Non-Sport/Other">Non-Sport/Other</option>
+		</select>
+		<span class="error-message">Select your organization type</span>
+	</div>										
+	<div class="gen-formfield right required">
+		<label for="role">Role</label>
+		<select id="role" name="role" tabindex="6" >
+			<option value=""></option>
+		</select>
+		<span class="error-message">Select your role</span>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+// Sport Ngin Tournament Poster Generator :: Baseball Template :: Vert Digital
+
+
+// //////////////////////////
+// 1. VARIABLES
+// //////////////////////////
+
+// Color
+
+// Fonts
+$body: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
+$header: 'Vitesse A', 'Vitesse B', Helvetica, Arial, sans-serif;
+
+
+// //////////////////////////
+// 2. TEMPLATE SELECTOR
+// //////////////////////////
+
+.template-selector {
+	.template-one {
+		background: red;
+	}
+	.template-two {
+		background: blue;
+	}
+}

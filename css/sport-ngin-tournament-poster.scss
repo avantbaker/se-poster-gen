@@ -560,6 +560,49 @@ button,
 	}
 }
 
+// Template Selector
+.template-selector {
+	position: relative;
+	padding: 5px;
+	margin-top: 10px;
+	border: 3px solid $ltgray;
+	@include border-radius(2px);
+	@include opacity(0.65);
+	@include transition(all .3s);
+	overflow: visible;
+	cursor: pointer;
+	&:hover {
+		border: 3px solid $mdgray;
+		@include opacity(1);
+	}
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		right: -12px;
+		top: -12px;
+		height: 24px;
+		width: 24px;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: center center;
+		@include opacity(0);
+		@include border-radius(50%);
+		@include transition(all .3s);
+	}
+	&.selected {
+		border: 3px solid $green;
+		@include opacity(1);
+		&:after {
+			background-color: $green;
+			@include opacity(1);
+		}
+	}
+	.template-selector-inner {
+		@include aspect-ratio(17,22);
+	}
+}
+
 // Required Fields
 .gen-formfield.required {
 	label {
