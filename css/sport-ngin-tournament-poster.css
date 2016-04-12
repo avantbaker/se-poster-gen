@@ -465,7 +465,7 @@ main, header, footer, section {
   margin: 0 auto; }
   @media all and (min-width: 901px) {
     .container {
-      max-width: 820px; } }
+      max-width: 860px; } }
   @media all and (max-width: 900px) {
     .container {
       max-width: 640px; } }
@@ -573,7 +573,7 @@ strong {
   .poster-builder-intro h2, .poster-builder-intro h3, .poster-builder-intro h4, .poster-builder-intro h5, .poster-builder-intro p {
     color: #fff; }
   .poster-builder-intro .masthead {
-    padding-bottom: 32px; }
+    padding: 0 20px 36px 20px; }
     .poster-builder-intro .masthead h1 {
       display: inline-block;
       width: 148px;
@@ -602,11 +602,14 @@ strong {
         -webkit-border-radius: 50%;
         border-radius: 50%;
         background-clip: padding-box; }
+  .poster-builder-intro .intro-content {
+    padding: 0 20px; }
 
 .poster-builder-hero {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 360px;
   background: #68767f;
   border-top: 5px solid #13759b;
@@ -704,6 +707,39 @@ form {
 
 .gen-formrow.step-heading {
   padding: 15px 0; }
+  .gen-formrow.step-heading h4:before {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background-color: #13759b;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    font-family: "Vitesse A", "Vitesse B", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    line-height: 18px;
+    text-align: center;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: padding-box; }
+
+.gen-formrow.first h4:before {
+  content: "1"; }
+
+.gen-formrow.second h4:before {
+  content: "2"; }
+
+.gen-formrow.third h4:before {
+  content: "3"; }
+
+.gen-formrow.fourth h4:before {
+  content: "4"; }
+
+.gen-formrow.fifth h4:before {
+  content: "5"; }
 
 .gen-formfield {
   position: relative;
@@ -725,17 +761,17 @@ form {
 
 .gen-button {
   width: 100%;
-  padding: 5px; }
+  padding: 10px 5px; }
 
-input, label {
+input, label, select {
   display: inline-block;
   width: 100%;
   -webkit-appearance: none; }
 
 label {
   padding-bottom: 5px;
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   font-weight: 300; }
 
@@ -747,18 +783,21 @@ input[type=number],
 input[type=date],
 select,
 textarea {
-  height: 28px;
+  height: 30px;
   padding: 0 8px;
   border: 1px solid #c3cace;
-  background: #fbfbfc;
+  background-color: #fbfbfc;
   font-size: 16px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box; }
   input[type=text]:hover,
   input[type=url]:hover,
   input[type=email]:hover,
@@ -776,7 +815,7 @@ textarea {
   input[type=date]:focus,
   select:focus,
   textarea:focus {
-    background: #fff;
+    background-color: #fff;
     border: 1px solid #13759b;
     outline: 0; }
 
@@ -791,15 +830,22 @@ textarea {
 
 select {
   width: 100%;
-  border-radius: 0;
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("../assets/img/icon-dropdown.svg");
   box-shadow: 0 1px 0 rgba(35, 40, 43, 0.15); }
+  select:hover {
+    background-image: url("../assets/img/icon-dropdown-hover.svg"); }
+  select:focus {
+    background-image: url("../assets/img/icon-dropdown-focus.svg"); }
 
 input[type=submit],
 button,
 .button {
   display: inline-block;
   width: 100%;
-  max-width: 200px;
+  max-width: 240px;
   height: 40px;
   line-height: 40px;
   padding: 0 16px;
@@ -811,9 +857,9 @@ button,
   color: #fff;
   border: 1px solid #13aa37;
   background: #13aa37;
-  box-shadow: 0 1px 0 rgba(35, 40, 43, 0.15);
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(35, 40, 43, 0.15);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
   background-clip: padding-box;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -824,6 +870,7 @@ button,
   input[type=submit]:hover,
   button:hover,
   .button:hover {
+    border: 1px solid #0c6d23;
     background: #0c6d23; }
   input[type=submit]:focus,
   button:focus,
@@ -861,6 +908,65 @@ button,
       transform: translateY(2px);
       -webkit-transform: translateY(2px); }
 
+.gen-formfield.required label:after {
+  content: "*";
+  display: inline-block;
+  color: #0a3c4f;
+  margin-left: 2px; }
+
+.error-message {
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  bottom: 15px;
+  font-size: 10px;
+  font-size: 0.625rem;
+  font-style: italic;
+  color: #ea322f;
+  transform: translate(0, -10px);
+  -webkit-transform: translate(0, -10px);
+  z-index: -1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+
+.gen-formfield.error {
+  padding-bottom: 30px; }
+  .gen-formfield.error .error-message {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+    filter: alpha(opacity=100);
+    z-index: 1; }
+  .gen-formfield.error label {
+    color: #ea322f; }
+    .gen-formfield.error label:after {
+      color: #ea322f; }
+  .gen-formfield.error input[type="text"],
+  .gen-formfield.error input[type="number"],
+  .gen-formfield.error input[type="email"],
+  .gen-formfield.error select {
+    border: 1px solid #ea322f;
+    background: #ea322f;
+    background: rgba(234, 50, 47, 0.05); }
+    .gen-formfield.error input[type="text"]:hover,
+    .gen-formfield.error input[type="text"]:focus,
+    .gen-formfield.error input[type="number"]:hover,
+    .gen-formfield.error input[type="number"]:focus,
+    .gen-formfield.error input[type="email"]:hover,
+    .gen-formfield.error input[type="email"]:focus,
+    .gen-formfield.error select:hover,
+    .gen-formfield.error select:focus {
+      border: 1px solid #ea322f; }
+  .gen-formfield.error input[type="radio"],
+  .gen-formfield.error input[type="checkbox"] {
+    border: 1px solid #ea322f;
+    color: #ea322f; }
+
 .poster-canvas {
   width: 100%;
   background-color: #f2f3f4;
@@ -876,11 +982,6 @@ button,
     left: 0;
     right: 0;
     bottom: 0; }
-
-.poster-builder-cta-spacer {
-  margin: 0;
-  padding: 0;
-  width: 1px; }
 
 footer {
   position: fixed;

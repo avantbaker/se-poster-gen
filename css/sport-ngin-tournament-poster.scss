@@ -1,3 +1,5 @@
+// Sport Ngin Tournament Poster Generator :: Global Styles :: Vert Digital
+
 /*# sourceMappingURL=sportNgin.scss.map */
 
 // FILE SECTIONS //////////////
@@ -36,7 +38,7 @@ $vitesse: 'Vitesse A', 'Vitesse B', Helvetica, Arial, sans-serif;
 
 // Layout
 $padding-standard: 24px;
-$container-width-landscape: 820px;
+$container-width-landscape: 860px;
 $container-width-vertical: 640px;
 
 
@@ -193,11 +195,13 @@ strong {
 
 .poster-builder-intro {
 	padding: 36px 24px 88px 24px;
+	
 	h2, h3, h4, h5, p {
 		color: #fff;
 	}
+	
 	.masthead {
-		padding-bottom: 32px;
+		padding: 0 20px 36px 20px;
 		h1 {
 			display: inline-block;
 			width: 148px;
@@ -227,12 +231,18 @@ strong {
 			}
 		}
 	}
+	
+	.intro-content {
+		padding: 0 20px;
+	}
+	
 }
 
 .poster-builder-hero {
 	position: fixed;
 	top: 0;
 	left: 0;
+	width: 100%;
 	height: 360px;
 	background: $dkgray;
 	border-top: 5px solid $blue;
@@ -356,6 +366,59 @@ form {
 	@extend %clearfix;
 	&.step-heading {
 		padding: 15px 0;
+		h4 {
+			&:before {
+				display: inline-block;
+				width: 18px;
+				height: 18px;
+				margin-right: 6px;
+				background-color: $blue;
+				@include font-size(11px);
+				font-family: $vitesse;
+				font-weight: 700;
+				color: #fff;
+				line-height: 18px;
+				text-align: center;
+				transform: translateY(-1px);
+				-webkit-transform: translateY(-1px);
+				@include border-radius(50%);
+			}
+		}
+	}
+	&.first {
+		h4 {
+			&:before {
+				content: "1";
+			}
+		}
+	}
+	&.second {
+		h4 {
+			&:before {
+				content: "2";
+			}
+		}
+	}
+	&.third {
+		h4 {
+			&:before {
+				content: "3";
+			}
+		}
+	}
+	&.fourth {
+		h4 {
+			&:before {
+				content: "4";
+			}
+		}
+	}
+	&.fifth {
+		h4 {
+			&:before {
+				content: "5";
+			}
+		}
 	}
 }
 
@@ -383,12 +446,12 @@ form {
 
 .gen-button {
 	width: 100%;
-	padding: 5px;
+	padding: 10px 5px;
 }	
 
 
 // Form Elements	
-input, label {
+input, label, select {
 	display: inline-block;
 	width: 100%;
 	-webkit-appearance: none;
@@ -396,7 +459,7 @@ input, label {
 
 label {
 	padding-bottom: 5px;
-	@include font-size(12px);
+	@include font-size(11px);
 	text-transform: uppercase;
 	font-weight: 300;
 }
@@ -409,18 +472,19 @@ input[type=number],
 input[type=date],
 select,
 textarea {
-	height: 28px;
+	height: 30px;
 	padding: 0 8px;
 	border: 1px solid $ltgray;
-	background: #fbfbfc;
+	background-color: #fbfbfc;
 	@include font-size(16px);
-	font-weight: 500;
+	font-weight: 400;
 	@include transition(all .2s);
+	@include border-radius(2px);
 	&:hover {
 		border: 1px solid $mdgray;
 	}
 	&:focus {
-		background: #fff;
+		background-color: #fff;
 		border: 1px solid $blue;
 		outline: 0;
 	}
@@ -438,8 +502,17 @@ textarea {
 
 select {
 	width: 100%;
-	border-radius: 0;
+	padding-right: 20px;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-image: url('../assets/img/icon-dropdown.svg');
 	box-shadow: 0 1px 0 rgba(35,40,43,0.15);
+	&:hover {
+		background-image: url('../assets/img/icon-dropdown-hover.svg');
+	}
+	&:focus {
+		background-image: url('../assets/img/icon-dropdown-focus.svg');
+	}
 }
 
 input[type=submit],
@@ -447,7 +520,7 @@ button,
 .button {
 	display: inline-block;
 	width: 100%;
-	max-width: 200px;
+	max-width: 240px;
 	height: 40px;
 	line-height: 40px;
 	padding: 0 16px;
@@ -458,11 +531,12 @@ button,
 	color: #fff;
 	border: 1px solid $green;
 	background: $green;
-	box-shadow: 0 1px 0 rgba(35,40,43,0.15);
-	@include border-radius(2px);
+	box-shadow: 0 2px 0 rgba(35,40,43,0.15);
+	@include border-radius(4px);
 	@include transition(all .2s);
 	-webkit-appearance: none;
 	&:hover {
+		border: 1px solid $greenhover;
 		background: $greenhover;
 	}
 	&:focus {
@@ -486,6 +560,66 @@ button,
 	}
 }
 
+// Required Fields
+.gen-formfield.required {
+	label {
+		&:after {
+			content:"*";
+			display: inline-block;
+			color: $bluehover;
+			margin-left: 2px;
+		}
+	}
+}
+
+// Error Messages
+.error-message {
+	display: inline-block;
+	position: absolute;
+	left: 0px;
+	bottom: 15px;
+	@include font-size(10px);
+	font-style: italic;
+	color: $red;
+	transform: translate(0,-10px);
+	-webkit-transform: translate(0,-10px);
+	z-index: -1;
+	@include opacity(0);
+	@include transition (all .3s ease-out);
+}
+
+.gen-formfield.error {
+	padding-bottom: 30px;
+	.error-message {
+		transform: translate(0,0);
+		-webkit-transform: translate(0,0);
+		@include opacity(1);
+		z-index: 1;
+	}
+	label {
+		color: $red;
+		&:after {
+			color: $red;
+		}
+	}
+	input[type="text"], 
+	input[type="number"], 
+	input[type="email"],
+	select {
+		border: 1px solid $red;
+		@include background-opacity($red,0.05);
+		&:hover,
+		&:focus {
+			border: 1px solid $red;
+		}
+	}
+	input[type="radio"], 
+	input[type="checkbox"] {
+		border: 1px solid $red;
+		color: $red;
+	}
+}
+
 
 // //////////////////////////
 // 7. POSTER ELEMENTS
@@ -501,12 +635,6 @@ button,
 // //////////////////////////
 // 8. FOOTER - CTA
 // //////////////////////////
-
-.poster-builder-cta-spacer {
-	margin: 0;
-	padding: 0;
-	width: 1px;
-}
 
 footer {
 	position: fixed;
