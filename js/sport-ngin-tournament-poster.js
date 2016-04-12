@@ -51,11 +51,11 @@ $(document).ready(function() {
 	
 	// Add spacer height for fixed footer
 	var footerHeight = $("footer").outerHeight();
-	$(".poster-builder-cta-spacer").height(footerHeight);
+	$(".page-wrapper").css('margin-bottom', footerHeight + "px");
 	
 	$(window).resize(function(){
     	var footerHeight = $("footer").outerHeight();
-		$(".poster-builder-cta-spacer").height(footerHeight);
+		$(".page-wrapper").css('margin-bottom', footerHeight + "px");
 	});
   
 });
