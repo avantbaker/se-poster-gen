@@ -762,5 +762,8 @@ footer {
 	padding: 64px $padding-standard;
 	text-align: center;
 	z-index: -1;
+	h3, p {
+		color: #fff;
+	}
 }
 

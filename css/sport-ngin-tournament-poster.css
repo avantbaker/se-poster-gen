@@ -1124,3 +1124,5 @@ footer {
   padding: 64px 24px;
   text-align: center;
   z-index: -1; }
+  footer h3, footer p {
+    color: #fff; }
