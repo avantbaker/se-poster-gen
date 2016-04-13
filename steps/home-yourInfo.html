@@ -4,12 +4,12 @@
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="first_name">First Name</label>
-		<input id="first_name" name="first_name" type="text" tabindex="1" />
+		<input ng-model="Model.firstName" id="first_name" name="first_name" type="text" tabindex="1" />
 		<span class="error-message">Enter your first name</span>
 	</div>								
 	<div class="gen-formfield right required">
 		<label for="last_name">Last Name</label>
-		<input id="last_name" name="last_name" type="text" tabindex="2" />
+		<input ng-model="Model.lastName" id="last_name" name="last_name" type="text" tabindex="2" />
 		<span class="error-message">Enter your last name</span>
 	</div>
 </div>
