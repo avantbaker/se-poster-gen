@@ -17,48 +17,25 @@
 <div class="gen-formrow">										
 	<div class="gen-formfield left required">
 		<label for="tournament_city">Tournament City</label>
-		<input id="tournament_city" name="tournament_city" type="tournament_city" tabindex="3" />
+		<input id="tournament_city" name="tournament_city" type="text" tabindex="3" />
 		<span class="error-message">Enter tournament city</span>
 	</div>									
-	<div class="gen-formfield right">
-		<label for="phone">Phone</label>
-		<input id="phone" name="phone" type="text" tabindex="4" />
+	<div class="gen-formfield right required">
+		<label for="tournament_state">Tournament State</label>
+		<input id="tournament_state" name="tournament_state" type="text" tabindex="4" />
+		<span class="error-message">Enter tournament city</span>
 	</div>
 </div>
 
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
-		<label for="org-type">Organization Type</label>
-		<select id="org-type" name="org-type" tabindex="5" >
-			<option value=""></option>
-			<option value="Youth Sports Association">Youth Sports Association</option>
-			<option value="Youth Sports League">Youth Sports League</option>
-			<option value="Prep Sports">Prep Sports</option>
-			<option value="Collegiate Sports">Collegiate Sports</option>
-			<option value="Adult Sports Association">Adult Sports Association</option>
-			<option value="Adult Sport League">Adult Sport League</option>
-			<option value="Tournament/Series">Tournament/Series</option>
-			<option value="Event/Race">Event/Race</option>
-			<option value="State Governing Body">State Governing Body</option>
-			<option value="National Governing Body">National Governing Body</option>
-			<option value="Camp/Clinic/Training">Camp/Clinic/Training</option>
-			<option value="Facility/Complex">Facility/Complex</option>
-			<option value="Parks &amp; Rec">Parks &amp; Rec</option>
-			<option value="Athletic Association">Athletic Association</option>
-			<option value="Media Outlet">Media Outlet</option>
-			<option value="Advertiser">Advertiser</option>
-			<option value="Foundation">Foundation</option>
-			<option value="Sport Business">Sport Business</option>
-			<option value="Individual Team">Individual Team</option>
-			<option value="Non-Sport/Other">Non-Sport/Other</option>
-		</select>
-		<span class="error-message">Select your organization type</span>
-	</div>										
+		<label for="start_date">Start Date</label>
+		<input id="start_date" name="start_date" type="date" tabindex="5" />
+		<span class="error-message">Enter start date</span>
+	</div>									
 	<div class="gen-formfield right required">
-		<label for="role">Role</label>
-		<select id="role" name="role" tabindex="6" >
-			<option value=""></option>
-		</select>
-		<span class="error-message">Select your role</span>
+		<label for="end_date">End Date</label>
+		<input id="end_date" name="end_date" type="date" tabindex="6" />
+		<span class="error-message">Enter end date</span>
 	</div>
 </div>
