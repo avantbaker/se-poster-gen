@@ -15,6 +15,7 @@
 
 // Color
 $gold: #fbb03b;
+$red: #81151e;
 
 // Fonts
 $template-one-body: 'Titillium Web', sans-serif;
@@ -43,10 +44,12 @@ footer {
 
 .template-selector {
 	.template-trigger-one {
-		background: red;
+		background: url('../assets/img/soccer-template-one.jpg') no-repeat center center;
+		background-size: contain;
 	}
 	.template-trigger-two {
-		background: blue;
+		background: url('../assets/img/soccer-template-two.jpg') no-repeat center center;
+		background-size: contain;
 	}
 }
 
@@ -120,6 +123,80 @@ footer {
 			}
 			.contact-information {
 				color: $gold;
+				font-size: 1em;
+			}
+		}
+	}
+}
+
+// //////////////////////////
+// 5. POSTER TEMPLATE TWO
+// //////////////////////////
+
+.poster-canvas.template-two {
+	background: url('../assets/img/soccer-template-two.jpg') no-repeat center center;
+	background-size: contain;
+	font-family: $template-one-body;
+	color: #23282b;
+	text-align: center;
+	text-transform: uppercase;
+	.template-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		min-height: 100%;
+	}
+	.template-element {
+		position: absolute; 
+		width: 80%;
+		left: 10%; 
+		&.host-name {
+			top: 10%;
+			font-weight: 700;
+			font-size: 1.5em;
+		}
+		&.tournament-name {
+			bottom: 62%;
+			font-family: $template-one-header;
+			color: $red;
+			font-weight: 700;
+			font-size: 3.25em;
+		}
+		&.date-and-location {
+			top: 40%;
+			font-weight: 700;
+			font-size: 1.5em;
+		}
+		&.tournament-details {
+			bottom: 25%;
+			padding: 0 5%;
+			font-size: 1em;
+			line-height: 1.5em;
+			.tournament-description {
+				display: inline-block;
+				width: 100%;
+				padding-bottom: 2.5%;
+				text-transform: none;
+			}
+			.tournament-teams,
+			.tournament-minimum-games,
+			.tournament-deadline,
+			.tournament-fee {
+				font-family: $template-one-header;
+			}
+		}
+		&.tournament-contact {
+			bottom: 10%;
+			font-weight: 700;
+			.tournament-website {
+				display: inline-block;
+				width: 100%;
+				padding-bottom: 2%;
+				font-family: $template-one-header;
+				color: $red;
+				font-size: 1.75em;
+			}
+			.contact-information {
 				font-size: 1em;
 			}
 		}

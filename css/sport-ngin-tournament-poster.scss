@@ -352,6 +352,11 @@ strong {
 			border: 1px solid $blue;
 			color: #fff;
 		}
+		&.previous {
+			background: $ltgray;
+			border: 1px solid $ltgray;
+			color: #fff;
+		}
 	}
 }
 
@@ -757,5 +762,8 @@ footer {
 	padding: 64px $padding-standard;
 	text-align: center;
 	z-index: -1;
+	h3, p {
+		color: #fff;
+	}
 }
 
