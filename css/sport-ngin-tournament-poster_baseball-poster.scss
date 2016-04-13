@@ -1,26 +1,127 @@
 // Sport Ngin Tournament Poster Generator :: Baseball Template :: Vert Digital
 
+// FILE SECTIONS //////////////
+
+// 1. Variables
+// 2. Imported Partials
+// 3. Page Styles
+// 4. Poster Template One
+// 4. Poster Template Two
+
 
 // //////////////////////////
 // 1. VARIABLES
 // //////////////////////////
 
 // Color
+$gold: #fbb03b;
 
 // Fonts
-$body: 'Gotham SSm A', 'Gotham SSm B', Helvetica, Arial, sans-serif;
-$header: 'Vitesse A', 'Vitesse B', Helvetica, Arial, sans-serif;
+$template-one-body: 'Titillium Web', sans-serif;
+$template-one-header: 'Oswald', sans-serif;
 
 
 // //////////////////////////
-// 2. TEMPLATE SELECTOR
+// 2. PARTIALS
 // //////////////////////////
+
+@import 'partials/mixins';
+
+
+// //////////////////////////
+// 3. PAGE STYLES
+// //////////////////////////
+.poster-builder-hero {
+	background: url('../assets/img/sn-tourney-builder-hero-soccer.jpg') no-repeat top center;
+	background-size: cover;
+}
+
+footer {
+	background: url('../assets/img/sn-tourney-builder-footer-soccer.jpg') no-repeat center center;
+	background-size: cover;
+}
 
 .template-selector {
-	.template-one {
+	.template-trigger-one {
 		background: red;
 	}
-	.template-two {
+	.template-trigger-two {
 		background: blue;
+	}
+}
+
+
+// //////////////////////////
+// 4. POSTER TEMPLATE ONE
+// //////////////////////////
+.poster-canvas.template-one {
+	background: url('../assets/img/soccer-template-one.jpg') no-repeat center center;
+	background-size: contain;
+	font-family: $template-one-body;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	.template-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		min-height: 100%;
+	}
+	.template-element {
+		position: absolute; 
+		width: 80%;
+		left: 10%; 
+		&.host-name {
+			top: 10%;
+			color: $gold;
+			font-weight: 700;
+			font-size: 1.5em;
+		}
+		&.tournament-name {
+			bottom: 62%;
+			font-family: $template-one-header;
+			font-weight: 700;
+			font-size: 3.25em;
+		}
+		&.date-and-location {
+			top: 40%;
+			color: $gold;
+			font-weight: 700;
+			font-size: 1.5em;
+		}
+		&.tournament-details {
+			bottom: 25%;
+			padding: 0 5%;
+			font-size: 1em;
+			line-height: 1.5em;
+			.tournament-description {
+				display: inline-block;
+				width: 100%;
+				padding-bottom: 2.5%;
+				text-transform: none;
+			}
+			.tournament-teams,
+			.tournament-minimum-games,
+			.tournament-deadline,
+			.tournament-fee {
+				font-family: $template-one-header;
+				color: $gold;
+			}
+		}
+		&.tournament-contact {
+			bottom: 10%;
+			font-weight: 700;
+			.tournament-website {
+				display: inline-block;
+				width: 100%;
+				padding-bottom: 2%;
+				font-family: $template-one-header;
+				font-size: 1.75em;
+			}
+			.contact-information {
+				color: $gold;
+				font-size: 1em;
+			}
+		}
 	}
 }

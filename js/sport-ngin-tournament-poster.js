@@ -49,6 +49,17 @@ $(document).ready(function() {
 	    });
 	});
 	
+	//Match Hero height to header
+	var headerHeight = $("header").outerHeight();
+	$( ".poster-builder-hero").height(headerHeight + "px");
+	
+	// Parallax effect on hero
+	$(window).scroll(function() {
+      var s = $(window).scrollTop();
+      $( ".poster-builder-hero" ).css("-webkit-transform", "translateY(" + -(s*.25) + "px)");
+      $( ".poster-builder-hero" ).css("transform", "translateY(" + -(s*.25) + "px)");
+    })
+	
 	// Add spacer height for fixed footer
 	var footerHeight = $("footer").outerHeight();
 	$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
@@ -60,12 +71,12 @@ $(document).ready(function() {
 	
 	// AVANT REWORK IN ANGULAR
 	// Toggle class for template selection
-	$("#template-two").click(function () {
+	$("#template-two-trigger").click(function () {
     	$(this).addClass("selected");
     	$("#template-one").removeClass("selected");
     });
     
-    $("#template-one").click(function () {
+    $("#template-one-trigger").click(function () {
     	$(this).addClass("selected");
     	$("#template-one").removeClass("selected");
     });
