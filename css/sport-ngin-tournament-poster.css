@@ -700,6 +700,10 @@ strong {
       background: #13759b;
       border: 1px solid #13759b;
       color: #fff; }
+    .gen-steps-wrapper a.previous {
+      background: #c3cace;
+      border: 1px solid #c3cace;
+      color: #fff; }
 
 form {
   padding: 0 5px; }

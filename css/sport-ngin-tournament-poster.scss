@@ -352,6 +352,11 @@ strong {
 			border: 1px solid $blue;
 			color: #fff;
 		}
+		&.previous {
+			background: $ltgray;
+			border: 1px solid $ltgray;
+			color: #fff;
+		}
 	}
 }
 

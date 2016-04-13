@@ -7,10 +7,12 @@ footer {
   background-size: cover; }
 
 .template-selector .template-trigger-one {
-  background: red; }
+  background: url("../assets/img/soccer-template-one.jpg") no-repeat center center;
+  background-size: contain; }
 
 .template-selector .template-trigger-two {
-  background: blue; }
+  background: url("../assets/img/soccer-template-two.jpg") no-repeat center center;
+  background-size: contain; }
 
 .poster-canvas.template-one {
   background: url("../assets/img/soccer-template-one.jpg") no-repeat center center;
@@ -70,4 +72,62 @@ footer {
         font-size: 1.75em; }
       .poster-canvas.template-one .template-element.tournament-contact .contact-information {
         color: #fbb03b;
+        font-size: 1em; }
+
+.poster-canvas.template-two {
+  background: url("../assets/img/soccer-template-two.jpg") no-repeat center center;
+  background-size: contain;
+  font-family: "Titillium Web", sans-serif;
+  color: #23282b;
+  text-align: center;
+  text-transform: uppercase; }
+  .poster-canvas.template-two .template-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100%; }
+  .poster-canvas.template-two .template-element {
+    position: absolute;
+    width: 80%;
+    left: 10%; }
+    .poster-canvas.template-two .template-element.host-name {
+      top: 10%;
+      font-weight: 700;
+      font-size: 1.5em; }
+    .poster-canvas.template-two .template-element.tournament-name {
+      bottom: 62%;
+      font-family: "Oswald", sans-serif;
+      color: #81151e;
+      font-weight: 700;
+      font-size: 3.25em; }
+    .poster-canvas.template-two .template-element.date-and-location {
+      top: 40%;
+      font-weight: 700;
+      font-size: 1.5em; }
+    .poster-canvas.template-two .template-element.tournament-details {
+      bottom: 25%;
+      padding: 0 5%;
+      font-size: 1em;
+      line-height: 1.5em; }
+      .poster-canvas.template-two .template-element.tournament-details .tournament-description {
+        display: inline-block;
+        width: 100%;
+        padding-bottom: 2.5%;
+        text-transform: none; }
+      .poster-canvas.template-two .template-element.tournament-details .tournament-teams,
+      .poster-canvas.template-two .template-element.tournament-details .tournament-minimum-games,
+      .poster-canvas.template-two .template-element.tournament-details .tournament-deadline,
+      .poster-canvas.template-two .template-element.tournament-details .tournament-fee {
+        font-family: "Oswald", sans-serif; }
+    .poster-canvas.template-two .template-element.tournament-contact {
+      bottom: 10%;
+      font-weight: 700; }
+      .poster-canvas.template-two .template-element.tournament-contact .tournament-website {
+        display: inline-block;
+        width: 100%;
+        padding-bottom: 2%;
+        font-family: "Oswald", sans-serif;
+        color: #81151e;
+        font-size: 1.75em; }
+      .poster-canvas.template-two .template-element.tournament-contact .contact-information {
         font-size: 1em; }
