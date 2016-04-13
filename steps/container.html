@@ -13,28 +13,28 @@
 			<div class="poster-canvas template-one">
 				<div class="aspect-wrapper">
 					<div class="template-wrapper">
-						<div class="template-element host-name"><span>Host Name</span></div>
-						<div class="template-element tournament-name"><span>Tournament Name</span></div>
+						<div class="template-element host-name"><span>{{ Model.firstName || 'HOST' }} {{ Model.lastName || 'NAME' }}</span></div>
+						<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'TOURNAMENT NAME' }}</span></div>
 						<div class="template-element date-and-location">
-							<span class="tournament-city">City</span>, <span class="tournament-state">State</span>
+							<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
 							<br>
-							<span class="start-date">5/15/16</span> thru <span class="end-date">5/18/16</span>
+							<span class="start-date">{{ Model.startDate | date: "MM/dd/yyyy" }}</span> thru <span class="end-date">{{ Model.endDate | date: "MM/dd/yyyy"}}</span>
 						</div>
 						<div class="template-element tournament-details">
-							<span class="tournament-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui.</span>
-							<span class="tournament-teams">Number of teams: <span class="teams-number">XXX</span> | </span>
-							<span class="tournament-minimum-games">Game minimum: <span class="games-number">X</span></span>
+							<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
+							<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span> | </span>
+							<span class="tournament-minimum-games">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
 							<br />
-							<span class="tournament-deadline">Register by: <span class="register-date">1/1/16</span> | </span>
-							<span class="tournament-fee">Entry Fee: <span class="fee">$50</span></span>
+							<span class="tournament-deadline">Register by: <span class="register-date">{{ Model.registerBy || "1/6/16" }}</span> | </span>
+							<span class="tournament-fee">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
 						</div>
 						<div class="template-element tournament-contact">
-							<span class="tournament-website">yoururl.com</span>
+							<span class="tournament-website">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
 							<br />
 							<span class="contact-information">Contact: 
-								<span class="director-name"><span class="director-first">First</span> <span class="director-last">Last</span> |</span>
-								<span class="director-email"><span class="email">email@mail.com</span> | </span>
-								<span class="director-phone">111-222-3333</span>
+								<span class="director-name"><span class="director-first">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last">{{ Model.dirLastName || "NAME" }}</span> |</span>
+								<span class="director-email"><span class="email">{{ Model.tEmail || "EMAIL@MAIL.COM"}}</span> | </span>
+								<span class="director-phone">{{ Model.tphone || "111-222-3333" }}</span>
 							</span>
 						</div>
 					</div>		
