@@ -81,7 +81,7 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", function($sc
 									 	description 		: "",
 									 	numOfTeams  		: "",
 									 	gameMin				: "",
-									 	registerBy			: "",
+									 	registerBy			: new Date(2016, 0, 6),
 									 	entryFee 			: "",
 									 	tphone 				: "",
 									 	dirFirstName 		: "",
@@ -89,43 +89,8 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", function($sc
 									 	tEmail 				: "",
 									 	twebsiteName		: ""
 								   };
-
-	//create pdf
-	// function createPDF(){
-	//  getCanvas().then(function(canvas){
-	//   var 
-	//   img = canvas.toDataURL("image/png"),
-	//   doc = new jsPDF({
-	//           unit:'px', 
-	//           format:'a4'
-	//         });     
-	//         doc.addImage(img, 'JPEG', 20, 20);
-	//         doc.save('techumber-html-to-pdf.pdf');
-	//         canvas.width(cache_width);
-	//  });
-	// }
-	 
-	// create canvas object
-	// function getCanvas(){
-	//  canvas.width((a4[0]*1.33333) -80).css('max-width','none');
-	//  return html2canvas(canvas,{
-	//      imageTimeout:2000,
-	//      removeContainer:true
-	//     }); 
-	// }
-
-	// $('#createTemp').on('click',function(){
-	// 	 $('body').scrollTop(0);
-	// 	 createPDF();
-	// });
-
-
-	// $rootScope.setInitVals = function() {
-	// 	if( $scope.Model.firstName === '' ) {
-	// 		$scope.Model.firstName =
-	// 	}
-	// }
-
+								   
+	$scope.greeting = "Hello world!";						   
 }]);
 
 sportNgin.run(

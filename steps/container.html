@@ -13,7 +13,7 @@
 			<div class="poster-canvas template-one">
 				<div class="aspect-wrapper">
 					<div class="template-wrapper">
-						<div class="template-element host-name"><span>{{ Model.firstName || 'HOST' }} {{ Model.lastName || 'NAME' }}</span></div>
+						<div class="template-element host-name"><span>{{ Model.dirFirstName || 'HOST' }} {{ Model.dirLastName || 'NAME' }}</span></div>
 						<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'TOURNAMENT NAME' }}</span></div>
 						<div class="template-element date-and-location">
 							<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
@@ -25,7 +25,7 @@
 							<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span> | </span>
 							<span class="tournament-minimum-games">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
 							<br />
-							<span class="tournament-deadline">Register by: <span class="register-date">{{ Model.registerBy || "1/6/16" }}</span> | </span>
+							<span class="tournament-deadline">Register by: <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span> | </span>
 							<span class="tournament-fee">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
 						</div>
 						<div class="template-element tournament-contact">
