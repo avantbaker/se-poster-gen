@@ -60,72 +60,43 @@ sportNgin.config([
 	}	
 ]);
 
-sportNgin.service( '', function(){
+sportNgin.service('sportNginModel', function(){
+	var service = this;
 
+	formFields = { 	firstName 			: "",
+					lastName 			: "",
+					tournamentName 		: "",
+				 	city				: "",
+				 	state				: "",
+				 	startDate			: new Date(2016, 4, 15),
+				 	endDate				: new Date(2016, 4, 18),
+				 	description 		: "",
+				 	numOfTeams  		: "",
+				 	gameMin				: "",
+				 	registerBy			: new Date(2016, 0, 6),
+				 	entryFee 			: "",
+				 	tphone 				: "",
+				 	dirFirstName 		: "",
+				 	dirLastName 		: "",
+				 	tEmail 				: "",
+				 	twebsiteName		: ""
+			   };
+
+	service.getFormFields = function () {
+		return formFields;
+	};
 
 });
 
-sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", function($scope, $log, $rootScope){
+sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginModel", function($scope, $log, $rootScope, sportNginModel){
 	
 	/**
 	 * Set Model inital values
 	 * @type {object}
 	 */
-	$scope.Model = $scope.Model || { 	firstName 			: "",
-									 	lastName 			: "",
-									 	tournamentName 		: "",
-									 	city				: "",
-									 	state				: "",
-									 	startDate			: new Date(2016, 4, 15),
-									 	endDate				: new Date(2016, 4, 18),
-									 	description 		: "",
-									 	numOfTeams  		: "",
-									 	gameMin				: "",
-									 	registerBy			: "",
-									 	entryFee 			: "",
-									 	tphone 				: "",
-									 	dirFirstName 		: "",
-									 	dirLastName 		: "",
-									 	tEmail 				: "",
-									 	twebsiteName		: ""
-								   };
-
-	//create pdf
-	// function createPDF(){
-	//  getCanvas().then(function(canvas){
-	//   var 
-	//   img = canvas.toDataURL("image/png"),
-	//   doc = new jsPDF({
-	//           unit:'px', 
-	//           format:'a4'
-	//         });     
-	//         doc.addImage(img, 'JPEG', 20, 20);
-	//         doc.save('techumber-html-to-pdf.pdf');
-	//         canvas.width(cache_width);
-	//  });
-	// }
-	 
-	// create canvas object
-	// function getCanvas(){
-	//  canvas.width((a4[0]*1.33333) -80).css('max-width','none');
-	//  return html2canvas(canvas,{
-	//      imageTimeout:2000,
-	//      removeContainer:true
-	//     }); 
-	// }
-
-	// $('#createTemp').on('click',function(){
-	// 	 $('body').scrollTop(0);
-	// 	 createPDF();
-	// });
-
-
-	// $rootScope.setInitVals = function() {
-	// 	if( $scope.Model.firstName === '' ) {
-	// 		$scope.Model.firstName =
-	// 	}
-	// }
-
+	$scope.Model = $scope.Model || sportNginModel.getFormFields();
+								   
+	$scope.greeting = "Hello world!";						   
 }]);
 
 sportNgin.run(

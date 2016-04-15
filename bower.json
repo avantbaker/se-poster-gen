@@ -14,5 +14,15 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.5.3"
+  },
+  "devDependencies": {
+    "angular": "^1.5.4",
+    "angular-resource": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "jquery": "^2.2.3",
+    "angular-mocks": "^1.5.3"
+  }
 }
