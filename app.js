@@ -60,35 +60,41 @@ sportNgin.config([
 	}	
 ]);
 
-sportNgin.service( '', function(){
+sportNgin.service('sportNginModel', function(){
+	var service = this;
 
+	formFields = { 	firstName 			: "",
+					lastName 			: "",
+					tournamentName 		: "",
+				 	city				: "",
+				 	state				: "",
+				 	startDate			: new Date(2016, 4, 15),
+				 	endDate				: new Date(2016, 4, 18),
+				 	description 		: "",
+				 	numOfTeams  		: "",
+				 	gameMin				: "",
+				 	registerBy			: new Date(2016, 0, 6),
+				 	entryFee 			: "",
+				 	tphone 				: "",
+				 	dirFirstName 		: "",
+				 	dirLastName 		: "",
+				 	tEmail 				: "",
+				 	twebsiteName		: ""
+			   };
+
+	service.getFormFields = function () {
+		return formFields;
+	};
 
 });
 
-sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", function($scope, $log, $rootScope){
+sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginModel", function($scope, $log, $rootScope, sportNginModel){
 	
 	/**
 	 * Set Model inital values
 	 * @type {object}
 	 */
-	$scope.Model = $scope.Model || { 	firstName 			: "",
-									 	lastName 			: "",
-									 	tournamentName 		: "",
-									 	city				: "",
-									 	state				: "",
-									 	startDate			: new Date(2016, 4, 15),
-									 	endDate				: new Date(2016, 4, 18),
-									 	description 		: "",
-									 	numOfTeams  		: "",
-									 	gameMin				: "",
-									 	registerBy			: new Date(2016, 0, 6),
-									 	entryFee 			: "",
-									 	tphone 				: "",
-									 	dirFirstName 		: "",
-									 	dirLastName 		: "",
-									 	tEmail 				: "",
-									 	twebsiteName		: ""
-								   };
+	$scope.Model = $scope.Model || sportNginModel.getFormFields();
 								   
 	$scope.greeting = "Hello world!";						   
 }]);
