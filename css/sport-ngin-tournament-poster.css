@@ -589,21 +589,56 @@ strong {
         display: inline-block;
         float: left;
         height: 24px;
-        padding-right: 8px;
+        padding-right: 7px;
         line-height: 24px; }
       .poster-builder-intro .masthead .sn-share a {
         display: inline-block;
         width: 25px;
         height: 25px;
         line-height: 25px;
-        background-color: #f2f3f4;
-        background-repeat: no-repeat;
-        background-position: center center;
+        overflow: hidden;
+        margin: 0 1px;
+        box-shadow: 0 0 0 transparent;
+        transform: scale(1);
+        -webkit-transform: scale(1);
         -webkit-border-radius: 50%;
         border-radius: 50%;
-        background-clip: padding-box; }
+        background-clip: padding-box;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s; }
+        .poster-builder-intro .masthead .sn-share a:hover {
+          box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.5);
+          transform: scale(1.1);
+          -webkit-transform: scale(1.1); }
+        .poster-builder-intro .masthead .sn-share a.facebook .social-fill,
+        .poster-builder-intro .masthead .sn-share a.twitter .social-fill {
+          -webkit-transition: fill 0.3s;
+          -moz-transition: fill 0.3s;
+          -ms-transition: fill 0.3s;
+          -o-transition: fill 0.3s;
+          transition: fill 0.3s;
+          fill: #f2f3f4; }
+        .poster-builder-intro .masthead .sn-share a.facebook:hover > svg > .social-fill {
+          fill: #547bbc; }
+        .poster-builder-intro .masthead .sn-share a.twitter:hover > svg > .social-fill {
+          fill: #78cbef; }
+        .poster-builder-intro .masthead .sn-share a svg {
+          display: block;
+          width: 100%; }
   .poster-builder-intro .intro-content {
     padding: 0 20px; }
+
+.no-svg .poster-builder-intro .masthead .sn-share a.facebook {
+  background: url("../assets/img/social-icon_facebook.png") no-repeat center center; }
+
+.no-svg .poster-builder-intro .masthead .sn-share a.twitter {
+  background: url("../assets/img/social-icon_twitter.png") no-repeat center center; }
+
+.no-svg .poster-builder-intro .masthead .sn-share a svg {
+  display: none; }
 
 .poster-builder-hero {
   position: fixed;
@@ -629,12 +664,18 @@ strong {
     float: left;
     width: 47.5%;
     padding-right: 8px; }
+    @media all and (max-width: 900px) {
+      .gen-container .gen-content-left {
+        width: 100%; } }
     .gen-container .gen-content-left #form-views {
       width: 100%; }
   .gen-container .gen-content-right {
     float: right;
     width: 52.5%;
     padding-left: 8px; }
+    @media all and (max-width: 900px) {
+      .gen-container .gen-content-right {
+        display: none; } }
 
 .gen-intro-wrapper,
 .gen-steps-wrapper {
@@ -660,6 +701,7 @@ strong {
     width: 25px;
     height: 25px;
     line-height: 25px;
+    overflow: hidden;
     float: left;
     margin-left: 10px;
     font-size: 15px;

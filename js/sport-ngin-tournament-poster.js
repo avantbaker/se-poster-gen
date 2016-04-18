@@ -59,6 +59,21 @@ $(document).ready(function() {
       $( ".poster-builder-hero" ).css("-webkit-transform", "translateY(" + -(s*.25) + "px)");
       $( ".poster-builder-hero" ).css("transform", "translateY(" + -(s*.25) + "px)");
     })
+    
+    // Adjust font-size in poster based on size in container 
+    setTimeout(function() {
+	    var posterWidth = $( ".poster-canvas" ).width();
+		var fontPercent = (posterWidth / 612) * 100
+    	$( ".poster-canvas" ).css('font-size', fontPercent + "%");
+	}, 200);
+	
+	$(window).resize(function(){
+		setTimeout(function() {
+	    	var posterWidth = $( ".poster-canvas" ).width();
+			var fontPercent = (posterWidth / 612) * 100
+	    	$( ".poster-canvas" ).css('font-size', fontPercent + "%");
+		}, 200);
+	});
 	
 	// Add spacer height for fixed footer
 	var footerHeight = $("footer").outerHeight();
