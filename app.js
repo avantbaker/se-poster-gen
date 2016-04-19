@@ -63,7 +63,8 @@ sportNgin.config([
 sportNgin.service('sportNginModel', function(){
 	var service = this;
 
-	formFields = { 	firstName 			: "",
+	formFields = { 	
+					firstName 			: "",
 					lastName 			: "",
 					tournamentName 		: "",
 				 	city				: "",
@@ -79,7 +80,18 @@ sportNgin.service('sportNginModel', function(){
 				 	dirFirstName 		: "",
 				 	dirLastName 		: "",
 				 	tEmail 				: "",
-				 	twebsiteName		: ""
+				 	twebsiteName		: "",
+				 	personalEmail       : "",
+				 	personalPhone       : "",
+				 	hostOrg   			: "",
+				 	includeFee  		: "",
+				 	includeDeadline 	: "",
+				 	includeGames  		: "",
+				 	includeFirst 		: "",
+				 	includeLast 		: "",
+				 	includeEmail 		: "",
+				 	includePhone 		: "",
+				 	includeWebsite 		: ""
 			   };
 
 	service.getFormFields = function () {

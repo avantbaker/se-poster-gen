@@ -9,7 +9,7 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_first">Display</label>
-		<input id="include_first" name="include_first" type="checkbox" tabindex="2" checked />
+		<input ng-model="Model.includeFirst" id="include_first" name="include_first" type="checkbox" tabindex="2" checked />
 	</div>								
 </div>
 
@@ -21,7 +21,7 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_last">Display</label>
-		<input id="include_last" name="include_last" type="checkbox" tabindex="4" checked />
+		<input ng-model="Model.includeLast" id="include_last" name="include_last" type="checkbox" tabindex="4" checked />
 	</div>
 </div>
 
@@ -33,7 +33,7 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_email">Display</label>
-		<input id="include_email" name="include_email" type="checkbox" tabindex="6" checked />
+		<input ng-model="Model.includeEmail" id="include_email" name="include_email" type="checkbox" tabindex="6" checked />
 	</div>
 </div>
 
@@ -45,7 +45,7 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_phone">Display</label>
-		<input id="include_phone" name="include_phone" type="checkbox" tabindex="8" checked />
+		<input ng-model="Model.includePhone" id="include_phone" name="include_phone" type="checkbox" tabindex="8" checked />
 	</div>
 </div>
 
@@ -57,6 +57,10 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_site">Display</label>
-		<input id="include_site" name="include_site" type="checkbox" tabindex="10" checked />
+		<input ng-model="Model.includeWebsite" id="include_site" name="include_site" type="checkbox" tabindex="10" checked />
 	</div>
+</div>
+
+<div class="gen-button">
+	<a class="button full next-step">Generate Poster</a>
 </div>

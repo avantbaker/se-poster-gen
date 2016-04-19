@@ -9,7 +9,7 @@
 	</div>								
 	<div class="gen-formfield right required">
 		<label for="host_organization">Host Organization</label>
-		<input id="host_organization" name="host_organization" type="text" tabindex="2" />
+		<input ng-model="Model.hostOrg" id="host_organization" name="host_organization" type="text" tabindex="2" />
 		<span class="error-message">Enter host organization</span>
 	</div>
 </div>
@@ -38,4 +38,8 @@
 		<input ng-model="Model.endDate" id="end_date" name="end_date" type="date" tabindex="6" placeholder="mm/dd/yyyy" min="2016-01-01" max="2017-12-31" required />
 		<span class="error-message">Enter end date</span>
 	</div>
+</div>
+
+<div class="gen-button">
+	<a class="button full next-step" ui-sref="root.start.tournamentDes">Next Step</a>
 </div>

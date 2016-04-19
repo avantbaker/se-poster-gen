@@ -16,7 +16,7 @@
 	</div>
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_fee">Display</label>
-		<input id="include_fee" name="include_fee" type="checkbox" tabindex="4" checked />
+		<input ng-model="Model.includeFee" id="include_fee" name="include_fee" type="checkbox" tabindex="4" checked />
 	</div>
 </div>
 
@@ -28,7 +28,7 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_deadline">Display</label>
-		<input id="include_deadline" name="include_deadline" type="checkbox" tabindex="6" checked />
+		<input ng-model="Model.includeDeadline" id="include_deadline" name="include_deadline" type="checkbox" tabindex="6" checked />
 	</div>
 </div>
 
@@ -40,6 +40,10 @@
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_games">Display</label>
-		<input id="include_games" name="include_games" type="checkbox" tabindex="8" checked />
+		<input ng-model="Model.includeGames" id="include_games" name="include_games" type="checkbox" tabindex="8" checked />
 	</div>
+</div>
+
+<div class="gen-button">
+	<a class="button full next-step" ui-sref="root.start.tournamentContact">Next Step</a>
 </div>

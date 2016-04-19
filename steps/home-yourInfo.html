@@ -4,12 +4,12 @@
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="first_name">First Name</label>
-		<input id="first_name" name="first_name" type="text" tabindex="1" />
+		<input ng-model="Model.firstName" id="first_name" name="first_name" type="text" tabindex="1" />
 		<span class="error-message">Enter your first name</span>
 	</div>								
 	<div class="gen-formfield right required">
 		<label for="last_name">Last Name</label>
-		<input id="last_name" name="last_name" type="text" tabindex="2" />
+		<input ng-model="Model.lastName" id="last_name" name="last_name" type="text" tabindex="2" />
 		<span class="error-message">Enter your last name</span>
 	</div>
 </div>
@@ -17,12 +17,12 @@
 <div class="gen-formrow">										
 	<div class="gen-formfield left required">
 		<label for="email">Email</label>
-		<input id="email" name="email" type="email" tabindex="3" />
+		<input ng-model="Model.personalEmail" id="email" name="email" type="email" tabindex="3" />
 		<span class="error-message">Enter valid email address</span>
 	</div>									
 	<div class="gen-formfield right">
 		<label for="phone">Phone</label>
-		<input id="phone" name="phone" type="tel" tabindex="4" />
+		<input ng-model="Model.personalPhone" id="phone" name="phone" type="tel" tabindex="4" />
 	</div>
 </div>
 
@@ -30,7 +30,7 @@
 	<div class="gen-formfield left required">
 		<label for="org-type">Organization Type</label>
 		<select id="org-type" name="org-type" tabindex="5" >
-			<option value=""></option>
+			<option value="">Select Organization</option>
 			<option value="Youth Sports Association">Youth Sports Association</option>
 			<option value="Youth Sports League">Youth Sports League</option>
 			<option value="Prep Sports">Prep Sports</option>
@@ -57,8 +57,12 @@
 	<div class="gen-formfield right required">
 		<label for="role">Role</label>
 		<select id="role" name="role" tabindex="6" >
-			<option value=""></option>
+			<option value="">Select Role</option>
 		</select>
 		<span class="error-message">Select your role</span>
 	</div>
+</div>
+
+<div class="gen-button">
+	<a class="button full next-step" ui-sref="root.start.selectTemplate">Next Step</a>
 </div>
