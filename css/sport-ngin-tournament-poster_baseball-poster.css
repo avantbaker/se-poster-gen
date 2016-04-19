@@ -91,17 +91,17 @@ footer {
     width: 80%;
     left: 10%; }
     .poster-canvas.template-two .template-element.host-name {
-      top: 10%;
+      top: 7%;
       font-weight: 700;
       font-size: 1.5em; }
     .poster-canvas.template-two .template-element.tournament-name {
-      bottom: 62%;
+      bottom: 76%;
       font-family: "Oswald", sans-serif;
       color: #81151e;
       font-weight: 700;
       font-size: 3.25em; }
     .poster-canvas.template-two .template-element.date-and-location {
-      top: 40%;
+      top: 26%;
       font-weight: 700;
       font-size: 1.5em; }
     .poster-canvas.template-two .template-element.tournament-details {

@@ -596,7 +596,6 @@ strong {
         width: 25px;
         height: 25px;
         line-height: 25px;
-        overflow: hidden;
         margin: 0 1px;
         box-shadow: 0 0 0 transparent;
         transform: scale(1);
@@ -608,7 +607,8 @@ strong {
         -moz-transition: all 0.3s;
         -ms-transition: all 0.3s;
         -o-transition: all 0.3s;
-        transition: all 0.3s; }
+        transition: all 0.3s;
+        overflow: hidden; }
         .poster-builder-intro .masthead .sn-share a:hover {
           box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.5);
           transform: scale(1.1);
@@ -701,7 +701,6 @@ strong {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    overflow: hidden;
     float: left;
     margin-left: 10px;
     font-size: 15px;
@@ -747,6 +746,9 @@ strong {
       border: 1px solid #c3cace;
       color: #fff; }
 
+#form-views {
+  overflow: hidden; }
+
 form {
   padding: 0 5px; }
 
@@ -785,6 +787,33 @@ form {
 
 .gen-formrow.fifth h4:before {
   content: "5"; }
+
+.gen-formrow {
+  -webkit-transition: opacity 0.3s, transform 0.3s;
+  -moz-transition: opacity 0.3s, transform 0.3s;
+  -ms-transition: opacity 0.3s, transform 0.3s;
+  -o-transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s; }
+  .gen-formrow.animate-enter {
+    opacity: 0;
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px); }
+  .gen-formrow.animate-enter.animate-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0); }
+  .gen-formrow:first-of-type {
+    transition-delay: .1s; }
+  .gen-formrow:nth-of-type(2) {
+    transition-delay: .2s; }
+  .gen-formrow:nth-of-type(3) {
+    transition-delay: .3s; }
+  .gen-formrow:nth-of-type(4) {
+    transition-delay: .4s; }
+  .gen-formrow:nth-of-type(5) {
+    transition-delay: .5s; }
+  .gen-formrow:nth-of-type(6) {
+    transition-delay: .6s; }
 
 .gen-formfield {
   position: relative;
