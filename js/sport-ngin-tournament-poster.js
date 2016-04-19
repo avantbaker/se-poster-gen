@@ -36,18 +36,6 @@ $(document).ready(function() {
 	      return $(this).attr('src').replace('.svg', '.png');
 	    });
   	}
-  	
-  	// Animated section jump
-	// $('a[href^="#"]').bind('click.smoothscroll',function (e) {
-	//     e.preventDefault();
-	//     var target = this.hash,
-	//     $target = $(target);
-	//     $('html, body').stop().animate({
-	//           'scrollTop': $target.offset().top
-	//       }, 600, 'swing', function () {
-	//           window.location.hash = target;
-	//     });
-	// });
 	
 	//Match Hero height to header
 	var headerHeight = $("header").outerHeight();
@@ -72,7 +60,7 @@ $(document).ready(function() {
 	    	var posterWidth = $( ".poster-canvas" ).width();
 			var fontPercent = (posterWidth / 612) * 100
 	    	$( ".poster-canvas" ).css('font-size', fontPercent + "%");
-		}, 200);
+		}, 50);
 	});
 	
 	// Add spacer height for fixed footer
