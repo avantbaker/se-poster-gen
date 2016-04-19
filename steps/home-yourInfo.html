@@ -1,7 +1,7 @@
-<div ng-animate="'animate'" class="gen-formrow step-heading first">
+<div class="gen-formrow step-heading first">
 	<h4>Your Information</h4>
 </div>
-<div ng-animate="'animate'" class="gen-formrow">
+<div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="first_name">First Name</label>
 		<input ng-model="Model.firstName" id="first_name" name="first_name" type="text" tabindex="1" />
@@ -14,7 +14,7 @@
 	</div>
 </div>
 
-<div ng-animate="'animate'" class="gen-formrow">										
+<div class="gen-formrow">										
 	<div class="gen-formfield left required">
 		<label for="email">Email</label>
 		<input ng-model="Model.personalEmail" id="email" name="email" type="email" tabindex="3" />
@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<div ng-animate="'animate'" class="gen-formrow">
+<div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="org-type">Organization Type</label>
 		<select id="org-type" name="org-type" tabindex="5" >
@@ -63,6 +63,8 @@
 	</div>
 </div>
 
-<div class="gen-button">
-	<a class="button full next-step" ui-sref="root.start.selectTemplate">Next Step</a>
+<div class="gen-formrow">
+	<div class="gen-button">
+		<a class="button full next-step" ui-sref="root.start.selectTemplate">Next Step</a>
+	</div>
 </div>

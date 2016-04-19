@@ -1,4 +1,4 @@
-var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", 'ngAnimate']);
+var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", "ngAnimate"]);
 
 sportNgin.config([
 	'$stateProvider', '$urlRouterProvider',

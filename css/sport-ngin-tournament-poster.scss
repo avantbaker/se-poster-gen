@@ -429,6 +429,7 @@ form {
 
 .gen-formrow {
 	@extend %clearfix;
+	@include transition(opacity .3s);
 	&.step-heading {
 		padding: 15px 0;
 		h4 {
@@ -487,36 +488,9 @@ form {
 	}
 }
 
-.gen-formrow {
-	@include transition(opacity .3s, transform .3s);
-	&.animate-enter {
-		opacity: 0;
-		transform: translateX(-100px);
-		-webkit-transform: translateX(-100px);
-	}
-	&.animate-enter.animate-enter-active {
-		opacity: 1;
-		transform: translateX(0);
-		-webkit-transform: translateX(0);
-	}
-	&:first-of-type {
-		transition-delay: .1s;
-	}
-	&:nth-of-type(2) {
-		transition-delay: .2s;
-	}
-	&:nth-of-type(3) {
-		transition-delay: .3s;
-	}
-	&:nth-of-type(4) {
-		transition-delay: .4s;
-	}
-	&:nth-of-type(5) {
-		transition-delay: .5s;
-	}
-	&:nth-of-type(6) {
-		transition-delay: .6s;
-	}
+// Transition form rows
+[ui-view].ng-enter, [ui-view].ng-leave {
+ 	@include transition(all 35s ease);
 }
 
 .gen-formfield {

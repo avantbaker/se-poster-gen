@@ -752,68 +752,49 @@ strong {
 form {
   padding: 0 5px; }
 
-.gen-formrow.step-heading {
-  padding: 15px 0; }
-  .gen-formrow.step-heading h4:before {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin-right: 6px;
-    background-color: #13759b;
-    font-size: 11px;
-    font-size: 0.6875rem;
-    font-family: "Vitesse A", "Vitesse B", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    color: #fff;
-    line-height: 18px;
-    text-align: center;
-    transform: translateY(-2px);
-    -webkit-transform: translateY(-2px);
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    background-clip: padding-box; }
-
-.gen-formrow.first h4:before {
-  content: "1"; }
-
-.gen-formrow.second h4:before {
-  content: "2"; }
-
-.gen-formrow.third h4:before {
-  content: "3"; }
-
-.gen-formrow.fourth h4:before {
-  content: "4"; }
-
-.gen-formrow.fifth h4:before {
-  content: "5"; }
-
 .gen-formrow {
-  -webkit-transition: opacity 0.3s, transform 0.3s;
-  -moz-transition: opacity 0.3s, transform 0.3s;
-  -ms-transition: opacity 0.3s, transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s; }
-  .gen-formrow.animate-enter {
-    opacity: 0;
-    transform: translateX(-100px);
-    -webkit-transform: translateX(-100px); }
-  .gen-formrow.animate-enter.animate-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    -webkit-transform: translateX(0); }
-  .gen-formrow:first-of-type {
-    transition-delay: .1s; }
-  .gen-formrow:nth-of-type(2) {
-    transition-delay: .2s; }
-  .gen-formrow:nth-of-type(3) {
-    transition-delay: .3s; }
-  .gen-formrow:nth-of-type(4) {
-    transition-delay: .4s; }
-  .gen-formrow:nth-of-type(5) {
-    transition-delay: .5s; }
-  .gen-formrow:nth-of-type(6) {
-    transition-delay: .6s; }
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s; }
+  .gen-formrow.step-heading {
+    padding: 15px 0; }
+    .gen-formrow.step-heading h4:before {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      background-color: #13759b;
+      font-size: 11px;
+      font-size: 0.6875rem;
+      font-family: "Vitesse A", "Vitesse B", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      color: #fff;
+      line-height: 18px;
+      text-align: center;
+      transform: translateY(-2px);
+      -webkit-transform: translateY(-2px);
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background-clip: padding-box; }
+  .gen-formrow.first h4:before {
+    content: "1"; }
+  .gen-formrow.second h4:before {
+    content: "2"; }
+  .gen-formrow.third h4:before {
+    content: "3"; }
+  .gen-formrow.fourth h4:before {
+    content: "4"; }
+  .gen-formrow.fifth h4:before {
+    content: "5"; }
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  -webkit-transition: all 35s ease;
+  -moz-transition: all 35s ease;
+  -ms-transition: all 35s ease;
+  -o-transition: all 35s ease;
+  transition: all 35s ease; }
 
 .gen-formfield {
   position: relative;
