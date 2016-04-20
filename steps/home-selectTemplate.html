@@ -4,7 +4,7 @@
 
 <div class="gen-formrow">
 	<div class="gen-formfield left">
-		<div id="template-one-trigger" class="template-selector selected">
+		<div id="template-one-trigger" ng-click="activeButton()" class="template-selector" ng-class="{'selected': template1}">
 			<div class="template-selector-inner">
 				<div class="aspect-wrapper template-trigger-one">
 				</div>
@@ -12,7 +12,7 @@
 		</div>
 	</div>								
 	<div class="gen-formfield right">
-		<div id="template-two-trigger" class="template-selector">
+		<div id="template-two-trigger" ng-click="activeButton()" class="template-selector" ng-class="{'selected': template2}">
 			<div class="template-selector-inner">
 				<div class="aspect-wrapper template-trigger-two">
 				</div>
