@@ -12,8 +12,8 @@
 			<div class="poster-canvas template-one" ng-if="template1active">
 				<div class="aspect-wrapper">
 					<div class="template-wrapper">
-						<div class="template-element host-name"><span>{{ Model.dirFirstName || 'HOST' }} {{ Model.dirLastName || 'NAME' }}</span></div>
-						<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'TOURNAMENT NAME' }}</span></div>
+						<div class="template-element host-name"><span>{{ Model.hostOrg || 'Host Organization' }}</span></div>
+						<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'Tournament Name' }}</span></div>
 						<div class="template-element date-and-location">
 							<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
 							<br>
