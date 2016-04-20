@@ -805,10 +805,12 @@ button,
     @include aspect-ratio(17,22);
     font-size: 75%;
     .template-element {
+	    overflow: hidden;
 	    span {
 	    	transform: scale(1);
 	    	text-shadow: none;
 			@include transition(transform .2s, text-shadow .2s);
+			
 			&.highlight {
 				transform: scale(1.1);
 				text-shadow: 1px 3px 2px rgba(0,0,0,0.5);

@@ -1157,17 +1157,19 @@ button,
     left: 0;
     right: 0;
     bottom: 0; }
-  .poster-canvas .template-element span {
-    transform: scale(1);
-    text-shadow: none;
-    -webkit-transition: transform 0.2s, text-shadow 0.2s;
-    -moz-transition: transform 0.2s, text-shadow 0.2s;
-    -ms-transition: transform 0.2s, text-shadow 0.2s;
-    -o-transition: transform 0.2s, text-shadow 0.2s;
-    transition: transform 0.2s, text-shadow 0.2s; }
-    .poster-canvas .template-element span.highlight {
-      transform: scale(1.1);
-      text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.5); }
+  .poster-canvas .template-element {
+    overflow: hidden; }
+    .poster-canvas .template-element span {
+      transform: scale(1);
+      text-shadow: none;
+      -webkit-transition: transform 0.2s, text-shadow 0.2s;
+      -moz-transition: transform 0.2s, text-shadow 0.2s;
+      -ms-transition: transform 0.2s, text-shadow 0.2s;
+      -o-transition: transform 0.2s, text-shadow 0.2s;
+      transition: transform 0.2s, text-shadow 0.2s; }
+      .poster-canvas .template-element span.highlight {
+        transform: scale(1.1);
+        text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.5); }
 
 footer {
   position: fixed;
