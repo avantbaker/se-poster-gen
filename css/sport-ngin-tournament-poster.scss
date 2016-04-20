@@ -38,6 +38,7 @@ $vitesse: 'Vitesse A', 'Vitesse B', Helvetica, Arial, sans-serif;
 
 // Layout
 $padding-standard: 24px;
+$padding-slim: 16px;
 $container-width-landscape: 920px;
 $container-width-vertical: 640px;
 
@@ -108,7 +109,7 @@ h2 {
 		@include font-size(32px);
 	}
 	@include mobile {
-		@include font-size(24px);
+		@include font-size(26px);
 		margin: 0 0 10px 0;
 		letter-spacing: 0;
 	}
@@ -194,7 +195,10 @@ strong {
 // //////////////////////////
 
 .poster-builder-intro {
-	padding: 36px 24px 88px 24px;
+	padding: 36px $padding-standard 88px $padding-standard;
+	@include mobile-medium {
+		padding: 36px $padding-standard 64px $padding-standard;
+	}
 	
 	h2, h3, h4, h5, p {
 		color: #fff;
@@ -202,6 +206,9 @@ strong {
 	
 	.masthead {
 		padding: 0 20px 36px 20px;
+		@include mobile-medium {
+			padding: 0 0 32px 0;
+		}
 		h1 {
 			display: inline-block;
 			width: 148px;
@@ -210,72 +217,105 @@ strong {
 			background-size: 148px 26px;
 			overflow: hidden;
 			text-indent: -9999px;
-		}
-		.sn-share {
-			@extend %clearfix;
-			display: inline-block;
-			float: right;
-			h5 {
-				display: inline-block;
-				float: left;
-				height: 24px;
-				padding-right: 7px;
-				line-height: 24px;
-			}
-			a {
-				@include circle-link;
-				margin: 0 1px;
-				box-shadow: 0 0 0 rgba(0,0,0,0);
-				transform: scale(1);
-				-webkit-transform: scale(1);
-				@include border-radius(50%);
-				@include transition(all .3s);
-				overflow: hidden;
-				&:hover {
-					box-shadow: 2px 3px 1px rgba(0,0,0,0.5);
-					transform: scale(1.1);
-					-webkit-transform: scale(1.1);	
-				}
-				&.facebook,
-				&.twitter {
-					.social-fill {
-						@include transition(fill .3s);
-						fill: $offwhite;
-					}
-				}
-				&.facebook {
-					&:hover {
-						> svg {
-							> .social-fill {
-								fill: #547bbc;
-							}
-						}
-					}
-				}
-				&.twitter {
-					&:hover {
-						> svg {
-							> .social-fill {
-								fill: #78cbef;
-							}
-						}
-					}
-				}
-				svg {
-					display: block;
-					width: 100%;
-				}
+			@include mobile-medium {
+				display: block;
+				margin: 0 auto;
+				width: 131px;
+				height: 23px;
+				background-size: 131px 23px;
 			}
 		}
 	}
 	
 	.intro-content {
 		padding: 0 20px;
+		@include mobile-medium {
+			padding: 0;
+			text-align: center;
+		}
 	}
 	
 }
 
-.no-svg .poster-builder-intro .masthead .sn-share{
+.sn-share {
+	@extend %clearfix;
+	display: inline-block;
+	float: right;
+	&.header-share {
+		@include mobile-medium {
+			display: none;
+		}
+		h5 {
+			float: left;
+			height: 24px;
+			padding-right: 7px;
+			line-height: 24px;
+		}
+	}
+	&.mobile-share {
+		float: none;
+		margin-top: 25px;
+		display: none;
+		@include mobile-medium {
+			display: inline-block;
+		}
+		h5 {
+			width: 100%;
+			text-align: center;
+			padding: 16px 0;
+		}
+	}
+	h5 {
+		display: inline-block;
+		color: #fff;
+	}
+	a {
+		@include circle-link;
+		margin: 0 1px;
+		box-shadow: 0 0 0 rgba(0,0,0,0);
+		transform: scale(1);
+		-webkit-transform: scale(1);
+		@include border-radius(50%);
+		@include transition(all .3s);
+		overflow: hidden;
+		&:hover {
+			box-shadow: 2px 3px 1px rgba(0,0,0,0.5);
+			transform: scale(1.1);
+			-webkit-transform: scale(1.1);	
+		}
+		&.facebook,
+		&.twitter {
+			.social-fill {
+				@include transition(fill .3s);
+				fill: $offwhite;
+			}
+		}
+		&.facebook {
+			&:hover {
+				> svg {
+					> .social-fill {
+						fill: #547bbc;
+					}
+				}
+			}
+		}
+		&.twitter {
+			&:hover {
+				> svg {
+					> .social-fill {
+						fill: #78cbef;
+					}
+				}
+			}
+		}
+		svg {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+.no-svg .sn-share{
 	a {
 		&.facebook {
 			background: url('../assets/img/social-icon_facebook.png') no-repeat center center;
@@ -304,15 +344,26 @@ strong {
 // 6. BUILDER ELEMENTS
 // //////////////////////////
 
+.page-wrapper {
+	min-height: 640px;
+	@include mobile {
+		margin-bottom: 0 !important;
+	}
+}
+
 .poster-builder-app {
 	background: #fff;
 	padding: 0 $padding-standard 64px $padding-standard;
 	border-bottom: 5px solid $blue;
+	@include mobile {
+		padding: 0 $padding-slim 64px $padding-slim; 
+	}
 }
 
 .gen-container {
     position: relative;
     margin-top: -32px;
+    min-height: 640px;
     padding: 15px;
     background-color: #fff;
     border: 1px solid $ltgray;
@@ -323,6 +374,7 @@ strong {
 	    padding-right: 8px;
 	    @include vertical {
 		    width: 100%;
+		    padding-right: 0;
 	    }
 	    #form-views {
 		    width: 100%;
@@ -498,6 +550,10 @@ form {
 	float: left;
     width: 50%;
     padding-bottom: 15px;
+    @include mobile {
+	    float: none;
+	    width: 100%;
+    }
     &.fullfield {
 	    width: 100%;
     }
@@ -529,6 +585,9 @@ form {
 .gen-button {
 	width: 100%;
 	padding: 10px 5px;
+	@include mobile {
+		padding: 10px 0;
+	}
 }	
 
 
@@ -831,6 +890,12 @@ footer {
 	padding: 64px $padding-standard;
 	text-align: center;
 	z-index: -1;
+	@include mobile {
+		position: relative;
+		bottom: initial;
+		left: initial;
+		z-index: initial;
+	}
 	h3, p {
 		color: #fff;
 	}
