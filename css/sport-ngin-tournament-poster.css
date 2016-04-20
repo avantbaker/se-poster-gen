@@ -834,13 +834,6 @@ form {
   .gen-formrow.fifth h4:before {
     content: "5"; }
 
-[ui-view].ng-enter, [ui-view].ng-leave {
-  -webkit-transition: all 35s ease;
-  -moz-transition: all 35s ease;
-  -ms-transition: all 35s ease;
-  -o-transition: all 35s ease;
-  transition: all 35s ease; }
-
 .gen-formfield {
   position: relative;
   float: left;
@@ -1075,8 +1068,9 @@ button,
 
 .template-selector {
   position: relative;
+  width: 92%;
   padding: 5px;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
   border: 3px solid #fff;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -1098,7 +1092,7 @@ button,
     content: "";
     display: block;
     position: absolute;
-    right: -12px;
+    right: -8px;
     top: -12px;
     height: 24px;
     width: 24px;
