@@ -100,6 +100,11 @@ sportNgin.service('sportNginModel', function(){
 
 });
 
+sportNgin.factory('broadcastService', ['$rootScope', function($rootScope){
+	var broadcastService = {};
+
+}]);
+
 sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginModel", function($scope, $log, $rootScope, sportNginModel){
 	
 	/**
@@ -107,8 +112,28 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginMo
 	 * @type {object}
 	 */
 	$scope.Model = $scope.Model || sportNginModel.getFormFields();
-								   
-	$scope.greeting = "Hello world!";						   
+	$scope.template1 = true;
+	$scope.template2 = false;	
+	$rootScope.template2active = false;
+	$rootScope.template1active = true;
+	
+	$scope.activeButton = function() {
+		if($scope.template1) {
+			$scope.template1 = !$scope.template1;
+			$scope.template2 = true;
+			$rootScope.template1active = !$rootScope.template1active;
+			$rootScope.template2active = true;
+			// $scope.template2active = !$scope.template2active;
+		} else {
+			$scope.template2 = !$scope.template2;
+			$scope.template1 = true;
+			$rootScope.template1active = true;
+			$rootScope.template2active = !$rootScope.template2active;
+			// $scope.template1active = !$scope.template1active;
+		}
+	};
+
+
 }]);
 
 sportNgin.run(
