@@ -9,41 +9,55 @@
 	</div>								
 </div>
 
-<div class="gen-formrow">										
-	<div class="gen-formfield field-check primary required">
-		<label for="entry_fee">Entry Fee</label>
-		<input ng-model="Model.entryFee" id="entry_fee" name="entry_fee" type="text" tabindex="3" />
-	</div>
-	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_fee">Display</label>
-		<input ng-model="Model.includeFee" id="include_fee" name="include_fee" type="checkbox" tabindex="4" checked />
-	</div>
-</div>
-
 <div class="gen-formrow">
 	<div class="gen-formfield field-check primary required">
-		<label for="entry_deadline">Entry Deadline</label>
-		<input ng-model="Model.registerBy" id="entry_deadline" name="entry_deadline" type="date" tabindex="5" placeholder="mm/dd/yyyy" min="2016-01-01" max="2017-12-31" required/>
-		<span class="error-message">Enter entry deadline</span>
+		<label for="team_number">Number of Teams</label>
+		<input id="team_number" name="team_number" type="text" tabindex="2" />
+		<span class="error-message">Enter mumber of teams</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_deadline">Display</label>
-		<input ng-model="Model.includeDeadline" id="include_deadline" name="include_deadline" type="checkbox" tabindex="6" checked />
+		<label class="checkbox-label" for="include_team_number">Display</label>
+		<input id="include_team_number" name="include_team_number" type="checkbox" tabindex="3" />
 	</div>
 </div>
 
 <div class="gen-formrow">
 	<div class="gen-formfield field-check primary required">
 		<label for="minimum_games">Minimum Games</label>
-		<input ng-model="Model.gameMin" id="minimum_games" name="minimum_games" type="text" tabindex="7" />
+		<input ng-model="Model.gameMin" id="minimum_games" name="minimum_games" type="text" tabindex="4" />
 		<span class="error-message">Enter minimum games</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
 		<label class="checkbox-label" for="include_games">Display</label>
-		<input ng-model="Model.includeGames" id="include_games" name="include_games" type="checkbox" tabindex="8" checked />
+		<input ng-model="Model.includeGames" id="include_games" name="include_games" type="checkbox" tabindex="5" />
 	</div>
 </div>
 
-<div class="gen-button">
-	<a class="button full next-step" ui-sref="root.start.tournamentContact">Next Step</a>
+<div class="gen-formrow">										
+	<div class="gen-formfield field-check primary required">
+		<label for="entry_fee">Entry Fee</label>
+		<input ng-model="Model.entryFee" id="entry_fee" name="entry_fee" type="text" tabindex="6" />
+	</div>
+	<div class="gen-formfield field-check secondary">
+		<label class="checkbox-label" for="include_fee">Display</label>
+		<input ng-model="Model.includeFee" id="include_fee" name="include_fee" type="checkbox" tabindex="7" />
+	</div>
+</div>
+
+<div class="gen-formrow">
+	<div class="gen-formfield field-check primary required">
+		<label for="entry_deadline">Entry Deadline</label>
+		<input ng-model="Model.registerBy" id="entry_deadline" name="entry_deadline" type="date" tabindex="8" placeholder="mm/dd/yyyy" min="2016-01-01" max="2017-12-31" required/>
+		<span class="error-message">Enter entry deadline</span>
+	</div>									
+	<div class="gen-formfield field-check secondary">
+		<label class="checkbox-label" for="include_deadline">Display</label>
+		<input ng-model="Model.includeDeadline" id="include_deadline" name="include_deadline" type="checkbox" tabindex="9" />
+	</div>
+</div>
+
+<div class="gen-formrow">
+	<div class="gen-button">
+		<a class="button full next-step" ui-sref="root.start.tournamentContact">Next Step</a>
+	</div>
 </div>
