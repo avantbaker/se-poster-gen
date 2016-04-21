@@ -24,10 +24,10 @@ $(document).ready(function() {
 		}
 		};
 	if(isMobile.any()) {
-		$("html").addClass("mobile");
+		$("body").addClass("mobile");
 	}
 	else {
-		$("html").addClass("desktop");
+		$("body").addClass("desktop");
 	}
 
   	// Replace img SVG with PNG on unsupported browsers
@@ -71,17 +71,6 @@ $(document).ready(function() {
     	var footerHeight = $("footer").outerHeight();
 		$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
 	});
-	
-	// AVANT REWORK IN ANGULAR
-	// Toggle class for template selection
-	$("#template-two-trigger").click(function () {
-    	$(this).addClass("selected");
-    	$("#template-one").removeClass("selected");
-    });
-    
-    $("#template-one-trigger").click(function () {
-    	$(this).addClass("selected");
-    	$("#template-one").removeClass("selected");
-    });
+
   
 });
