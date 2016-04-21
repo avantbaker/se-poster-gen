@@ -56,6 +56,14 @@
 	
 	<body class="static">
 		
+		<!----------- Mobile preview toggle -->
+		<nav class="poster-preview-toggle">
+			<div class="toggle-wrapper">
+				<span class="toggle-button toggle-builder">Back to Builder</span>
+				<span class="toggle-button toggle-preview">Preview Poster</span>
+			</div>
+		</nav>
+		
 		<!----------- Poster Intro -->
 		<header class="poster-builder-intro">
 				
@@ -105,7 +113,7 @@
 				
 				<h3>Need more help with your tournament?</h3>
 				<p>One of our tournament-management experts can help. Schedule some time.</p>
-				<a id="createTemp" class="button" href="#">Schedule Chat</a>
+				<a id="approval-trigger" class="button" href="#">Schedule Chat</a>
 				
 				<aside class="sn-share mobile-share">
 					<h5>Share this App</h5>
@@ -128,7 +136,13 @@
 		<!---------- Approval & Preview Container -->
 		<div class="approval-container">
 			<div class="container approval-inner">
-				<button>Close</button>
+				<div class="approval-modal">
+					<h3>Approve Your Poster</h3>
+					<p>Give this one last look before we run it through the poster generator.</p>
+					<button id="approval-close" class="full back">Wait! I want to fix something</button>
+					<br><br>
+					<button id="approval-approved" class="full approved">Approved!</button>
+				</div>
 			</div>
 		</div>
 		

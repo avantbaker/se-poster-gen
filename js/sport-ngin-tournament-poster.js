@@ -71,6 +71,59 @@ $(document).ready(function() {
     	var footerHeight = $("footer").outerHeight();
 		$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
 	});
+	
+	// Slide in toggle nav on scroll (mobile-only)
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 250) {
+			$( ".poster-preview-toggle" ).addClass("viewable");
+		} else {
+			$( ".poster-preview-toggle" ).removeClass("viewable");
+		}
+	});
+	
+	// AVANT! -- This one needs to be in angular
+	// Append Poster to pocket on mobile
+	var windowWidth = $(window).width();
+	if(windowWidth < 900){
+		$( ".poster-canvas" ).appendTo(".approval-inner");
+	}
+	
+	$(window).resize(function(){
+    	var windowWidth = $(window).width();
+		if(windowWidth < 900){
+			$( ".poster-canvas" ).appendTo(".approval-inner");
+		}
+	});
+	
+	
+	// AVANT! -- This one needs to be in angular
+	// Approval State
+	$( '#approval-trigger' ).on('click', function(e) {
+	    e.preventDefault();
+	    var offsetY = window.pageYOffset
+	    var posterWidth = $( '.poster-canvas' ).outerWidth();
+		$( "body" ).css({'top': -offsetY + 'px'});
+	    $( "body, html" ).addClass("no-scroll");
+	    $( ".poster-canvas").css('width', posterWidth + "px");
+	    setTimeout(function(){
+		   $( "body" ).addClass("approval-state"); 
+	    }, 100);
+	    setTimeout(function(){
+		   var posterHeight = $( '.poster-canvas' ).outerHeight();
+		   $( ".approval-inner").css('min-height', posterHeight + "px");
+		}, 400);
+	});
+	
+	$( '#approval-close' ).on('click', function(e) {
+	    e.preventDefault();
+	    var x = $('body').css('top');
+	    var y = x.replace(/-/gi, '');
+	    var pagePos = y.replace(/px/gi, '');
+	    $( "body, html" ).removeClass("no-scroll");
+	    $( "body" ).removeClass("approval-state");
+	    $( ".poster-canvas").css("width", ""); 
+	    $(window).scrollTop(pagePos);
+	});
 
   
 });
