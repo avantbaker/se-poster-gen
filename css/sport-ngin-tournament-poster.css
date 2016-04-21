@@ -452,7 +452,7 @@ body, html {
   font-weight: normal;
   font-style: normal;
   background-color: transparent; }
-  body.noScroll, html.noScroll {
+  body.no-scroll, html.no-scroll {
     position: fixed;
     width: 100%; }
 
@@ -1191,7 +1191,14 @@ button,
   width: 100%;
   background-color: #f2f3f4;
   position: relative;
-  font-size: 75%; }
+  font-size: 75%;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -webkit-transition: transform 0.5s ease-out, box-shadow 0.5s;
+  -moz-transition: transform 0.5s ease-out, box-shadow 0.5s;
+  -ms-transition: transform 0.5s ease-out, box-shadow 0.5s;
+  -o-transition: transform 0.5s ease-out, box-shadow 0.5s;
+  transition: transform 0.5s ease-out, box-shadow 0.5s; }
   .poster-canvas:before {
     display: block;
     content: "";
@@ -1203,6 +1210,10 @@ button,
     left: 0;
     right: 0;
     bottom: 0; }
+  .poster-canvas.letter-lock {
+    width: 612px; }
+  .poster-canvas.tabloid-lock {
+    width: 792px; }
   .poster-canvas .template-element {
     overflow: hidden; }
     .poster-canvas .template-element span {
@@ -1232,3 +1243,52 @@ footer {
       z-index: initial; } }
   footer h3, footer p {
     color: #fff; }
+
+.approval-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  padding: 124px 24px;
+  background: #68767f;
+  background: rgba(104, 118, 127, 0.85);
+  border-radius: 50%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10;
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  -ms-transition: all 0.35s ease-out;
+  -o-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out; }
+  @media all and (max-width: 560px) {
+    .approval-container {
+      width: 100%;
+      padding: 72px 24px;
+      background: #23282b;
+      z-index: -999;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch; } }
+  .approval-container .approval-inner {
+    position: relative; }
+
+.approval-state .approval-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+.approval-state .poster-canvas {
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  margin-top: -295px;
+  box-shadow: 0 2px 20px rgba(30, 35, 43, 0.7);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  z-index: 11; }
