@@ -132,8 +132,7 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginMo
 			// $scope.template1active = !$scope.template1active;
 		}
 	};
-
-
+	
 }]);
 
 sportNgin.run(
