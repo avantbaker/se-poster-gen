@@ -12,79 +12,29 @@ sportNgin.config([
 			})
 			
 			.state('templateSelect', {
-				url: '/start',
+				url: '/template',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-selectTemplate.html'
 			})
 			
 			.state('tournamentInfo', {
-				url: '/welcome',
+				url: '/tournamentInfo',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentInfo.html'
 			})
 			
 			.state('tournamentDescription', {
-				url: '/info',
+				url: '/tournamentDescription',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
 			
 			.state('tournamentContact', {
-				url: '/selectTemplate',
+				url: '/tournamentContact',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentContact.html'
 			});
 
-			// .state('root', {
-			// 	abstract: true,
-			// 	url: '/home',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/container.html'
-			// })
-			
-			// .state('root.start', {
-			// 	url: '/start',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home.html'
-			// })
-			
-			// .state('root.start.welcome', {
-			// 	url: '/welcome',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-welcome.html'
-			// })
-			
-			// .state('root.start.yourInfo', {
-			// 	url: '/info',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-yourInfo.html'
-			// })
-			
-			// .state('root.start.selectTemplate', {
-			// 	url: '/selectTemplate',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-selectTemplate.html'
-			// })
-			
-			// .state('root.start.tournamentInfo', {
-			// 	url: '/tournamentInfo',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-tournamentInfo.html'
-			// })
-			
-			// .state('root.start.tournamentDes', {
-			// 	url: '/tournamentDescription',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-tournamentDes.html'
-			// })
-			
-			// .state('root.start.tournamentContact', {
-			// 	url: '/tournamentContact',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'steps/home-tournamentContact.html'
-			// });
-			
-		
 		$urlRouterProvider.otherwise('home');
 	}	
 ]);
@@ -129,12 +79,27 @@ sportNgin.service('sportNginModel', function(){
 
 });
 
-sportNgin.factory('broadcastService', ['$rootScope', function($rootScope){
-	var broadcastService = {};
+sportNgin.factory('html2pdf', ['$rootScope', '$http', function($rootScope, $http){
+	var service = this;
+	
+	service.convert = function(formData) {
+        var data = formData;
 
+        $http.post('pdf_templates/test.php', data)
+        .success(function(data, status, headers, config)
+        {
+            console.log(status + ' - ' + data);
+        })
+        .error(function(data, status, headers, config)
+        {
+            console.log('error');
+        });
+    }
+
+    return service;
 }]);
 
-sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginModel", function($scope, $log, $rootScope, sportNginModel){
+sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginModel", "html2pdf", function($scope, $log, $rootScope, sportNginModel, html2pdf){
 	
 	/**
 	 * Set Model inital values
@@ -146,6 +111,10 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginMo
 	$rootScope.template2active = false;
 	$rootScope.template1active = true;
 	
+	/**
+	 * Template selection function
+	 * @return {[type]} [description]
+	 */
 	$scope.activeButton = function() {
 		if($scope.template1) {
 			$scope.template1 = !$scope.template1;
@@ -161,7 +130,10 @@ sportNgin.controller('homeCntrl', [ "$scope", "$log", "$rootScope", "sportNginMo
 			// $scope.template1active = !$scope.template1active;
 		}
 	};
-	
+
+	$scope.generatePdf = function() {
+		return html2pdf.convert($scope.Model);
+	}
 }]);
 
 sportNgin.run(
