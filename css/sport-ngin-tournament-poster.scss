@@ -1,7 +1,5 @@
 // Sport Ngin Tournament Poster Generator :: Global Styles :: Vert Digital
 
-/*# sourceMappingURL=sportNgin.scss.map */
-
 // FILE SECTIONS //////////////
 
 // 1. Variables
@@ -757,7 +755,7 @@ button,
 			width: 16px;
 			height: 16px;
 			margin-left: 4px;
-			background: url('../assets/img/icon-arrow.svg') no-repeat center center;
+			background: url('../assets/img/icon-arrow_white-left.svg') no-repeat center center;
 			transform: translateY(2px);
 			-webkit-transform: translateY(2px);
 		}
@@ -770,12 +768,28 @@ button,
 			width: 16px;
 			height: 16px;
 			margin-right: 4px;
-			background: url('../assets/img/icon-arrow.svg') no-repeat center center;
-			transform: translateY(2px) rotate(180deg);
-			-webkit-transform: translateY(2px) rotate(180deg);
+			background: url('../assets/img/icon-arrow_white-right.svg') no-repeat center center;
+			transform: translateY(2px);
+			-webkit-transform: translateY(2px);
 		}
 	}
 }
+
+.no-svg input[type=submit],
+.no-svg	button, 
+.no-svg	.button {
+	&.next-step {
+		&:after {
+			background: url('../assets/img/icon-arrow_white-left.png') no-repeat center center;
+		}
+	}
+	&.back {
+		&:before {
+			background: url('../assets/img/icon-arrow_white-right.png') no-repeat center center;
+		}
+	}
+}
+
 
 // Template Selector
 .template-selector {
@@ -819,6 +833,14 @@ button,
 	}
 	.template-selector-inner {
 		@include aspect-ratio(17,22);
+	}
+}
+
+.no-svg .template-selector {
+	&.selected {
+		&:after {
+			background-image: url('../assets/img/icon-checkmark.png');
+		}
 	}
 }
 
@@ -941,22 +963,23 @@ footer {
 // Default Elements
 .poster-preview-toggle {
 	display: none;
-	@include transition(transform .3s);
+	@include transition(transform .35s, opacity .35s);
 	@include vertical {
 		display: block;
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
-		padding: 12px $padding-standard;
+		padding: 12px $padding-slim;
 		background: #fff;
-		box-shadow: 0 2px 0 rgba(30,35,43,0.3);
+		box-shadow: 0 2px 0 rgba(30,35,43,0.15);
 		@include opacity(0);
 		transform: translateY(-100%);
 		-webkit-transform: translateY(-100%);
 		z-index: 20;
 	}
-	&.viewable {
+	&.viewable,
+	&.stuck {
 		@include vertical {
 			@include opacity(1);
 			transform: translateY(0);
@@ -970,7 +993,7 @@ footer {
 			display: inline-block;
 			height: 24px;
 			line-height: 24px;
-			@include font-size(14px);
+			@include font-size(12px);
 			font-weight: 500;
 			color: $blue;
 			text-transform: uppercase;
@@ -989,7 +1012,7 @@ footer {
 					display: inline-block;
 					width: 16px;
 					height: 16px;
-					background: $blue;
+					background: url('../assets/img/icon-arrow_blue-left.svg') no-repeat center center;
 					margin-left: 4px;
 					transform: translateY(4px);
 					-webkit-transform: translateY(4px);
@@ -1005,7 +1028,7 @@ footer {
 					display: inline-block;
 					width: 16px;
 					height: 16px;
-					background: $blue;
+					background: url('../assets/img/icon-arrow_blue-right.svg') no-repeat center center;
 					margin-right: 4px;
 					transform: translateY(4px);
 					-webkit-transform: translateY(4px);
@@ -1040,7 +1063,7 @@ footer {
 	right: 0;
 	width: 0;
 	height: 100%;
-	padding: 124px 24px;
+	padding: 5% 24px;
 	@include background-opacity($black3, 0.96);
 	@include opacity(0);
 	overflow-y: auto;
@@ -1055,6 +1078,7 @@ footer {
 		z-index: -999;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
+		@include transition(all .35s ease-out);
 	}
 	
 	.approval-inner {
@@ -1069,6 +1093,7 @@ footer {
 			padding: $padding-standard;
 			background: #fff;
 			border: 1px solid $ltgray;
+			text-align: center;
 			@include opacity(0);
 			transform: translate(100%,-55%);
 			-webkit-transform: translate(100%,-55%);
@@ -1078,12 +1103,16 @@ footer {
 				top: initial;
 				right: initial;
 				width: 100%;
-				margin: 0 auto;
-				transform: translate(0,-55%);
-				-webkit-transform: translate(0,-55%);
+				height: 0;
+				overflow: hidden;
+				padding: $padding-slim;
+				margin: 0 auto 30px auto;
+				transform: translate(0, -40px);
+				-webkit-transform: translate(0, -40px);
 			}
 		}
 	}
+	
 }
 
 // Preview and approval state (mobile only)
@@ -1094,7 +1123,7 @@ footer {
 	.page-wrapper,
 	.poster-builder-cta {
 		@include vertical {
-			opacity: 0;
+			opacity: 1;
 			transform: translateX(-100%);
 			-webkit-transform: translateX(-100%);
 		}
@@ -1102,7 +1131,7 @@ footer {
 	
 	.poster-builder-hero {
 		@include vertical {
-			opacity: 0;
+			opacity: 1;
 			left: -100%;
 		}
 	}
@@ -1127,6 +1156,8 @@ footer {
 				transition-delay: .3s;
 				-webkit-transition-delay: .3s;
 				@include vertical {
+					height: auto;
+					overflow: visible;
 					transform: translate(0,0);
 					-webkit-transform: translate(0,0);
 				}
@@ -1150,15 +1181,49 @@ footer {
 			top: initial;
 			left: initial;
 			margin-top: 0;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.7);
 			transform: scale(1);
 			-webkit-transform: scale(1);
 			z-index: initial;
 		}
 	}
+	
+	.poster-preview-toggle {
+		@include opacity(1);
+		transform: translate(-100%,0);
+		-webkit-transform: translate(-100%,0);
+	}
 }
 
 // Approval state (mobile only)
 .preview-state {
+	
+	.poster-preview-toggle {
+		@include opacity(1);
+		transform: translate(0,0);
+		-webkit-transform: translate(0,0);
+		.toggle-wrapper {
+			
+			.toggle-preview {
+				transform: translateX(100%);
+				-webkit-transform: translateX(100%);
+				@include opacity(0);
+			}
+			
+			.toggle-builder {
+				transform: translateX(0);
+				-webkit-transform: translateX(0);
+				@include opacity(1);
+			}
+		}
+	}
+	
+	.approval-container {
+		@include opacity(1);
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+	}
+	
 	
 }
 
