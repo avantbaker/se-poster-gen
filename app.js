@@ -5,58 +5,87 @@ sportNgin.config([
 	function ( $stateProvider, $urlRouterProvider ) {
 		
 		$stateProvider
-		
-			.state('root', {
-				abstract: true,
+			.state('info', {
 				url: '/home',
-				controller: 'homeCntrl',
-				templateUrl: 'steps/container.html'
-			})
-			
-			.state('root.start', {
-				url: '/start',
-				controller: 'homeCntrl',
-				templateUrl: 'steps/home.html'
-			})
-			
-			.state('root.start.welcome', {
-				url: '/welcome',
-				controller: 'homeCntrl',
-				templateUrl: 'steps/home-welcome.html'
-			})
-			
-			.state('root.start.yourInfo', {
-				url: '/info',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-yourInfo.html'
 			})
 			
-			.state('root.start.selectTemplate', {
-				url: '/selectTemplate',
+			.state('templateSelect', {
+				url: '/start',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-selectTemplate.html'
 			})
 			
-			.state('root.start.tournamentInfo', {
-				url: '/tournamentInfo',
+			.state('tournamentInfo', {
+				url: '/welcome',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentInfo.html'
 			})
 			
-			.state('root.start.tournamentDes', {
-				url: '/tournamentDescription',
+			.state('tournamentDescription', {
+				url: '/info',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
 			
-			.state('root.start.tournamentContact', {
-				url: '/tournamentContact',
+			.state('tournamentContact', {
+				url: '/selectTemplate',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentContact.html'
 			});
+
+			// .state('root', {
+			// 	abstract: true,
+			// 	url: '/home',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/container.html'
+			// })
+			
+			// .state('root.start', {
+			// 	url: '/start',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home.html'
+			// })
+			
+			// .state('root.start.welcome', {
+			// 	url: '/welcome',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-welcome.html'
+			// })
+			
+			// .state('root.start.yourInfo', {
+			// 	url: '/info',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-yourInfo.html'
+			// })
+			
+			// .state('root.start.selectTemplate', {
+			// 	url: '/selectTemplate',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-selectTemplate.html'
+			// })
+			
+			// .state('root.start.tournamentInfo', {
+			// 	url: '/tournamentInfo',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-tournamentInfo.html'
+			// })
+			
+			// .state('root.start.tournamentDes', {
+			// 	url: '/tournamentDescription',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-tournamentDes.html'
+			// })
+			
+			// .state('root.start.tournamentContact', {
+			// 	url: '/tournamentContact',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'steps/home-tournamentContact.html'
+			// });
 			
 		
-		$urlRouterProvider.otherwise('home/start/info');
+		$urlRouterProvider.otherwise('home');
 	}	
 ]);
 
