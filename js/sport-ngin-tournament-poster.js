@@ -181,5 +181,15 @@ $(document).ready(function() {
 		   $( ".poster-preview-toggle" ).removeClass("stuck");
 	    }, 100);
 	});
+	
+	// Poster approved move to download
+	// Will need to change the redirect URL later
+	$( '#approval-approved' ).on('click', function(e) {
+	    e.preventDefault();
+		$( ".preloader-overlay" ).fadeIn("600");
+	    setTimeout(function(){
+		  document.location='../sportNgin/download'
+	    }, 600);
+	});
   
 });

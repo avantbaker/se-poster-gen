@@ -202,6 +202,20 @@
 	line-height: 25px;
 }
 
+@mixin secondary-cta {
+	display: inline-block;
+	@include font-size(12px);
+	font-weight: 500;
+	color: $blue;
+	text-transform: uppercase;
+}
+
+@mixin absolute-tl {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 // Button mixins
 $buttongray-bottom: #94a0a8;
 $buttongray-top: #b0b9bf;
