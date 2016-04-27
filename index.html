@@ -51,7 +51,13 @@
 		<!--Scripts -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/modernizr.js"></script>
-
+		<style type="text/css">
+			.pdf-test {
+				overflow: hidden;	
+				position: relative;
+				height: 0;	
+			}
+		</style>
 	</head>
 	
 	<body class="static">
@@ -136,7 +142,7 @@
 					<!-- Poster layout -->
 					<div class="gen-content-right" ng-controller="homeCntrl as home">
 									
-						<div class="poster-canvas template-one" ng-if="template1active">
+						<div class="poster-canvas template-{{ activeTemplate || 'one' }}">
 							<div class="aspect-wrapper">
 								<div class="template-wrapper">
 									<div class="template-element host-name"><span>{{ Model.hostOrg || 'Host Organization' }}</span></div>
@@ -166,44 +172,9 @@
 								</div>		
 							</div>
 						</div>
-
-						<div class="poster-canvas template-two" ng-if="template2active">
-							<div class="aspect-wrapper">
-								<div class="template-wrapper">
-									<div class="template-element host-name"><span>{{ Model.hostOrg || 'Host Organization' }}</span></div>
-									<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'Tournament Name' }}</span></div>
-									<div class="template-element date-and-location">
-										<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
-										<br>
-										<span class="start-date">{{ Model.startDate | date: "MM/dd/yyyy" }}</span> thru <span class="end-date">{{ Model.endDate | date: "MM/dd/yyyy"}}</span>
-									</div>
-									<div class="template-element tournament-details">
-										<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
-										<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span> | </span>
-										<span class="tournament-minimum-games">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
-										<br />
-										<span class="tournament-deadline">Register by: <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span> | </span>
-										<span class="tournament-fee">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
-									</div>
-									<div class="template-element tournament-contact">
-										<span class="tournament-website">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
-										<br />
-										<span class="contact-information">Contact: 
-											<span class="director-name"><span class="director-first">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last">{{ Model.dirLastName || "NAME" }}</span> |</span>
-											<span class="director-email"><span class="email">{{ Model.tEmail || "EMAIL@MAIL.COM"}}</span> | </span>
-											<span class="director-phone">{{ Model.tphone || "111-222-3333" }}</span>
-										</span>
-									</div>
-								</div>		
-							</div>
-						</div>
-									
 					</div>
-							
 				</div>
-					
 			</section>
-				
 		</main>
 		
 		<!----------- Poster CTA -->
@@ -254,9 +225,9 @@
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
 		<script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
 		<script src="app.js" type="text/javascript"></script>
-		<script src="js/sport-ngin-tournament-poster.js" type="text/javascript"></script>
-		<script type="text/javascript" src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
-		<script type="text/javascript" src="html2canvas.js"></script>
-		<script type="text/javascript" src="posterToPdf.js"></script>
+<!-- 		<script src="js/sport-ngin-tournament-poster.js" type="text/javascript"></script> -->
+<!-- 		<script type="text/javascript" src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script> -->
+<!-- 		<script type="text/javascript" src="html2canvas.js"></script> -->
+<!-- 		<script type="text/javascript" src="posterToPdf.js"></script> -->
 	</body>
 </html>
