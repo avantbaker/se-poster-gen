@@ -15,3 +15,43 @@
  0%   { transform: scale(1); -webkit-transform: scale(1); }
  100% { transform: scale(1.1); -webkit-transform: scale(1.1); }
 }
+
+// Preloader pseudo loading
+@-webkit-keyframes preload-pseudo {
+  0%   {  width: 0; }
+  10%   {  width: 0; }
+  100% {  width: 100%; }
+}
+@-moz-keyframes preload-pseudo {
+  0%   {  width: 0; }
+  10%   {  width: 0; }
+  100% {  width: 100%; }
+}
+@-o-keyframes preload-pseudo {
+  0%   {  width: 0; }
+  10%   {  width: 0; }
+  100% {  width: 100%; }
+}
+@keyframes preload-pseudo {
+  0%   {  width: 0; }
+  10%   {  width: 0; }
+  100% {  width: 100%; }
+}
+
+// Fade elements in
+@-webkit-keyframes fade-in {
+  0%   {  opacity: 0; }
+  100% {  opacity: 1; }
+}
+@-moz-keyframes fade-in {
+   0%   {  opacity: 0; }
+   100% {  opacity: 1; }
+}
+@-o-keyframes fade-in {
+   0%   {  opacity: 0; }
+   100% {  opacity: 1; }
+}
+@keyframes fade-in {
+  0%   {  opacity: 0; }
+  100% {  opacity: 1; }
+}

@@ -11,6 +11,8 @@
 // 7. Poster Elements
 // 8. Footer/CTA
 // 9. Approval & Preview States(mobile)
+// 10. Preloader
+// 11. Download Page
 
 
 // //////////////////////////
@@ -88,6 +90,47 @@ main, header, footer, section {
 	}
 }
 
+.col {
+	float: left;
+	&.one-fourth {
+		width: 25%;
+		@include vertical {
+			width: 100%;
+		}
+	}
+	&.one-third {
+		width: 33.333%;
+		@include vertical {
+			width: 100%;
+		}
+	}
+	&.half {
+		width: 50%;
+		@include vertical {
+			width: 100%;
+		}
+	}
+	&.two-thirds {
+		width: 66.666%;
+		@include vertical {
+			width: 100%;
+		}
+	}
+	
+	&.three-fourths {
+		width: 75%;
+		@include vertical {
+			width: 100%;
+		}
+	}
+	&.pad-left {
+		padding-left: 20px;
+	}
+	&.pad-right {
+		padding-right: 20px;
+	}
+}
+
 
 // //////////////////////////
 // 4. TYPOGRAPHY
@@ -150,6 +193,11 @@ h5 {
 	@include mobile-medium{
   		@include font-size(13px);
 	}
+}
+
+h6 {
+	@include font-size(16px);
+	font-weight: 700;
 }
 
 p, li {
@@ -747,6 +795,9 @@ button,
 	&.full {
 		max-width: 100%;
 	}
+	&.spaced {
+		margin: 0 2px;
+	}
 	&.next-step {
 		@include gray-button;
 		&:after {
@@ -760,17 +811,77 @@ button,
 			-webkit-transform: translateY(2px);
 		}
 	}
-	&.back {
-		@include gray-button;
+	&.back,
+	&.email,
+	&.download,
+	&.share {
 		&:before {
 			content:"";
 			display: inline-block;
 			width: 16px;
 			height: 16px;
 			margin-right: 4px;
-			background: url('../assets/img/icon-arrow_white-right.svg') no-repeat center center;
 			transform: translateY(2px);
 			-webkit-transform: translateY(2px);
+		}
+	}
+	&.back {
+		@include gray-button;
+		&:before {
+			background: url('../assets/img/icon-arrow_white-right.svg') no-repeat center center;
+		}
+	}
+	&.email {
+		&:before {
+			background: url('../assets/img/icon-button_email.svg') no-repeat center center;
+		}
+		&:hover,
+		&:focus {
+			&:before {
+				background: url('../assets/img/icon-button_email-white.svg') no-repeat center center;
+				@include animation(fade-in .2s);
+			}
+		}
+	}
+	&.download {
+		&:before {
+			background: url('../assets/img/icon-button_download.svg') no-repeat center center;
+		}
+		&:hover,
+		&:focus {
+			&:before {
+				background: url('../assets/img/icon-button_download-white.svg') no-repeat center center;
+				@include animation(fade-in .2s);
+			}
+		}
+	}
+	&.share {
+		&:before {
+			background: url('../assets/img/icon-button_share.svg') no-repeat center center;
+		}
+		&:hover,
+		&:focus {
+			&:before {
+				background: url('../assets/img/icon-button_share-white.svg') no-repeat center center;
+				@include animation(fade-in .2s);
+			}
+		}
+	}
+	&.outline-button {
+		display: inline-block;
+		width: auto;
+		height: 36px;
+		line-height: 34px;
+		@include font-size(14px);
+		color: $green;
+		border: 2px solid $green;
+		background: transparent;
+		@include border-radius(3px);
+		box-shadow: none;
+		&:hover,
+		&:focus {
+			background: $green;
+			color: #fff;
 		}
 	}
 }
@@ -788,6 +899,26 @@ button,
 			background: url('../assets/img/icon-arrow_white-right.png') no-repeat center center;
 		}
 	}
+	&.email {
+		&:before {
+			background: url('../assets/img/icon-button_email.png') no-repeat center center;
+		}
+	}
+	&.download {
+		&:before {
+			background: url('../assets/img/icon-button_download.png') no-repeat center center;
+		}
+	}
+	&.share {
+		&:before {
+			background: url('../assets/img/icon-button_share.png') no-repeat center center;
+		}
+	}
+}
+
+button.secondary-cta,
+a.secondary-cta {
+	@include secondary-cta;
 }
 
 
@@ -990,13 +1121,9 @@ footer {
 		@extend %clearfix;
 		overflow: hidden;
 		.toggle-button {
-			display: inline-block;
+			@include secondary-cta;
 			height: 24px;
 			line-height: 24px;
-			@include font-size(12px);
-			font-weight: 500;
-			color: $blue;
-			text-transform: uppercase;
 			cursor: pointer;
 			@include transition(color .2s, transform .35s ease-out, opacity .35s ease-out);
 			&:focus {
@@ -1223,8 +1350,152 @@ footer {
 		transform: translateX(0);
 		-webkit-transform: translateX(0);
 	}
-	
-	
 }
+
+
+// //////////////////////////
+// 10. PRELOADER
+// //////////////////////////
+
+.preloader-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background: #fff;
+	overflow: hidden;
+	z-index: 9999;
+	&.active {
+		.preloader-wrapper {
+			transform: translateY(0);
+			-webkit-transform: translateY(0);
+			@include opacity(1);
+		}
+	}
+	
+	.preloader-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transform: translateY(100px);
+		-webkit-transform: translateY(100px);
+		@include opacity(0);
+		@include transition(all .3s ease-out);
+		&:before {
+			content: "";
+			display: block;
+			@include absolute-tl;
+			width: 100%;
+			height: 5px;
+			background: $blue;
+			font-size: 0em;
+			@include animation(preload-pseudo 4s);
+		}
+		
+		.preloader-container {
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			left: 0;
+			transform: translateY(-55%);
+			-webkit-transform: translateY(-55%);
+			text-align: center;
+			
+			span {
+				display: inline-block;
+			}
+			
+			.preloader-icon {
+				position: relative;
+				width: 140px;
+				height: 140px;
+				background: url('../assets/img/sn-mark_light.svg') no-repeat left center;
+				&:before {
+					content: "";
+					display: block;
+					@include absolute-tl;
+					width: 100%;
+					height: 100%;
+					background: url('../assets/img/sn-mark_dark.svg') no-repeat left center;
+					@include animation(preload-pseudo 4s);	
+				}
+			}
+			
+			.preloader-heading {
+				width: 100%;
+				@include animation(fade-in .6s infinite alternate);
+			}
+		}
+	}
+}
+
+.no-svg .preloader-overlay {
+	.preloader-wrapper {
+		.preloader-container {
+			.preloader-icon {
+				background: url('../assets/img/sn-mark_light.png') no-repeat left center;
+				&:before {
+					background: url('../assets/img/sn-mark_dark.png') no-repeat left center;
+				}
+			}
+		}
+	}
+}
+
+
+// //////////////////////////
+// 11. DOWNLOAD PAGE
+// //////////////////////////
+
+.download-page .gen-container {
+	min-height: 0;
+}
+
+.download-page .poster-builder-app {
+	min-height: 720px;
+}
+
+.download-row {
+	@extend %clearfix;
+	display: table;
+	width: 100%;
+	padding: $padding-standard 8px;
+	background: #fff;
+	border-bottom: 1px solid $ltgray;
+	&.header {
+		border-bottom: 2px solid $ltgray;
+		padding-top: 12px;
+		p {
+			margin: 0;
+		}
+	}
+	&.action-list {
+		@include transition(background .2s);
+		&:hover {
+			@include background-opacity($offwhite, 0.6);
+		}
+	}
+	.col {
+		display: table-cell;
+		float: none;
+		vertical-align: middle;
+		&.button-col {
+			text-align: right;
+		}
+		&.bottom {
+			vertical-align: bottom;
+		}
+	}
+}
+
+.download-callout {
+	background: $offwhite;
+	padding: $padding-standard;
+	margin: 12px 0 0 0;
+}
+
+
 
 
