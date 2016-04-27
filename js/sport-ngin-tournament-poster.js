@@ -168,8 +168,7 @@ $(document).ready(function() {
 	// 	   $( "body" ).addClass("preview-state"); 
 	//     }, 100);
 	// });
-	
-<<<<<<< HEAD
+
 	// $( '#builder-trigger' ).on('click', function(e) {
 	//     e.preventDefault();
 	//     var x = $('body').css('top');
@@ -182,8 +181,5 @@ $(document).ready(function() {
 	// 	   $( ".poster-preview-toggle" ).removeClass("stuck");
 	//     }, 100);
 	// });
-=======
-
->>>>>>> origin/front-end
   
 });
