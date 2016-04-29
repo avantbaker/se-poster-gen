@@ -1,23 +1,23 @@
 <?php
 
-$request = json_decode(file_get_contents("php://input"), false);
+// $request = json_decode(file_get_contents("php://input"), false);
 
-$hostOrg = $request->hostOrg;
-$tournamentName = $request->tournamentName;	
-$city = $request->city;	
-$state = $request->state;	
-$startDate = $request->startDate;	
-$endDate = $request->endDate;	
-$description = $request->description;	
-$teams = $request->numOfTeams;	
-$gameMin = $request->gameMin;	
-$register = $request->registerBy;	
-$entry = $request->entryFee;	
-$website = $request->twebsiteName;	
-$dirFName = $request->dirFirstName;	
-$dirLName = $request->dirLastName;	
-$email = $request->personalEmail;	
-$phone = $request->personalPhone;	
+// $hostOrg = $request->hostOrg;
+// $tournamentName = $request->tournamentName;	
+// $city = $request->city;	
+// $state = $request->state;	
+// $startDate = $request->startDate;	
+// $endDate = $request->endDate;	
+// $description = $request->description;	
+// $teams = $request->numOfTeams;	
+// $gameMin = $request->gameMin;	
+// $register = $request->registerBy;	
+// $entry = $request->entryFee;	
+// $website = $request->twebsiteName;	
+// $dirFName = $request->dirFirstName;	
+// $dirLName = $request->dirLastName;	
+// $email = $request->personalEmail;	
+// $phone = $request->personalPhone;	
 
 $html = "
 <style>
@@ -136,7 +136,7 @@ include("../mpdf/mpdf.php");
 $mpdf=new mPDF(); 
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->WriteHTML($html);
-$mpdf->Output( SPORTNGIN . 'sportNgintest.pdf','F');
+$mpdf->Output( SPORTNGIN . 'sportNgintest-1.pdf','F');
 
 exit;
 //==============================================================
