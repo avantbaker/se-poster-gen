@@ -140,9 +140,8 @@
 					</div>
 								
 					<!-- Poster layout -->
-					<div class="gen-content-right" ng-controller="homeCntrl as home">
-									
-						<div class="poster-canvas template-{{ activeTemplate || 'one' }}">
+					<div class="gen-content-right" ng-controller="pdfCntrl as pdf">
+						<div class="poster-canvas" ng-class="{ 'template-one': template1, 'template-two': template2 }">
 							<div class="aspect-wrapper">
 								<div class="template-wrapper">
 									<div class="template-element host-name"><span>{{ Model.hostOrg || 'Host Organization' }}</span></div>
@@ -227,10 +226,8 @@
 		<script src="bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
 		<script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+		<script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script src="app.js" type="text/javascript"></script>
-<!-- 		<script src="js/sport-ngin-tournament-poster.js" type="text/javascript"></script> -->
-<!-- 		<script type="text/javascript" src="http://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script> -->
-<!-- 		<script type="text/javascript" src="html2canvas.js"></script> -->
-<!-- 		<script type="text/javascript" src="posterToPdf.js"></script> -->
+
 	</body>
 </html>

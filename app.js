@@ -1,43 +1,48 @@
-var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", "ngAnimate"]);
+var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", "ngAnimate", "ngCookies"]);
 
 sportNgin.config([
 	'$stateProvider', 
 	'$urlRouterProvider', 
 	'$httpProvider',
 	function ( $stateProvider, $urlRouterProvider, $httpProvider ) {
-		
+		$urlRouterProvider.otherwise('home');
+
 		$stateProvider
 			.state('info', {
-				url: '/home/:template',
+				url: '/home',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-yourInfo.html'
 			})
 			
 			.state('templateSelect', {
-				url: '/template/:template',
+				url: '/template',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-selectTemplate.html'
 			})
 			
 			.state('tournamentInfo', {
-				url: '/tournamentInfo/:template',
+				url: '/tournamentInfo',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentInfo.html'
 			})
 			
 			.state('tournamentDescription', {
-				url: '/tournamentDescription/:template',
+				url: '/tournamentDescription',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
-			
+
+			// .state('download', {
+			// 	url: '/download',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'download/index.html'
+			// })
+
 			.state('tournamentContact', {
-				url: '/tournamentContact/:template',
+				url: '/tournamentContact',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentContact.html'
 			});
-
-		$urlRouterProvider.otherwise('home/one');
 
 		$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 	}	
@@ -76,7 +81,8 @@ sportNgin.service('sportNginModel',
 				 	includeLast 		: "",
 				 	includeEmail 		: "",
 				 	includePhone 		: "",
-				 	includeWebsite 		: ""
+				 	includeWebsite 		: "",
+				 	template 			: "one"
 			   };
 
 	service.getFormFields = function () {
@@ -95,7 +101,7 @@ sportNgin.factory('html2pdf', [
 	
 	service.convert = function(formData) {
         var data = formData;
-
+        
         $http.post('pdf_templates/poster-letter.php', data)
         // $http.post('mpdf/examples/example02_CSS_styles.php', data)
         .success(function(data, status, headers, config)
@@ -112,6 +118,7 @@ sportNgin.factory('html2pdf', [
 
     return service;
 }]);
+
 sportNgin.factory('SNjquery', function(){
 	var snJquery = this;
 
@@ -300,23 +307,71 @@ sportNgin.factory('SNjquery', function(){
 	return snJquery;
 });
 
-// sportNgin.factory('changeTemplate', [
-// 	'$rootScope',
-// 	'$log', 
-// 	function($rootScope, $log){
+sportNgin.factory('changeTemplate', [
+	'$rootScope',
+	'$log', 
+	function($rootScope, $log){
 
-// 	var service = this;
+	var service = this;
 	
-// 	service.change = function() {
-// 		if( $rootScope.activeTemplate === 'one' ) {
-// 			$rootScope.activeTemplate = 'two';
-// 		} else {
-// 			$rootScope.activeTemplate = 'one';
-// 		}
-//     }
+	/**
+	 * Objective of this service is to share the template variables between the
+	 * pdf controller and the home controller. It should live update the variable in both controllers.
+	 * essentially when a template is selected it changes the value of that template variable to true.
+	 * 
+	 * @return {[type]} [description]
+	 */
+	service.props = {
+		template1: true,
+		template2: false,
+		activeTemplate: 'one'
+	};
 
-//     return service;
-// }]);
+	service.prepForBroadcast = function() {
+		if( service.props.template1 === true ) {
+			service.props.template1 = false;
+			service.props.template2 = true;
+			service.props.activeTemplate = 'two';
+			service.changeTemplate();
+		} else {
+			service.props.template1 = true;
+			service.props.template2 = false;
+			service.props.activeTemplate = 'one';
+			service.changeTemplate();
+		}
+	};
+
+	service.changeTemplate = function() {
+		$rootScope.$broadcast('templateChange');
+	};
+
+    return service;
+}]);
+
+sportNgin.controller('pdfCntrl', [ 
+	"$scope", 
+	"$log", 
+	"$rootScope", 
+	"sportNginModel", 
+	"html2pdf",
+	"$stateParams",
+	"$state",
+	"$timeout",
+	"SNjquery",
+	"changeTemplate", 
+	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate){
+
+		$scope.Model = $scope.Model || sportNginModel.getFormFields();
+
+		$scope.template1 = true;
+		$scope.template2 = false;
+
+		$scope.$on('templateChange', function(){
+			$scope.template1 = changeTemplate.props.template1;
+			$scope.template2 = changeTemplate.props.template2;
+			$scope.Model.template = changeTemplate.props.activeTemplate;
+		})
+}]);
 
 sportNgin.controller('homeCntrl', [ 
 	"$scope", 
@@ -327,26 +382,34 @@ sportNgin.controller('homeCntrl', [
 	"$stateParams",
 	"$state",
 	"$timeout",
-	"SNjquery", 
-	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery){
+	"SNjquery",
+	"changeTemplate",  
+	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate ){
 	/**
 	 * Set Model, template1, template2, and activeTemplate initial values
 	 */
 	$scope.Model = $scope.Model || sportNginModel.getFormFields();
+	// $scope.props = changeTemplate.getProps();
 	$scope.template1 = true;
-	$scope.template2 = false;	
-	$rootScope.activeTemplate = $stateParams.template;
+	$scope.template2 = false;
+	$scope.activeTemplate = '';
+
+	$scope.$on('templateChange', function() {
+        $scope.template1 = changeTemplate.props.template1;
+        $scope.template2 = changeTemplate.props.template2;
+        $scope.Model.template = changeTemplate.props.activeTemplate;
+    });
 
 	/**
 	 * Initalize custom SportNgin Jquery
 	 */
 	SNjquery.init();
 
-	$scope.$watch(function(){
-		return $rootScope.activeTemplate;
-	}, function() {
-		$scope.activeTemplate = $rootScope.activeTemplate;
-	}, true);
+	// $scope.$watch(function(){
+	// 	return $rootScope.activeTemplate;
+	// }, function() {
+	// 	$scope.activeTemplate = $rootScope.activeTemplate;
+	// }, true);
 
 	/**
 	 * nextStep function
@@ -378,17 +441,8 @@ sportNgin.controller('homeCntrl', [
 	 * @return {none}
 	 */
 	$scope.activeButton = function() {
-		if($scope.template1) {
-			$scope.template1 = !$scope.template1;
-			$scope.template2 = true;
-			$scope.activeTemplate = 'two';
-		} else {
-			$scope.template2 = !$scope.template2;
-			$scope.template1 = true;
-			$scope.activeTemplate = 'one';
-		}
-		console.log($scope.activeTemplate);
-	};
+		changeTemplate.prepForBroadcast();
+	}
 
 	/**
 	 * generatePdf function
@@ -398,7 +452,15 @@ sportNgin.controller('homeCntrl', [
 	 * and sends it to be processed and downloaded by the actual PDF templates
 	 * @return {php stdClass object} the return doesnt matter as the data is only being used one way
 	 */
+	
+	function randomString(length, chars) {
+	    var result = '';
+	    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+	    return result;
+	}
+
 	$scope.generatePdf = function() {
+		$scope.Model.userID = randomString( 10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 		return html2pdf.convert($scope.Model);
 	}
 
