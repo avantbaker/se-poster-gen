@@ -1,4 +1,4 @@
-var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", "ngAnimate"]);
+var sportNgin = angular.module("sportNgin", ["ngResource", "ui.router", "ngAnimate", "ngCookies"]);
 
 sportNgin.config([
 	'$stateProvider', 
@@ -31,7 +31,13 @@ sportNgin.config([
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
-			
+
+			// .state('download', {
+			// 	url: '/download',
+			// 	controller: 'homeCntrl',
+			// 	templateUrl: 'download/index.html'
+			// })
+
 			.state('tournamentContact', {
 				url: '/tournamentContact',
 				controller: 'homeCntrl',
@@ -95,7 +101,7 @@ sportNgin.factory('html2pdf', [
 	
 	service.convert = function(formData) {
         var data = formData;
-
+        
         $http.post('pdf_templates/poster-letter.php', data)
         // $http.post('mpdf/examples/example02_CSS_styles.php', data)
         .success(function(data, status, headers, config)
@@ -446,7 +452,15 @@ sportNgin.controller('homeCntrl', [
 	 * and sends it to be processed and downloaded by the actual PDF templates
 	 * @return {php stdClass object} the return doesnt matter as the data is only being used one way
 	 */
+	
+	function randomString(length, chars) {
+	    var result = '';
+	    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+	    return result;
+	}
+
 	$scope.generatePdf = function() {
+		$scope.Model.userID = randomString( 10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 		return html2pdf.convert($scope.Model);
 	}
 
