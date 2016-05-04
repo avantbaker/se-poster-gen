@@ -9,7 +9,6 @@ footer {
 .template-selector .template-trigger-one {
   background: url("../assets/img/soccer-template-one.jpg") no-repeat center center;
   background-size: contain; }
-
 .template-selector .template-trigger-two {
   background: url("../assets/img/soccer-template-two.jpg") no-repeat center center;
   background-size: contain; }
@@ -131,3 +130,5 @@ footer {
         font-size: 1.75em; }
       .poster-canvas.template-two .template-element.tournament-contact .contact-information {
         font-size: 1em; }
+
+/*# sourceMappingURL=sport-ngin-tournament-poster_baseball-poster.css.map */
