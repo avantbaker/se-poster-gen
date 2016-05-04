@@ -130,10 +130,10 @@
 							</div>
 						</div>
 													
-						<form ng-submit='' accept-charset="utf-8">
+						<form name="sportNgin-form" ng-submit='' accept-charset="utf-8" novalidate>
 							
 							<!-- <div id="form-views" class="form-views" ui-view></div>	 -->
-							<div id="form-views" ui-view></div>
+							<ui-view id="form-views"></ui-view>
 
 						</form>
 													
@@ -153,19 +153,19 @@
 									</div>
 									<div class="template-element tournament-details">
 										<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
-										<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span> | </span>
-										<span class="tournament-minimum-games">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
+										<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}  | </span></span>
+										<span class="tournament-minimum-games" ng-class="{'hide': excludeGames }">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
 										<br />
-										<span class="tournament-deadline">Register by: <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span> | </span>
-										<span class="tournament-fee">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
+										<span class="tournament-deadline" ng-class="{'hide': excludeDeadline }">Register by: <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }} | </span></span>
+										<span class="tournament-fee" ng-class="{'hide': excludeFee }">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
 									</div>
 									<div class="template-element tournament-contact">
-										<span class="tournament-website">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
+										<span class="tournament-website" ng-class="{'hide': excludeWebsite }">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
 										<br />
-										<span class="contact-information">Contact: 
-											<span class="director-name"><span class="director-first">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last">{{ Model.dirLastName || "NAME" }}</span> |</span>
-											<span class="director-email"><span class="email">{{ Model.tEmail || "EMAIL@MAIL.COM"}}</span> | </span>
-											<span class="director-phone">{{ Model.tphone || "111-222-3333" }}</span>
+										<span class="contact-information">
+											<span class="director-name" ng-class="{'hide' : excludeFirst && excludeLast}">Contact: <span class="director-first" ng-class="{'hide': excludeFirst }">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last" ng-class="{'hide': excludeLast }">{{ Model.dirLastName || "NAME" }} |</span></span>
+											<span class="director-email"><span class="email" ng-class="{'hide': excludeEmail }">{{ Model.tEmail || "EMAIL@MAIL.COM"}} | </span></span>
+											<span class="director-phone" ng-class="{'hide': excludePhone }">{{ Model.tphone || "111-222-3333" }}</span>
 										</span>
 									</div>
 								</div>		
@@ -181,11 +181,11 @@
 		
 		<footer class="poster-builder-cta">
 			
-			<div class="container">
+			<div class="container" ng-controller="homeCntrl">
 				
 				<h3>Need more help with your tournament?</h3>
 				<p>One of our tournament-management experts can help. Schedule some time.</p>
-				<a id="approval-trigger" class="button" href="#">Schedule Chat</a>
+				<a ng-click="test()" class="button" href="#">Schedule Chat</a>
 				
 				<aside class="sn-share mobile-share">
 					<h5>Share this App</h5>
@@ -208,12 +208,12 @@
 		<!---------- Approval & Preview Container -->
 		<div class="approval-container">
 			<div class="container approval-inner">
-				<div class="approval-modal">
+				<div class="approval-modal" ng-controller="homeCntrl">
 					<h3>Approve Your Poster</h3>
 					<p>Give this one last look before we run it through the poster generator.</p>
 					<button id="approval-close" class="full back">Wait! I see a change</button>
 					<br><br>
-					<button id="approval-approved" class="full approved">Approved!</button>
+					<button class="full approved" ng-click="generatePdf()">Approved!</button>
 				</div>
 			</div>
 		</div>
@@ -226,7 +226,7 @@
 		<script src="bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
 		<script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
-		<script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script src="app.js" type="text/javascript"></script>
 
 	</body>

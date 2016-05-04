@@ -4,12 +4,24 @@
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="first_name">First Name</label>
-		<input ng-model="Model.firstName" id="first_name" name="first_name" type="text" tabindex="1" />
+		<input 
+			ng-model="Model.firstName" 
+			id="first_name" 
+			name="first_name" 
+			type="text" 
+			tabindex="1"
+			ng-required="true" />
 		<span class="error-message">Enter your first name</span>
 	</div>								
 	<div class="gen-formfield right required">
 		<label for="last_name">Last Name</label>
-		<input ng-model="Model.lastName" id="last_name" name="last_name" type="text" tabindex="2" />
+		<input 
+			ng-model="Model.lastName" 
+			id="last_name" 
+			name="last_name" 
+			type="text" 
+			tabindex="2" 
+			ng-required="true"/>
 		<span class="error-message">Enter your last name</span>
 	</div>
 </div>
@@ -17,19 +29,35 @@
 <div class="gen-formrow">										
 	<div class="gen-formfield left required">
 		<label for="email">Email</label>
-		<input ng-model="Model.personalEmail" id="email" name="email" type="email" tabindex="3" />
+		<input 
+			ng-model="Model.personalEmail" 
+			id="email" 
+			name="email" 
+			type="email" 
+			tabindex="3" 
+			ng-required="true"/>
 		<span class="error-message">Enter valid email address</span>
 	</div>									
 	<div class="gen-formfield right">
 		<label for="phone">Phone</label>
-		<input ng-model="Model.personalPhone" id="phone" name="phone" type="tel" tabindex="4" />
+		<input 
+			ng-model="Model.personalPhone" 
+			id="phone" 
+			name="phone" 
+			type="tel" 
+			tabindex="4" 
+			ng-required="true"/>
 	</div>
 </div>
 
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="org-type">Organization Type</label>
-		<select id="org-type" name="org-type" tabindex="5" >
+		<select 
+			ng-model="Model.orgType" 
+			id="org-type" 
+			name="org-type" 
+			tabindex="5" >
 			<option value="">Select Organization</option>
 			<option value="Youth Sports Association">Youth Sports Association</option>
 			<option value="Youth Sports League">Youth Sports League</option>
@@ -56,8 +84,13 @@
 	</div>										
 	<div class="gen-formfield right required">
 		<label for="role">Role</label>
-		<select id="role" name="role" tabindex="6" >
+		<select 
+			ng-model="Model.role" 
+			id="role" 
+			name="role" 
+			tabindex="6" >
 			<option value="">Select Role</option>
+			<option value="1">Make Valid</option>
 		</select>
 		<span class="error-message">Select your role</span>
 	</div>
@@ -65,6 +98,9 @@
 
 <div class="gen-formrow">
 	<div class="gen-button">
-		<a class="button full next-step" ng-click="nextStep()">Next Step</a>
+		<button 
+			class="button full next-step" 
+			ng-disabled="!step1Valid" 
+			ng-click="nextStep()">Next Step</button>
 	</div>
 </div>

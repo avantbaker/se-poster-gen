@@ -106,7 +106,7 @@
 		<main class="page-wrapper">
 
 			<!----------- Downloads -->	
-			<section class="poster-builder-app">
+			<section class="poster-builder-app" ng-controller="downloadCntrl">
 							
 				<div class="container gen-container">
 					
@@ -125,7 +125,7 @@
 							<h6>8.5" x 11" Printable Flyer</h6>
 						</div>
 						<div class="col two-thirds button-col">
-							<button id="small-poster-download" class="outline-button spaced download">Download</button>
+							<a id="small-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf">Download</a>
 							<button id="small-poster-email" class="outline-button spaced email">Email</button>
 						</div>
 					</div>
@@ -135,7 +135,7 @@
 							<h6>11" x 17" Printable Poster</h6>
 						</div>
 						<div class="col two-thirds button-col">
-							<button id="large-poster-download" class="outline-button spaced download">Download</button>
+							<a id="large-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf">Download</a>
 							<button id="large-poster-email" class="outline-button spaced email">Email</button>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 							<h6>Sharable Social Graphic</h6>
 						</div>
 						<div class="col two-thirds button-col">
-							<button id="social-image-download" class="outline-button spaced download">Download</button>
+							<a id="social-image-download" class="button outline-button spaced download">Download</a>
 							<button id="social-image-email" class="outline-button spaced email">Email</button>
 							<button id="social-image-share" class="outline-button spaced share">Share</button>
 						</div>
@@ -193,6 +193,12 @@
 		</footer>
 		
 		<!---------- Scripts -->
+		<script src="../bower_components/angular/angular.min.js" type="text/javascript"></script>
+		<script src="../bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+		<script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+		<script src="../bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+		<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="../app-download.js" type="text/javascript"></script>
 		<script src="../js/sport-ngin-tournament-poster.js" type="text/javascript"></script>
 		
 	</body>

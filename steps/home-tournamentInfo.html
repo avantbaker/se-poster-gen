@@ -4,12 +4,24 @@
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="tournament_name">Tournament Name</label>
-		<input ng-model="Model.tournamentName" id="tournament-name" name="tournament-name" type="text" tabindex="1" />
+		<input 
+			ng-model="Model.tournamentName" 
+			id="tournament-name" 
+			name="tournament-name" 
+			type="text" 
+			tabindex="1" 
+			/>
 		<span class="error-message">Enter tournament name</span>
 	</div>								
 	<div class="gen-formfield right required">
 		<label for="host_organization">Host Organization</label>
-		<input ng-model="Model.hostOrg" id="host_organization" name="host_organization" type="text" tabindex="2" />
+		<input 
+			ng-model="Model.hostOrg" 
+			id="host_organization" 
+			name="host_organization" 
+			type="text" 
+			tabindex="2" 
+			/>
 		<span class="error-message">Enter host organization</span>
 	</div>
 </div>
@@ -17,12 +29,24 @@
 <div class="gen-formrow">										
 	<div class="gen-formfield left required">
 		<label for="tournament_city">Tournament City</label>
-		<input ng-model="Model.city" id="tournament_city" name="tournament_city" type="text" tabindex="3" />
+		<input 
+			ng-model="Model.city" 
+			id="tournament_city" 
+			name="tournament_city" 
+			type="text" 
+			tabindex="3" 
+			/>
 		<span class="error-message">Enter tournament city</span>
 	</div>									
 	<div class="gen-formfield right required">
 		<label for="tournament_state">Tournament State</label>
-		<input ng-model="Model.state" id="tournament_state" name="tournament_state" type="text" tabindex="4" />
+		<input 
+			ng-model="Model.state" 
+			id="tournament_state" 
+			name="tournament_state" 
+			type="text" 
+			tabindex="4" 
+			/>
 		<span class="error-message">Enter tournament city</span>
 	</div>
 </div>
@@ -30,18 +54,36 @@
 <div class="gen-formrow">
 	<div class="gen-formfield left required">
 		<label for="start_date">Start Date</label>
-		<input ng-model="Model.startDate" id="start_date" name="start_date" type="date" tabindex="5" placeholder="mm/dd/yyyy" min="2016-01-01" max="2017-12-31" required />
+		<input 
+			ng-model="Model.startDate" 
+			id="start_date" 
+			name="start_date" 
+			type="date" 
+			tabindex="5" 
+			placeholder="mm/dd/yyyy" 
+			min="2016-01-01" 
+			max="2017-12-31" 
+			 />
 		<span class="error-message">Enter start date</span>
 	</div>									
 	<div class="gen-formfield right required">
 		<label for="end_date">End Date</label>
-		<input ng-model="Model.endDate" id="end_date" name="end_date" type="date" tabindex="6" placeholder="mm/dd/yyyy" min="2016-01-01" max="2017-12-31" required />
+		<input 
+			ng-model="Model.endDate" 
+			id="end_date" 
+			name="end_date" 
+			type="date" 
+			tabindex="6" 
+			placeholder="mm/dd/yyyy" 
+			min="2016-01-01" 
+			max="2017-12-31"
+			/>
 		<span class="error-message">Enter end date</span>
 	</div>
 </div>
 
 <div class="gen-formrow">
 	<div class="gen-button">
-		<a class="button full next-step" ui-sref="tournamentDescription({template: activeTemplate})">Next Step</a>
+		<button class="button full next-step" ng-click="nextStep()" ng-disabled="!step3Valid">Next Step</button>
 	</div>
 </div>

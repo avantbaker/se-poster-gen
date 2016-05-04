@@ -32,17 +32,13 @@ sportNgin.config([
 				templateUrl: 'steps/home-tournamentDes.html'
 			})
 
-			// .state('download', {
-			// 	url: '/download',
-			// 	controller: 'homeCntrl',
-			// 	templateUrl: 'download/index.html'
-			// })
-
 			.state('tournamentContact', {
 				url: '/tournamentContact',
 				controller: 'homeCntrl',
 				templateUrl: 'steps/home-tournamentContact.html'
 			});
+
+			
 
 		$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 	}	
@@ -74,15 +70,17 @@ sportNgin.service('sportNginModel',
 				 	personalEmail       : "",
 				 	personalPhone       : "",
 				 	hostOrg   			: "",
-				 	includeFee  		: "",
-				 	includeDeadline 	: "",
-				 	includeGames  		: "",
-				 	includeFirst 		: "",
-				 	includeLast 		: "",
-				 	includeEmail 		: "",
-				 	includePhone 		: "",
-				 	includeWebsite 		: "",
-				 	template 			: "one"
+				 	excludeFee  		: false,
+				 	excludeDeadline 	: false,
+				 	excludeGames  		: false,
+				 	excludeFirst 		: false,
+				 	excludeLast 		: false,
+				 	excludeEmail 		: false,
+				 	excludePhone 		: false,
+				 	excludeWebsite 		: false,
+				 	template 			: "one",
+				 	orgType				: "",
+				 	role				: ""
 			   };
 
 	service.getFormFields = function () {
@@ -95,26 +93,60 @@ sportNgin.factory('html2pdf', [
 	'$rootScope', 
 	'$http', 
 	'$log', 
-	function($rootScope, $http, $log){
+	'$cookies',
+	function($rootScope, $http, $log, $cookies){
 
 	var service = this;
 	
+	var templates = {
+		template1		: ['pdf_templates/poster-letter.php', 'pdf_templates/poster-letter2.php'],
+		template2		: ['pdf_templates/poster-letter.php', 'pdf_templates/poster-letter2.php']
+	};
+
+	/**
+	 * PDF conversion
+	 * sends http request to selected PHP files to be converted
+	 * @param  {object} formData is the user filled data from the form
+	 * @return {PDF}          [description]
+	 */
 	service.convert = function(formData) {
         var data = formData;
+
+        var templateArr = selectTemplateArr( data, templates );
         
-        $http.post('pdf_templates/poster-letter.php', data)
-        // $http.post('mpdf/examples/example02_CSS_styles.php', data)
-        .success(function(data, status, headers, config)
-        {
-            $log.log(status);
-            $log.log(headers);
-            $log.log(data);
-        })
-        .error(function(data, status, headers, config)
-        {
-            $log.log('error');
-        });
+        for ( var i = 0; i < templateArr.length; i++ ) {
+        	$http.post( templateArr[i], data )
+	        .success(function(data, status, headers, config)
+	        {
+	            $log.log(status);
+	            $log.log(headers);
+	            $log.log(data);
+	        })
+	        .error(function(data, status, headers, config)
+	        {
+	            $log.log('error');
+	        });
+        }
+        
     }
+
+    /**
+     * Template Array Selection Helper Function
+     * Selects the template array based on user input.
+     * @param  {object} formData    user submitted data
+     * @param  {object} templateObj object contaning two arrays. One for each specified Template 
+     * @return {array}              The Arrays contain the links for the pdf processng files
+     *                              that will be placed into the $http request
+     */
+    function selectTemplateArr (formData, templateObj) {
+		var template = formData.template;
+		
+		if (template === "one" && template !== '') {
+			return templateObj.template1;
+		} else {
+			return templateObj.template2;
+		}
+	}
 
     return service;
 }]);
@@ -301,6 +333,8 @@ sportNgin.factory('SNjquery', function(){
 			    }, 100);
 			});
 
+
+
 		});
 	};
 
@@ -319,12 +353,20 @@ sportNgin.factory('changeTemplate', [
 	 * pdf controller and the home controller. It should live update the variable in both controllers.
 	 * essentially when a template is selected it changes the value of that template variable to true.
 	 * 
-	 * @return {[type]} [description]
+	 * @return
 	 */
 	service.props = {
-		template1: true,
-		template2: false,
-		activeTemplate: 'one'
+		template1			: true,
+		template2			: false,
+		activeTemplate		: 'one',
+		excludeFee  		: false,
+	 	excludeDeadline 	: false,
+	 	excludeGames  		: false,
+	 	excludeFirst 		: false,
+	 	excludeLast 		: false,
+	 	excludeEmail 		: false,
+	 	excludePhone 		: false,
+	 	excludeWebsite 		: false
 	};
 
 	service.prepForBroadcast = function() {
@@ -341,8 +383,92 @@ sportNgin.factory('changeTemplate', [
 		}
 	};
 
+	service.prepForBroadcast_FeeDisplay = function() {
+		if( service.props.excludeFee === false) {
+			service.props.excludeFee = true;
+			service.toggle_include();
+		} else {
+			service.props.excludeFee = false;
+			service.toggle_include();
+		}
+	};
+
+	service.prepForBroadcast_DeadlineDisplay = function() {
+		if( service.props.excludeDeadline === false) {
+			service.props.excludeDeadline = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeDeadline = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_GamesDisplay = function() {
+		if( service.props.excludeGames === false) {
+			service.props.excludeGames = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeGames = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_FirstNameDisplay = function() {
+		if( service.props.excludeFirst === false) {
+			service.props.excludeFirst = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeFirst = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_LastNameDisplay = function() {
+		if( service.props.excludeLast === false) {
+			service.props.excludeLast = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeLast = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_EmailDisplay = function() {
+		if( service.props.excludeEmail === false) {
+			service.props.excludeEmail = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeEmail = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_PhoneDisplay = function() {
+		if( service.props.excludePhone === false) {
+			service.props.excludePhone = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludePhone = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
+	service.prepForBroadcast_SiteDisplay = function() {
+		if( service.props.excludeWebsite === false) {
+			service.props.excludeWebsite = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeWebsite = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
 	service.changeTemplate = function() {
 		$rootScope.$broadcast('templateChange');
+	};
+
+	service.toggle_include = function() {
+		$rootScope.$broadcast('toggleInclude');
 	};
 
     return service;
@@ -360,17 +486,48 @@ sportNgin.controller('pdfCntrl', [
 	"SNjquery",
 	"changeTemplate", 
 	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate){
-
+		/**
+		 * Initial values for all scope Variables
+		 */
 		$scope.Model = $scope.Model || sportNginModel.getFormFields();
-
 		$scope.template1 = true;
 		$scope.template2 = false;
-
+		$scope.excludeFee = false; 		
+	 	$scope.excludeDeadline = false; 	
+	 	$scope.excludeGames = false; 	 		
+	 	$scope.excludeFirst = false; 			
+	 	$scope.excludeLast = false; 			
+	 	$scope.excludeEmail = false; 			
+	 	$scope.excludePhone = false; 			
+	 	$scope.excludeWebsite = false;
+	 	/**
+	 	 * Template Change Event Response to update Variables Cross Controller
+	 	 * @return {[type]}   updates the variables on this scope based on the values of the corresponding
+	 	 *                    values is the changeTemplate Service;
+	 	 */
 		$scope.$on('templateChange', function(){
 			$scope.template1 = changeTemplate.props.template1;
 			$scope.template2 = changeTemplate.props.template2;
 			$scope.Model.template = changeTemplate.props.activeTemplate;
-		})
+		});
+		/**
+	 	 * Toggle Event Response to update Variables Cross Controller
+	 	 * @return {[type]}   updates the variables on this scope based on the values of the corresponding
+	 	 *                    values is the changeTemplate Service;
+	 	 */
+		$scope.$on('toggleInclude', function(){
+	    	$scope.template1 = changeTemplate.props.template1;
+			$scope.template2 = changeTemplate.props.template2;
+			$scope.activeTemplate = changeTemplate.props.activeTemplate;
+			$scope.excludeFee = changeTemplate.props.excludeFee; 		
+		 	$scope.excludeDeadline = changeTemplate.props.excludeDeadline; 	
+		 	$scope.excludeGames = changeTemplate.props.excludeGames; 	 		
+		 	$scope.excludeFirst = changeTemplate.props.excludeFirst; 			
+		 	$scope.excludeLast = changeTemplate.props.excludeLast; 			
+		 	$scope.excludeEmail = changeTemplate.props.excludeEmail; 			
+		 	$scope.excludePhone = changeTemplate.props.excludePhone; 			
+		 	$scope.excludeWebsite = changeTemplate.props.excludeWebsite; 
+	    });
 }]);
 
 sportNgin.controller('homeCntrl', [ 
@@ -383,33 +540,68 @@ sportNgin.controller('homeCntrl', [
 	"$state",
 	"$timeout",
 	"SNjquery",
-	"changeTemplate",  
-	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate ){
+	"changeTemplate",
+	"$cookies",  
+	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate, $cookies ){
+	
 	/**
-	 * Set Model, template1, template2, and activeTemplate initial values
+	 * Initial values for all scope Variables
 	 */
 	$scope.Model = $scope.Model || sportNginModel.getFormFields();
-	// $scope.props = changeTemplate.getProps();
 	$scope.template1 = true;
 	$scope.template2 = false;
 	$scope.activeTemplate = '';
-
+	$scope.excludeFee = false; 		
+ 	$scope.excludeDeadline = false; 	
+ 	$scope.excludeGames = false; 	 		
+ 	$scope.excludeFirst = false; 			
+ 	$scope.excludeLast = false; 			
+ 	$scope.excludeEmail = false; 			
+ 	$scope.excludePhone = false; 			
+ 	$scope.excludeWebsite = false; 			
+ 	
+ 	/**
+ 	 * Template Change Event Response to update Variables Cross Controller
+ 	 * @return {[type]}   updates the variables on this scope based on the values of the corresponding
+ 	 *                    values is the changeTemplate Service;
+ 	 */
 	$scope.$on('templateChange', function() {
         $scope.template1 = changeTemplate.props.template1;
         $scope.template2 = changeTemplate.props.template2;
         $scope.Model.template = changeTemplate.props.activeTemplate;
+    });
+	
+	/**
+ 	 * Toggle Event Response to update Variables Cross Controller
+ 	 * @return {[type]}   updates the variables on this scope based on the values of the corresponding
+ 	 *                    values is the changeTemplate Service;
+ 	 */
+    $scope.$on('toggleInclude', function(){
+    	$scope.template1 = changeTemplate.props.template1;
+		$scope.template2 = changeTemplate.props.template2;
+		$scope.activeTemplate = changeTemplate.props.activeTemplate;
+		$scope.excludeFee = changeTemplate.props.excludeFee; 		
+	 	$scope.excludeDeadline = changeTemplate.props.excludeDeadline; 	
+	 	$scope.excludeGames = changeTemplate.props.excludeGames; 	 		
+	 	$scope.excludeFirst = changeTemplate.props.excludeFirst; 			
+	 	$scope.excludeLast = changeTemplate.props.excludeLast; 			
+	 	$scope.excludeEmail = changeTemplate.props.excludeEmail; 			
+	 	$scope.excludePhone = changeTemplate.props.excludePhone; 			
+	 	$scope.excludeWebsite = changeTemplate.props.excludeWebsite; 
+	 	$scope.Model.excludeFee = changeTemplate.props.excludeFee
+	 	$scope.Model.excludeDeadline = changeTemplate.props.excludeDeadline
+	 	$scope.Model.excludeGames = changeTemplate.props.excludeGames
+	 	$scope.Model.excludeFirst = changeTemplate.props.excludeFirst
+	 	$scope.Model.excludeLast = changeTemplate.props.excludeLast
+	 	$scope.Model.excludeEmail =	changeTemplate.props.excludeEmail	
+	 	$scope.Model.excludePhone =	changeTemplate.props.excludePhone
+	 	$scope.Model.excludeWebsite = changeTemplate.props.excludeWebsite
     });
 
 	/**
 	 * Initalize custom SportNgin Jquery
 	 */
 	SNjquery.init();
-
-	// $scope.$watch(function(){
-	// 	return $rootScope.activeTemplate;
-	// }, function() {
-	// 	$scope.activeTemplate = $rootScope.activeTemplate;
-	// }, true);
 
 	/**
 	 * nextStep function
@@ -452,17 +644,208 @@ sportNgin.controller('homeCntrl', [
 	 * and sends it to be processed and downloaded by the actual PDF templates
 	 * @return {php stdClass object} the return doesnt matter as the data is only being used one way
 	 */
-	
+	$scope.generatePdf = function() {
+		$scope.Model.userID = randomString( 10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+		$cookies.put('userID', $scope.Model.userID );
+		angular.element(document).ready(function() {
+			$( ".preloader-overlay" ).fadeIn("600");
+			setTimeout(function(){
+			 document.location='../sportNgin/download';
+			}, 600);
+		});
+		return html2pdf.convert($scope.Model);
+	}
+
+	$scope.test = function() {
+		$log.log($scope.Model);
+	}
+	/**
+	 * Random String Helper Function
+	 * @param  {integer} length Number of Characters you want the output string to be
+	 * @param  {string} chars  The string that containes the characters that the string will be generated from
+	 * @return {string}        randomized mixed string to help link the pdf and user
+	 */
 	function randomString(length, chars) {
 	    var result = '';
 	    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
 	    return result;
 	}
 
-	$scope.generatePdf = function() {
-		$scope.Model.userID = randomString( 10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-		return html2pdf.convert($scope.Model);
-	}
+	/**
+	 * Poster Field Toggle Functions	
+	 * @return {eventBroadcast} These functions are placed on the display checkboxes next to their
+	 *                          corresponding fields. When they are clicked they broadcast an event
+	 *                          from the changeTemplate Service, which updates it in poth the pdf scope
+	 *                          and the home scope.
+	 */
+	
+	/**
+	 * Fee Toggle
+	 */
+	$scope.feeToggle = function() {
+		changeTemplate.prepForBroadcast_FeeDisplay();
+	};
+	/**
+	 * Number of Games Toggle
+	 */
+	$scope.gamesToggle = function() {
+		changeTemplate.prepForBroadcast_GamesDisplay();
+	};
+	/**
+	 * Host First Name Toggle
+	 */
+	$scope.firstNameToggle = function() {
+		changeTemplate.prepForBroadcast_FirstNameDisplay();
+	};
+	/**
+	 * Host Last Name Toggle
+	 */
+	$scope.lastNameToggle = function() {
+		changeTemplate.prepForBroadcast_LastNameDisplay();
+	};
+	/**
+	 * Deadline Date Toggle
+	 */
+	$scope.deadlineToggle = function() {
+		changeTemplate.prepForBroadcast_DeadlineDisplay();
+	};
+	/**
+	 * Email Toggle
+	 */
+	$scope.emailToggle = function() {
+		changeTemplate.prepForBroadcast_EmailDisplay();
+	};
+	/**
+	 * Phone Toggle
+	 */
+	$scope.phoneToggle = function() {
+		changeTemplate.prepForBroadcast_PhoneDisplay();
+	};
+	/**
+	 * Website Toggle
+	 */
+	$scope.websiteToggle = function() {
+		changeTemplate.prepForBroadcast_SiteDisplay();
+	};
+
+	/**
+	 * Validation For each Individual State
+	 * @param  {string} newVal is the scope variable that is referenced in the watch group ie. Model.*
+	 * @return {boolean}        true or false based on the requirements set in the validation function
+	 *                          for that particular step.
+	 */
+	
+	/**
+	 * Your Info State Validation Check and Corresponding Watch Group
+	 */
+	var validateStep1 = function (newVal) {
+		
+		var fields = [
+    	'Model.firstName', 
+    	'Model.lastName', 
+    	'Model.personalEmail', 
+    	'Model.orgType', 
+    	'Model.role'];
+
+    	var invalidFields = [];
+    	
+        if (newVal.length > 0) {
+            for (var i = 0, l = newVal.length; i < l; i++) {
+                if (newVal[i] === undefined || newVal[i] === '') {
+                	invalidFields.push(fields[i]);
+                }
+            }
+            if (invalidFields.length > 0) {
+            	$log.log(invalidFields);
+            	return false;
+            }
+            return true;
+        }
+        return false;
+    };
+
+    $scope.$watchGroup([
+    	'Model.firstName', 
+    	'Model.lastName', 
+    	'Model.personalEmail', 
+    	'Model.orgType', 
+    	'Model.role'], function(newVal) {
+    	$scope.step1Valid = validateStep1(newVal);
+    });
+
+    /**
+	 * Tournament Info State Validation Check and Corresponding Watch Group
+	 */
+    var validateStep3 = function (newVal) {
+        if (newVal.length > 0) {
+            for (var i = 0, l = newVal.length; i < l; i++) {
+                if (newVal[i] === undefined || newVal[i] === '') {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    };
+
+    $scope.$watchGroup([
+    	'Model.tournamentName', 
+    	'Model.hostOrg', 
+    	'Model.city',
+    	'Model.state', 
+    	"Model.startDate", 
+    	"Model.endDate" ], function(newVal) {
+    	$scope.step3Valid = validateStep3(newVal);
+    });
+
+    /**
+	 * Tournament Description State Validation Check and Corresponding Watch Group
+	 */
+    var validateStep4 = function (newVal) {
+        if (newVal.length > 0) {
+            for (var i = 0, l = newVal.length; i < l; i++) {
+                if (newVal[i] === undefined || newVal[i] === '') {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    };
+
+    $scope.$watchGroup([
+    	'Model.description', 
+    	'Model.numOfTeams', 
+    	'Model.gameMin', 
+    	'Model.entryFee', 
+    	'Model.registerBy'], function(newVal) {
+    	$scope.step4Valid = validateStep4(newVal);
+    });
+
+    /**
+	 * Tournament Contact State Validation Check and Corresponding Watch Group
+	 */
+    var validateStep5 = function (newVal) {
+        if (newVal.length > 0) {
+            for (var i = 0, l = newVal.length; i < l; i++) {
+                if (newVal[i] === undefined || newVal[i] === '') {
+                	$log.log(newVal[i]);
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    };
+
+    $scope.$watchGroup([
+    	'Model.firstName', 
+    	'Model.lastName', 
+    	'Model.personalEmail', 
+    	'Model.orgType', 
+    	'Model.role'], function(newVal) {
+    	$scope.step1Valid = validateStep1(newVal);
+    });
 
 }]);
 
