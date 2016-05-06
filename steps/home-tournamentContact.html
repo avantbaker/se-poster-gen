@@ -2,7 +2,7 @@
 	<h4>Tournament Contact Information</h4>
 </div>
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid5.dirFirstName == false}">
 		<label for="director_first">Director First Name</label>
 		<input ng-model="Model.dirFirstName" id="director_first" name="director_first" type="text" tabindex="1" />
 		<span class="error-message">Enter Director's first name</span>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="gen-formrow">										
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid5.dirLastName == false}">
 		<label for="director_last">Director Last Name</label>
 		<input ng-model="Model.dirLastName" id="director_last" name="director_last" type="text" tabindex="3" />
 		<span class="error-message">Enter Director's last name</span>
@@ -26,7 +26,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid5.tEmail == false}">
 		<label for="tournament_email">Tournament Email</label>
 		<input ng-model="Model.tEmail" id="tournament_email" name="tournament_email" type="email" tabindex="5" />
 		<span class="error-message">Enter valid Tournament email</span>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid5.tphone == false}">
 		<label for="tournament_phone">Tournament Phone</label>
 		<input ng-model="Model.tphone" id="tournament_phone" name="tournament_phone" type="tel" tabindex="7" />
 		<span class="error-message">Enter Tournament phone number</span>
@@ -50,7 +50,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid5.twebsiteName == false}">
 		<label for="tournament_website">Tournament Website</label>
 		<input ng-model="Model.twebsiteName" id="tournament_website" name="tournament_website" type="text" tabindex="9" />
 		<span class="error-message">Enter Tournament website</span>
@@ -63,6 +63,6 @@
 
 <div class="gen-formrow">
 	<div class="gen-button">
-		<a id="approval-trigger" class="button full">Generate Poster</a>
+		<a id="approval-trigger" class="button full" ng-click="nextStep()">Generate Poster</a>
 	</div>
 </div>

@@ -253,36 +253,6 @@ sportNgin.factory('SNjquery', function(){
 
 			var windowWidth = $(window).width();
 			if(windowWidth > 900){
-				$( '#approval-trigger' ).on('click', function(e) {
-				    e.preventDefault();
-				    var offsetY = window.pageYOffset
-				    var posterWidth = $( '.poster-canvas' ).outerWidth();
-					$( "body" ).css({'top': -offsetY + 'px'});
-				    $( "body, html" ).addClass("no-scroll");
-				    $( ".poster-canvas").css('width', posterWidth + "px");
-				    setTimeout(function(){
-					   $( "body" ).addClass("approval-state"); 
-				    }, 100);
-				    setTimeout(function(){
-					   var posterHeight = $( '.poster-canvas' ).outerHeight();
-					   $( ".approval-inner").css('min-height', posterHeight + "px");
-					}, 400);
-				});
-			} else {
-				$( '#approval-trigger' ).on('click', function(e) {
-				    e.preventDefault();
-				    var offsetY = window.pageYOffset
-				    $( ".poster-preview-toggle" ).addClass("stuck");
-				    $( "body" ).css({'top': -offsetY + 'px'});
-				    $( "body, html" ).addClass("no-scroll");
-				    setTimeout(function(){
-					   $( "body" ).addClass("approval-state"); 
-				    }, 100);
-				});
-			}
-
-			var windowWidth = $(window).width();
-			if(windowWidth > 900){
 				$( '#approval-close' ).on('click', function(e) {
 				    e.preventDefault();
 				    var x = $('body').css('top');
@@ -616,11 +586,63 @@ sportNgin.controller('homeCntrl', [
 		if (current == 'templateSelect') {
 			$state.go('tournamentInfo', {template: $scope.activeTemplate}, true);
 		} else if ( current == 'tournamentInfo') {
-			$state.go('tournamentDescription', {template: $scope.activeTemplate}, true);
+			var fieldValues = _.values($scope.updated3IF);
+			if ( _.contains(fieldValues, false) ) {
+				$scope.invalid3 = $scope.updated3IF;
+			} else {
+				$state.go('tournamentDescription', {template: $scope.activeTemplate}, true);
+			}
 		} else if ( current == 'tournamentDescription') {
-			$state.go('tournamentContact', {template: $scope.activeTemplate}, true);
+			var fieldValues = _.values($scope.updated4IF);
+			if ( _.contains(fieldValues, false) ) {
+				$scope.invalid4 = $scope.updated4IF;
+			} else {
+				$state.go('tournamentContact', {template: $scope.activeTemplate}, true);
+			}
 		} else if ( current == 'info') {
-			$state.go('templateSelect', {template: $scope.activeTemplate}, true);
+			var fieldValues = _.values($scope.updated1IF);
+			if ( _.contains(fieldValues, false) ) {
+				$scope.invalid1 = $scope.updated1IF;
+			} else {
+				$state.go('templateSelect', {template: $scope.activeTemplate}, true);
+			}
+		} else if (current == 'tournamentContact') {
+			var fieldValues = _.values($scope.updated5IF);
+			if ( _.contains(fieldValues, false) ) {
+				$scope.invalid5 = $scope.updated5IF;
+			} else {
+				angular.element(document).ready(function(){
+					var windowWidth = $(window).width();
+					if(windowWidth > 900){
+							$( '#approval-trigger' ).on('click', function(e) {
+						    e.preventDefault();
+						    var offsetY = window.pageYOffset
+						    var posterWidth = $( '.poster-canvas' ).outerWidth();
+							$( "body" ).css({'top': -offsetY + 'px'});
+						    $( "body, html" ).addClass("no-scroll");
+						    $( ".poster-canvas").css('width', posterWidth + "px");
+						    setTimeout(function(){
+							   $( "body" ).addClass("approval-state"); 
+						    }, 100);
+						    setTimeout(function(){
+							   var posterHeight = $( '.poster-canvas' ).outerHeight();
+							   $( ".approval-inner").css('min-height', posterHeight + "px");
+							}, 400);
+						});
+					} else {
+						$( '#approval-trigger' ).on('click', function(e) {
+						    e.preventDefault();
+						    var offsetY = window.pageYOffset
+						    $( ".poster-preview-toggle" ).addClass("stuck");
+						    $( "body" ).css({'top': -offsetY + 'px'});
+						    $( "body, html" ).addClass("no-scroll");
+						    setTimeout(function(){
+							   $( "body" ).addClass("approval-state"); 
+						    }, 100);
+						});
+					}
+				});
+			}
 		}
 	};
 
@@ -735,28 +757,50 @@ sportNgin.controller('homeCntrl', [
 	 *                          for that particular step.
 	 */
 	
+
+    $scope.invalid1 = {};
+    $scope.invalid3 = {};
+    $scope.invalid4 = {};
+    $scope.invalid5 = {};
+    $scope.step1Fields = [
+    	'firstName', 
+    	'lastName', 
+    	'personalEmail', 
+    	'orgType', 
+    	'role'];
+    $scope.step3Fields = [
+    	'tournamentName', 
+    	'hostOrg', 
+    	'city',
+    	'state', 
+    	"startDate", 
+    	"endDate" ];
+    $scope.step4Fields =  [
+    	'description', 
+    	'numOfTeams', 
+    	'gameMin', 
+    	'entryFee', 
+    	'registerBy'];
+    $scope.step5Fields =  [
+    	'dirFirstName', 
+    	'dirLastName', 
+    	'tEmail', 
+    	'tphone', 
+    	'twebsiteName'];
 	/**
 	 * Your Info State Validation Check and Corresponding Watch Group
 	 */
 	var validateStep1 = function (newVal) {
-		
-		var fields = [
-    	'Model.firstName', 
-    	'Model.lastName', 
-    	'Model.personalEmail', 
-    	'Model.orgType', 
-    	'Model.role'];
-
     	var invalidFields = [];
     	
         if (newVal.length > 0) {
             for (var i = 0, l = newVal.length; i < l; i++) {
                 if (newVal[i] === undefined || newVal[i] === '') {
-                	invalidFields.push(fields[i]);
+                	invalidFields.push($scope.step1Fields[i]);
                 }
             }
-            if (invalidFields.length > 0) {
-            	$log.log(invalidFields);
+            if (invalidFields.length >= 0) {
+            	$scope.step1IF = invalidFields;
             	return false;
             }
             return true;
@@ -770,18 +814,42 @@ sportNgin.controller('homeCntrl', [
     	'Model.personalEmail', 
     	'Model.orgType', 
     	'Model.role'], function(newVal) {
+
     	$scope.step1Valid = validateStep1(newVal);
+
+    	for (var key in $scope.Model) {
+    		if($scope.Model.hasOwnProperty(key)){
+				for (var i = 0; i < $scope.step1IF.length + 1; i++) {
+    				if( key == $scope.step1IF[i]){
+    					$scope.invalid1[key] = undefined;
+    				} 
+    			}
+    		}
+    	}
+
+	    var difference = _.difference($scope.step1Fields, $scope.step1IF);
+
+	    $scope.updated1IF = _.mapObject($scope.invalid1, function(val, key){
+	    	return _.contains(difference, key);
+    	});
     });
+
 
     /**
 	 * Tournament Info State Validation Check and Corresponding Watch Group
 	 */
     var validateStep3 = function (newVal) {
+        var invalidFields = [];
+    	
         if (newVal.length > 0) {
             for (var i = 0, l = newVal.length; i < l; i++) {
                 if (newVal[i] === undefined || newVal[i] === '') {
-                    return false;
+                	invalidFields.push($scope.step3Fields[i]);
                 }
+            }
+            if (invalidFields.length >= 0) {
+            	$scope.step3IF = invalidFields;
+            	return false;
             }
             return true;
         }
@@ -796,17 +864,41 @@ sportNgin.controller('homeCntrl', [
     	"Model.startDate", 
     	"Model.endDate" ], function(newVal) {
     	$scope.step3Valid = validateStep3(newVal);
+
+    	for (var key in $scope.Model) {
+    		if($scope.Model.hasOwnProperty(key)){
+				for (var i = 0; i < $scope.step3IF.length + 1; i++) {
+    				if( key == $scope.step3IF[i]){
+    					$scope.invalid3[key] = undefined;
+    				} 
+    			}
+    		}
+    	}
+
+	    var difference = _.difference($scope.step3Fields, $scope.step3IF);
+
+	    $scope.updated3IF = _.mapObject($scope.invalid3, function(val, key){
+	    	return _.contains(difference, key);
+    	});
+
+    	$log.log($scope.updated3IF);
     });
 
     /**
 	 * Tournament Description State Validation Check and Corresponding Watch Group
 	 */
     var validateStep4 = function (newVal) {
+        var invalidFields = [];
+    	
         if (newVal.length > 0) {
             for (var i = 0, l = newVal.length; i < l; i++) {
                 if (newVal[i] === undefined || newVal[i] === '') {
-                    return false;
+                	invalidFields.push($scope.step4Fields[i]);
                 }
+            }
+            if (invalidFields.length >= 0) {
+            	$scope.step4IF = invalidFields;
+            	return false;
             }
             return true;
         }
@@ -819,19 +911,42 @@ sportNgin.controller('homeCntrl', [
     	'Model.gameMin', 
     	'Model.entryFee', 
     	'Model.registerBy'], function(newVal) {
+    	
     	$scope.step4Valid = validateStep4(newVal);
+
+    	for (var key in $scope.Model) {
+    		if($scope.Model.hasOwnProperty(key)){
+				for (var i = 0; i < $scope.step4IF.length + 1; i++) {
+    				if( key == $scope.step4IF[i]){
+    					$scope.invalid4[key] = undefined;
+    				} 
+    			}
+    		}
+    	}
+
+	    var difference = _.difference($scope.step4Fields, $scope.step4IF);
+
+	    $scope.updated4IF = _.mapObject($scope.invalid4, function(val, key){
+	    	return _.contains(difference, key);
+    	});
+
     });
 
     /**
 	 * Tournament Contact State Validation Check and Corresponding Watch Group
 	 */
     var validateStep5 = function (newVal) {
+        var invalidFields = [];
+    	
         if (newVal.length > 0) {
             for (var i = 0, l = newVal.length; i < l; i++) {
                 if (newVal[i] === undefined || newVal[i] === '') {
-                	$log.log(newVal[i]);
-                    return false;
+                	invalidFields.push($scope.step5Fields[i]);
                 }
+            }
+            if (invalidFields.length >= 0) {
+            	$scope.step5IF = invalidFields;
+            	return false;
             }
             return true;
         }
@@ -839,12 +954,29 @@ sportNgin.controller('homeCntrl', [
     };
 
     $scope.$watchGroup([
-    	'Model.firstName', 
-    	'Model.lastName', 
-    	'Model.personalEmail', 
-    	'Model.orgType', 
-    	'Model.role'], function(newVal) {
-    	$scope.step1Valid = validateStep1(newVal);
+    	'Model.dirFirstName', 
+    	'Model.dirLastName', 
+    	'Model.tEmail', 
+    	'Model.tphone', 
+    	'Model.twebsiteName'], function(newVal) {
+    	$scope.step5Valid = validateStep5(newVal);
+
+    	for (var key in $scope.Model) {
+    		if($scope.Model.hasOwnProperty(key)){
+				for (var i = 0; i < $scope.step5IF.length + 1; i++) {
+    				if( key == $scope.step5IF[i]){
+    					$scope.invalid5[key] = undefined;
+    				} 
+    			}
+    		}
+    	}
+
+	    var difference = _.difference($scope.step5Fields, $scope.step5IF);
+
+	    $scope.updated5IF = _.mapObject($scope.invalid5, function(val, key){
+	    	return _.contains(difference, key);
+    	});
+    	$log.log($scope.updated5IF)
     });
 
 }]);

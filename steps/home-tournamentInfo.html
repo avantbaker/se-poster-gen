@@ -2,7 +2,7 @@
 	<h4>Basic Tournament Information</h4>
 </div>
 <div class="gen-formrow">
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid3.tournamentName == false}">
 		<label for="tournament_name">Tournament Name</label>
 		<input 
 			ng-model="Model.tournamentName" 
@@ -13,7 +13,7 @@
 			/>
 		<span class="error-message">Enter tournament name</span>
 	</div>								
-	<div class="gen-formfield right required">
+	<div class="gen-formfield right required" ng-class="{'error': invalid3.hostOrg == false}">
 		<label for="host_organization">Host Organization</label>
 		<input 
 			ng-model="Model.hostOrg" 
@@ -27,7 +27,7 @@
 </div>
 
 <div class="gen-formrow">										
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid3.city == false}">
 		<label for="tournament_city">Tournament City</label>
 		<input 
 			ng-model="Model.city" 
@@ -38,7 +38,7 @@
 			/>
 		<span class="error-message">Enter tournament city</span>
 	</div>									
-	<div class="gen-formfield right required">
+	<div class="gen-formfield right required" ng-class="{'error': invalid3.state == false}">
 		<label for="tournament_state">Tournament State</label>
 		<input 
 			ng-model="Model.state" 
@@ -52,7 +52,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid3.startDate == false}">
 		<label for="start_date">Start Date</label>
 		<input 
 			ng-model="Model.startDate" 
@@ -66,7 +66,7 @@
 			 />
 		<span class="error-message">Enter start date</span>
 	</div>									
-	<div class="gen-formfield right required">
+	<div class="gen-formfield right required" ng-class="{'error': invalid3.endDate == false}">
 		<label for="end_date">End Date</label>
 		<input 
 			ng-model="Model.endDate" 
@@ -84,6 +84,6 @@
 
 <div class="gen-formrow">
 	<div class="gen-button">
-		<button class="button full next-step" ng-click="nextStep()" ng-disabled="!step3Valid">Next Step</button>
+		<button class="button full next-step" ng-click="nextStep()">Next Step</button>
 	</div>
 </div>

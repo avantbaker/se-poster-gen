@@ -297,6 +297,17 @@ $this->fontdata = array(
 		'R' => "UnBatang_0613.ttf",
 		),
 
+/* Vert Added Fonts */
+	"oswald" => array(
+		'R' => "Oswald-Regular.ttf",
+		'B' => "Oswald-Bold.ttf",
+		'I' => "Oswald-Light.ttf"
+		),
+	"titillium" => array(
+		'R' => "TitilliumWeb-Regular.ttf",
+		'B' => "TitilliumWeb-Bold.ttf",
+		'I' => "TitilliumWeb-Light.ttf"
+		),
 
 );
 

@@ -2,7 +2,7 @@
 	<h4>Tournament Description</h4>
 </div>
 <div class="gen-formrow">
-	<div class="gen-formfield fullfield required">
+	<div class="gen-formfield fullfield required" ng-class="{'error': invalid4.description == false}">
 		<label for="tournament_city">Tournament Description</label>
 		<textarea 
 			ng-model="Model.description" 
@@ -13,7 +13,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid4.numOfTeams == false}">
 		<label for="team_number">Number of Teams</label>
 		<input 
 			ng-model="Model.numOfTeams" 
@@ -34,7 +34,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid4.gameMin == false}">
 		<label for="minimum_games">Minimum Games</label>
 		<input 
 			ng-model="Model.gameMin" 
@@ -56,7 +56,7 @@
 </div>
 
 <div class="gen-formrow">										
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid4.entryFee == false}">
 		<label for="entry_fee">Entry Fee</label>
 		<input 
 		ng-model="Model.entryFee" 
@@ -78,7 +78,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield field-check primary required">
+	<div class="gen-formfield field-check primary required" ng-class="{'error': invalid4.registerBy == false}"> 
 		<label for="entry_deadline">Entry Deadline</label>
 		<input 
 			ng-model="Model.registerBy" 
@@ -105,6 +105,6 @@
 
 <div class="gen-formrow">
 	<div class="gen-button">
-		<button class="button full next-step" ng-click="nextStep()" ng-disabled="!step4Valid">Next Step</button>
+		<button class="button full next-step" ng-click="nextStep()">Next Step</button>
 	</div>
 </div>
