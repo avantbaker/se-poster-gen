@@ -1,37 +1,43 @@
 <?php
 
+//==============================================================
+//=========         SPORT NGIN TEMPLATE TWO           ==========
+//==============================================================
+
 $request = json_decode( file_get_contents("php://input"), false );
 
-$excSite 		= $request->excludeWebsite;
-$excPhone 		= $request->excludePhone;
-$excLast 		= $request->excludeLast;
-$excGames 		= $request->excludeGames;
-$excFirst 		= $request->excludeFirst;
-$excFee 		= $request->excludeFee;
-$excEmail 		= $request->excludeEmail;
+require_once('date-conversion.php');
 
-$hostOrg 				= $request->hostOrg;
-$tournamentName 		= $request->tournamentName;	
-$city 					= $request->city;	
-$state 					= $request->state;	
-$startDate 				= $request->startDate;	
-$endDate 				= $request->endDate;	
+$excSite 				= $request->excludeWebsite;
+$excPhone 				= $request->excludePhone;
+$excLast 				= $request->excludeLast;
+$excGames 				= $request->excludeGames;
+$excFirst 				= $request->excludeFirst;
+$excFee 				= $request->excludeFee;
+$excEmail 				= $request->excludeEmail;
+
+$hostOrg 				= strtoupper($request->hostOrg);
+$tournamentName 		= strtoupper($request->tournamentName);	
+$city 					= strtoupper($request->city);	
+$state 					= strtoupper($request->state);	
+$startDate 				= formatDate($request->startDate); 	
+$endDate 				= formatDate($request->endDate);
 $description 			= $request->description;	
-$teams 					= $request->numOfTeams;	
+$teams 					= strtoupper($request->numOfTeams);	
 $gameMin 				= $request->gameMin;	
-$register 				= $request->registerBy;	
+$register 				= formatDate($request->registerBy);	
 $entry 					= $request->entryFee;	
-$website 				= $request->twebsiteName;	
-$dirFName 				= $request->dirFirstName;	
-$dirLName 				= $request->dirLastName;	
-$email 					= $request->tEmail;	
-$phone 					= $request->tPhone;	
+$website 				= strtoupper($request->twebsiteName);	
+$dirFName 				= strtoupper($request->dirFirstName);	
+$dirLName 				= strtoupper($request->dirLastName);	
+$email 					= strtoupper($request->tEmail);	
+$phone 					= $request->tphone;	
 $cookie 				= $request->userID;
 
 $html = "
 <style>
 	body {
-		background-image: url(../assets/img/soccer-template-one.jpg);
+		background-image: url(../assets/img/soccer-template-two.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
@@ -47,7 +53,7 @@ $html = "
 
 	div.host-name {
 	  position: fixed;
-      color: #fbb03b;
+      color: black;
       font-weight: 700;
       font-size: 1.5em;
       padding-bottom: 200px;
@@ -57,12 +63,12 @@ $html = "
       bottom: 62%;
       font-weight: 700;
       font-size: 3.25em; 
-      color: white;
+      color: #81151e;
  	}
 
     div.date-and-location {
       top: 40%;
-      color: #fbb03b;
+      color: black;
       font-weight: 700;
       font-size: 1.5em; 
   	}
@@ -75,13 +81,14 @@ $html = "
     div.tournament-description {
 	    position: fixed;
 	    padding-top: 40px;
-	    color: white;
+	    color: black;
     }
     span.tournament-teams,
     span.tournament-minimum-games,
     span.tournament-details .tournament-deadline,
     span.tournament-details .tournament-fee {
-        color: #fbb03b; 
+        color: black;
+        font-weight: 500; 
     }
     span.tournament-contact {
       bottom: 10%;
@@ -91,20 +98,21 @@ $html = "
     width: 100%;
     padding-bottom: 2%;
     font-size: 1.75em; 
-    color: white;
+    color: #81151e;
    	}
     div.tournament-contact .contact-information {
-        color: #fbb03b;
+        color: black;
         font-size: 1em; 
     }
 
     span.tournament-deadline,
     span.tournament-fee {
-    	color: white;
+    	color: black;
+    	font-weight: 700;
     }
 
 </style>
-<body style='background-image: url(../assets/img/soccer-template-one.jpg);
+<body style='background-image: url(../assets/img/soccer-template-two.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
@@ -134,7 +142,7 @@ $html = "
 					<div class='template-element tournament-contact'>";
 					
 if ($excSite === false) :
-	$html .= "<span class='tourna ment-website'>{$website}</span>";
+	$html .= "<span class='tournament-website'>{$website}</span>";
 endif;
 
 						$html .= "<br />

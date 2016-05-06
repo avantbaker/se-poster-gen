@@ -2,7 +2,7 @@
 	<h4>Your Information</h4>
 </div>
 <div class="gen-formrow">
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid1.firstName == false}">
 		<label for="first_name">First Name</label>
 		<input 
 			ng-model="Model.firstName" 
@@ -13,7 +13,7 @@
 			ng-required="true" />
 		<span class="error-message">Enter your first name</span>
 	</div>								
-	<div class="gen-formfield right required">
+	<div class="gen-formfield right required" ng-class="{'error': invalid1.lastName == false}">
 		<label for="last_name">Last Name</label>
 		<input 
 			ng-model="Model.lastName" 
@@ -27,7 +27,7 @@
 </div>
 
 <div class="gen-formrow">										
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid1.personalEmail == false}">
 		<label for="email">Email</label>
 		<input 
 			ng-model="Model.personalEmail" 
@@ -51,7 +51,7 @@
 </div>
 
 <div class="gen-formrow">
-	<div class="gen-formfield left required">
+	<div class="gen-formfield left required" ng-class="{'error': invalid1.orgType == false}">
 		<label for="org-type">Organization Type</label>
 		<select 
 			ng-model="Model.orgType" 
@@ -82,7 +82,7 @@
 		</select>
 		<span class="error-message">Select your organization type</span>
 	</div>										
-	<div class="gen-formfield right required">
+	<div class="gen-formfield right required" ng-class="{'error': invalid1.role == false}">
 		<label for="role">Role</label>
 		<select 
 			ng-model="Model.role" 
@@ -90,7 +90,27 @@
 			name="role" 
 			tabindex="6" >
 			<option value="">Select Role</option>
-			<option value="1">Make Valid</option>
+			<option value="President">President</option>
+			<option value="Vice President">Vice President</option>
+			<option value="Director">Director</option>
+			<option value="Secretary">Secretary</option>
+			<option value="Registrar">Registrar</option>
+			<option value="Treasurer">Treasurer</option>
+			<option value="Other Board Member">Other Board Member</option>
+			<option value="Webmaster">Webmaster</option>
+			<option value="Risk Manager">Risk Manager</option>
+			<option value="Volunteer Coordinator">Volunteer Coordinator</option>
+			<option value="Fundraising Coordinator">Fundraising Coordinator</option>
+			<option value="Director of Coaching">Director of Coaching</option>
+			<option value="Tournament/Event Director">Tournament/Event Director</option>
+			<option value="Field/Rink/Court Scheduler">Field/Rink/Court Scheduler</option>
+			<option value="Camp/Clinic Owner">Camp/Clinic Owner</option>
+			<option value="Facility Manager">Facility Manager</option>
+			<option value="Athletic Director">Athletic Director</option>
+			<option value="Assistant Athletic Director">Assistant Athletic Director</option>
+			<option value="Coach">Coach</option>
+			<option value="Trainer">Trainer</option>
+			<option value="Other">Other</option>
 		</select>
 		<span class="error-message">Select your role</span>
 	</div>
@@ -99,8 +119,7 @@
 <div class="gen-formrow">
 	<div class="gen-button">
 		<button 
-			class="button full next-step" 
-			ng-disabled="!step1Valid" 
+			class="button full next-step"
 			ng-click="nextStep()">Next Step</button>
 	</div>
 </div>
