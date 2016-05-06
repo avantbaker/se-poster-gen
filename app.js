@@ -303,8 +303,6 @@ sportNgin.factory('SNjquery', function(){
 			    }, 100);
 			});
 
-
-
 		});
 	};
 

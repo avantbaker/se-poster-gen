@@ -16,6 +16,7 @@
 // Color
 $gold: #fbb03b;
 $red: #81151e;
+$green: #83bf23;
 
 // Fonts
 $template-one-body: 'Titillium Web', sans-serif;
@@ -33,22 +34,22 @@ $template-one-header: 'Oswald', sans-serif;
 // 3. PAGE STYLES
 // //////////////////////////
 .poster-builder-hero {
-	background: url('../assets/img/sn-tourney-builder-hero-soccer.jpg') no-repeat top center;
+	background: url('../assets/img/sn-tourney-builder-hero-baseball.jpg') no-repeat top center;
 	background-size: cover;
 }
 
 footer {
-	background: url('../assets/img/sn-tourney-builder-footer-soccer.jpg') no-repeat center center;
+	background: url('../assets/img/sn-tourney-builder-footer-baseball.jpg') no-repeat center center;
 	background-size: cover;
 }
 
 .template-selector {
 	.template-trigger-one {
-		background: url('../assets/img/soccer-template-one.jpg') no-repeat center center;
+		background: url('../assets/img/baseball-template-one_SCREEN.jpg') no-repeat center center;
 		background-size: contain;
 	}
 	.template-trigger-two {
-		background: url('../assets/img/soccer-template-two.jpg') no-repeat center center;
+		background: url('../assets/img/baseball-template-two_SCREEN.jpg') no-repeat center center;
 		background-size: contain;
 	}
 }
@@ -58,7 +59,7 @@ footer {
 // 4. POSTER TEMPLATE ONE
 // //////////////////////////
 .poster-canvas.template-one {
-	background: url('../assets/img/soccer-template-one.jpg') no-repeat center center;
+	background: url('../assets/img/baseball-template-one_SCREEN.jpg') no-repeat center center;
 	background-size: contain;
 	font-family: $template-one-body;
 	color: #fff;
@@ -134,10 +135,10 @@ footer {
 // //////////////////////////
 
 .poster-canvas.template-two {
-	background: url('../assets/img/soccer-template-two.jpg') no-repeat center center;
+	background: url('../assets/img/baseball-template-two_SCREEN.jpg') no-repeat center center;
 	background-size: contain;
 	font-family: $template-one-body;
-	color: #23282b;
+	color: #ffffff;
 	text-align: center;
 	text-transform: uppercase;
 	.template-wrapper {
@@ -158,7 +159,7 @@ footer {
 		&.tournament-name {
 			bottom: 76%;
 			font-family: $template-one-header;
-			color: $red;
+			color: $green;
 			font-weight: 700;
 			font-size: 3.25em;
 		}
@@ -193,7 +194,7 @@ footer {
 				width: 100%;
 				padding-bottom: 2%;
 				font-family: $template-one-header;
-				color: $red;
+				color: $green;
 				font-size: 1.75em;
 			}
 			.contact-information {

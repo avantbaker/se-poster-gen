@@ -1,20 +1,21 @@
 .poster-builder-hero {
-  background: url("../assets/img/sn-tourney-builder-hero-soccer.jpg") no-repeat top center;
+  background: url("../assets/img/sn-tourney-builder-hero-baseball.jpg") no-repeat top center;
   background-size: cover; }
 
 footer {
-  background: url("../assets/img/sn-tourney-builder-footer-soccer.jpg") no-repeat center center;
+  background: url("../assets/img/sn-tourney-builder-footer-baseball.jpg") no-repeat center center;
   background-size: cover; }
 
 .template-selector .template-trigger-one {
-  background: url("../assets/img/soccer-template-one.jpg") no-repeat center center;
+  background: url("../assets/img/baseball-template-one_SCREEN.jpg") no-repeat center center;
   background-size: contain; }
+
 .template-selector .template-trigger-two {
-  background: url("../assets/img/soccer-template-two.jpg") no-repeat center center;
+  background: url("../assets/img/baseball-template-two_SCREEN.jpg") no-repeat center center;
   background-size: contain; }
 
 .poster-canvas.template-one {
-  background: url("../assets/img/soccer-template-one.jpg") no-repeat center center;
+  background: url("../assets/img/baseball-template-one_SCREEN.jpg") no-repeat center center;
   background-size: contain;
   font-family: "Titillium Web", sans-serif;
   color: #fff;
@@ -74,10 +75,10 @@ footer {
         font-size: 1em; }
 
 .poster-canvas.template-two {
-  background: url("../assets/img/soccer-template-two.jpg") no-repeat center center;
+  background: url("../assets/img/baseball-template-two_SCREEN.jpg") no-repeat center center;
   background-size: contain;
   font-family: "Titillium Web", sans-serif;
-  color: #23282b;
+  color: #ffffff;
   text-align: center;
   text-transform: uppercase; }
   .poster-canvas.template-two .template-wrapper {
@@ -96,7 +97,7 @@ footer {
     .poster-canvas.template-two .template-element.tournament-name {
       bottom: 76%;
       font-family: "Oswald", sans-serif;
-      color: #81151e;
+      color: #83bf23;
       font-weight: 700;
       font-size: 3.25em; }
     .poster-canvas.template-two .template-element.date-and-location {
@@ -126,9 +127,7 @@ footer {
         width: 100%;
         padding-bottom: 2%;
         font-family: "Oswald", sans-serif;
-        color: #81151e;
+        color: #83bf23;
         font-size: 1.75em; }
       .poster-canvas.template-two .template-element.tournament-contact .contact-information {
         font-size: 1em; }
-
-/*# sourceMappingURL=sport-ngin-tournament-poster_baseball-poster.css.map */

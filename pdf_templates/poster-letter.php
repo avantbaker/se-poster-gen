@@ -37,7 +37,7 @@ $cookie 				= $request->userID;
 $html = "
 <style>
 	body {
-		background-image: url(../assets/img/soccer-template-one.jpg);
+		background-image: url(../assets/img/baseball-template-one_SCREEN.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
@@ -57,6 +57,7 @@ $html = "
       font-weight: 700;
       font-size: 1.5em;
       padding-bottom: 200px;
+      font-family: titillium;
   	}
 	
 	div.tournament-name {
@@ -64,13 +65,13 @@ $html = "
       font-weight: 700;
       font-size: 3.25em; 
       color: white;
-      font-family: oswaldB;
+      font-family: oswald;
  	}
 
     div.date-and-location {
       top: 40%;
       color: #fbb03b;
-      font-family: titilliumB
+      font-family: titillium;
       font-size: 1.5em; 
   	}
     div.tournament-details {
@@ -89,7 +90,7 @@ $html = "
     span.tournament-details .tournament-deadline,
     span.tournament-details .tournament-fee {
         color: #fbb03b;
-        font-family: oswaldB; 
+        font-family: oswald; 
     }
     span.tournament-contact {
       bottom: 10%;
@@ -103,7 +104,7 @@ $html = "
    	}
 
    	div.tournament-website {
-   		font-family: oswaldB;
+   		font-family: oswald;
    	}
     div.tournament-contact .contact-information {
         color: #fbb03b;
@@ -116,7 +117,7 @@ $html = "
     }
 
 </style>
-<body style='background-image: url(../assets/img/soccer-template-one.jpg);
+<body style='background-image: url(../assets/img/baseball-template-one_SCREEN.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
