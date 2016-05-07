@@ -1146,6 +1146,11 @@ button,
   button.spaced,
   .button.spaced {
     margin: 0 2px; }
+    @media all and (max-width: 480px) {
+      input[type=submit].spaced,
+      button.spaced,
+      .button.spaced {
+        margin: 6px 0; } }
   input[type=submit].next-step,
   button.next-step,
   .button.next-step {
@@ -1284,6 +1289,13 @@ button,
     .button.outline-button:focus {
       background: #13aa37;
       color: #fff; }
+    @media all and (max-width: 480px) {
+      input[type=submit].outline-button,
+      button.outline-button,
+      .button.outline-button {
+        width: 100%;
+        height: 40px;
+        line-height: 38px; } }
 
 .no-svg input[type=submit].next-step:after,
 .no-svg button.next-step:after,
@@ -1896,9 +1908,20 @@ footer {
   padding: 24px 8px;
   background: #fff;
   border-bottom: 1px solid #c3cace; }
+  @media all and (max-width: 900px) {
+    .download-row {
+      display: block;
+      background: #f2f3f4;
+      background: rgba(242, 243, 244, 0.6);
+      border: 1px solid #c3cace;
+      margin-bottom: 15px; } }
   .download-row.header {
     border-bottom: 2px solid #c3cace;
     padding-top: 12px; }
+    @media all and (max-width: 900px) {
+      .download-row.header {
+        background: #fff;
+        border: 0; } }
     .download-row.header p {
       margin: 0; }
   .download-row.action-list {
@@ -1914,15 +1937,31 @@ footer {
     display: table-cell;
     float: none;
     vertical-align: middle; }
+    @media all and (max-width: 900px) {
+      .download-row .col {
+        display: block;
+        text-align: center;
+        padding: 15px 0; } }
     .download-row .col.button-col {
       text-align: right; }
+      @media all and (max-width: 900px) {
+        .download-row .col.button-col {
+          text-align: center; } }
     .download-row .col.bottom {
       vertical-align: bottom; }
+      @media all and (max-width: 900px) {
+        .download-row .col.bottom {
+          vertical-align: initial;
+          padding: 0 0 0 15px; } }
 
 .download-callout {
   background: #f2f3f4;
   padding: 24px;
   margin: 12px 0 0 0; }
+  @media all and (max-width: 900px) {
+    .download-callout {
+      background: #fff;
+      text-align: center; } }
 
 .hide {
   display: none !important; }

@@ -800,6 +800,9 @@ button,
 	}
 	&.spaced {
 		margin: 0 2px;
+		@include mobile-medium {
+			margin: 6px 0;
+		}
 	}
 	&.next-step {
 		@include gray-button;
@@ -885,6 +888,11 @@ button,
 		&:focus {
 			background: $green;
 			color: #fff;
+		}
+		@include mobile-medium {
+			width: 100%;
+			height: 40px;
+			line-height: 38px;
 		}
 	}
 }
@@ -1473,9 +1481,19 @@ footer {
 	padding: $padding-standard 8px;
 	background: #fff;
 	border-bottom: 1px solid $ltgray;
+	@include vertical {
+		display: block;
+		@include background-opacity($offwhite, 0.6);
+		border: 1px solid $ltgray;
+		margin-bottom: 15px;
+	}
 	&.header {
 		border-bottom: 2px solid $ltgray;
 		padding-top: 12px;
+		@include vertical {
+			background: #fff;
+			border: 0;
+		}
 		p {
 			margin: 0;
 		}
@@ -1490,11 +1508,23 @@ footer {
 		display: table-cell;
 		float: none;
 		vertical-align: middle;
+		@include vertical {
+			display: block;
+			text-align: center;
+			padding: 15px 0;
+		}
 		&.button-col {
 			text-align: right;
+			@include vertical {
+				text-align: center;
+			}
 		}
 		&.bottom {
 			vertical-align: bottom;
+			@include vertical {
+				vertical-align: initial;
+				padding: 0 0 0 15px;
+			}
 		}
 	}
 }
@@ -1503,11 +1533,15 @@ footer {
 	background: $offwhite;
 	padding: $padding-standard;
 	margin: 12px 0 0 0;
+	@include vertical {
+		background: #fff;
+		text-align: center;
+	}
 }
 
- .hide {
-    display:  none !important;
-  }
+.hide {
+	display:  none !important;
+}
 
 
 
