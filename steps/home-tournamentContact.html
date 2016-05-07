@@ -8,8 +8,8 @@
 		<span class="error-message">Enter Director's first name</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
+		<input ng-model="excludeFirst" ng-change="firstNameToggle()" id="include_first" name="include_first" type="checkbox" tabindex="2" />
 		<label class="checkbox-label" for="include_first">Display</label>
-		<input ng-model="excludeFirst" ng-change="firstNameToggle()" id="include_first" name="include_first" type="checkbox" tabindex="2" checked />
 	</div>								
 </div>
 
@@ -20,8 +20,8 @@
 		<span class="error-message">Enter Director's last name</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_last">Display</label>
 		<input ng-model="excludeLast" ng-change="lastNameToggle()" id="include_last" name="include_last" type="checkbox" tabindex="4" />
+		<label class="checkbox-label" for="include_last">Display</label>
 	</div>
 </div>
 
@@ -32,8 +32,8 @@
 		<span class="error-message">Enter valid Tournament email</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_email">Display</label>
 		<input ng-model="excludeEmail" ng-change="emailToggle()" id="include_email" name="include_email" type="checkbox" tabindex="6" />
+		<label class="checkbox-label" for="include_email">Display</label>
 	</div>
 </div>
 
@@ -44,8 +44,8 @@
 		<span class="error-message">Enter Tournament phone number</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
+		<input ng-model="excludePhone" ng-change="phoneToggle()" id="include_phone" name="include_phone" type="checkbox" tabindex="8" />
 		<label class="checkbox-label" for="include_phone">Display</label>
-		<input ng-model="excludePhone" ng-change="phoneToggle()" id="include_phone" name="include_phone" type="checkbox" tabindex="8" checked />
 	</div>
 </div>
 
@@ -56,8 +56,8 @@
 		<span class="error-message">Enter Tournament website</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
+		<input ng-model="excludeWebsite" ng-change="websiteToggle()" id="include_site" name="include_site" type="checkbox" tabindex="10" />
 		<label class="checkbox-label" for="include_site">Display</label>
-		<input ng-model="excludeWebsite" ng-change="websiteToggle()" id="include_site" name="include_site" type="checkbox" tabindex="10" checked />
 	</div>
 </div>
 

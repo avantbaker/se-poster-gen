@@ -24,12 +24,12 @@
 		<span class="error-message">Enter mumber of teams</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_team_number">Display</label>
 		<input 
 			id="include_team_number" 
 			name="include_team_number" 
 			type="checkbox" 
 			tabindex="3" />
+		<label class="checkbox-label" for="include_team_number">Display</label>
 	</div>
 </div>
 
@@ -45,13 +45,13 @@
 		<span class="error-message">Enter minimum games</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_games">Display</label>
 		<input 
 			ng-model="excludeGames" 
 			ng-change="gamesToggle()" 
 			name="include_games" 
 			type="checkbox" 
 			tabindex="5" />
+		<label class="checkbox-label" for="include_games">Display</label>
 	</div>
 </div>
 
@@ -66,7 +66,6 @@
 		tabindex="6" />
 	</div>
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_fee">Display</label>
 		<input 
 			ng-model="excludeFee" 
 			ng-change="feeToggle()" 
@@ -74,6 +73,7 @@
 			name="include_fee" 
 			type="checkbox" 
 			tabindex="7" />
+		<label class="checkbox-label" for="include_fee">Display</label>
 	</div>
 </div>
 
@@ -92,7 +92,6 @@
 		<span class="error-message">Enter entry deadline</span>
 	</div>									
 	<div class="gen-formfield field-check secondary">
-		<label class="checkbox-label" for="include_deadline">Display</label>
 		<input 
 			ng-model="excludeDeadline" 
 			ng-change="deadlineToggle()" 
@@ -100,6 +99,7 @@
 			name="include_deadline" 
 			type="checkbox" 
 			tabindex="9" />
+		<label class="checkbox-label" for="include_deadline">Display</label>
 	</div>
 </div>
 

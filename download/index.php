@@ -93,7 +93,7 @@
 			</div>
 			
 			<div class="container intro-content">
-				<h2>Soccer Tournament Poster Generator</h2>
+				<h2>Baseball Tournament Poster Generator</h2>
 				<p class="intro">Promote your tourney with style, in minutes... <strong>FOR FREE</strong>. Walk through the steps below to customize a downloadable soccer tournament flyer and poster.</p>
 			</div>
 			
@@ -125,7 +125,7 @@
 							<h6>8.5" x 11" Printable Flyer</h6>
 						</div>
 						<div class="col two-thirds button-col">
-							<a id="small-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf">Download</a>
+							<a id="small-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf" target="_blank">Download</a>
 							<button id="small-poster-email" class="outline-button spaced email">Email</button>
 						</div>
 					</div>
@@ -135,7 +135,7 @@
 							<h6>11" x 17" Printable Poster</h6>
 						</div>
 						<div class="col two-thirds button-col">
-							<a id="large-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf">Download</a>
+							<a id="large-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgintest.pdf" target="_blank">Download</a>
 							<button id="large-poster-email" class="outline-button spaced email">Email</button>
 						</div>
 					</div>

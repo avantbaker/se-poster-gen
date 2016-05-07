@@ -37,7 +37,7 @@ $cookie 				= $request->userID;
 $html = "
 <style>
 	body {
-		background-image: url(../assets/img/soccer-template-two.jpg);
+		background-image: url(../assets/img/baseball-template-two_8-5x11_FULL.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
@@ -53,41 +53,46 @@ $html = "
 
 	div.host-name {
 	  position: fixed;
-      color: black;
+      color: #fff;
       font-weight: 700;
       font-size: 1.5em;
       padding-bottom: 200px;
+      font-family: titillium;
   	}
 	
 	div.tournament-name {
       bottom: 62%;
       font-weight: 700;
       font-size: 3.25em; 
-      color: #81151e;
+      color: #83bf23;
+      font-family: oswald;
  	}
 
     div.date-and-location {
       top: 40%;
-      color: black;
+      color: #fff;
       font-weight: 700;
-      font-size: 1.5em; 
+      font-size: 1.5em;
+      font-family: titillium;
   	}
     div.tournament-details {
       position: fixed;
       font-size: 1em;
       line-height: 1.5em; 
       padding-top: 100px;
+      font-family: titillium;
   	}
     div.tournament-description {
 	    position: fixed;
 	    padding-top: 40px;
-	    color: black;
+	    color: #fff;
+	    font-family: titillium;
     }
     span.tournament-teams,
     span.tournament-minimum-games,
     span.tournament-details .tournament-deadline,
     span.tournament-details .tournament-fee {
-        color: black;
+        color: #fff;
         font-weight: 500; 
     }
     span.tournament-contact {
@@ -95,24 +100,25 @@ $html = "
       font-weight: 700; 
  	}
     div.tournament-contact .tournament-website {
-    width: 100%;
-    padding-bottom: 2%;
-    font-size: 1.75em; 
-    color: #81151e;
+    	width: 100%;
+		padding-bottom: 2%;
+		font-size: 1.75em; 
+		color: #83bf23;
+		font-family: oswald;
    	}
     div.tournament-contact .contact-information {
-        color: black;
+        color: #fff;
         font-size: 1em; 
     }
 
     span.tournament-deadline,
     span.tournament-fee {
-    	color: black;
+    	color: #fff;
     	font-weight: 700;
     }
 
 </style>
-<body style='background-image: url(../assets/img/soccer-template-two.jpg);
+<body style='background-image: url(../assets/img/baseball-template-two_8-5x11_FULL.jpg);
 		height: 100%;
 		width: 100%;
 		-webkit-background-size: cover;
