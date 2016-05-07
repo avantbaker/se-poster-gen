@@ -1182,14 +1182,17 @@ button,
   input[type=submit].email:before,
   input[type=submit].download:before,
   input[type=submit].share:before,
+  input[type=submit].approved:before,
   button.back:before,
   button.email:before,
   button.download:before,
   button.share:before,
+  button.approved:before,
   .button.back:before,
   .button.email:before,
   .button.download:before,
-  .button.share:before {
+  .button.share:before,
+  .button.approved:before {
     content: "";
     display: inline-block;
     width: 16px;
@@ -1265,6 +1268,10 @@ button,
     -ms-animation: fade-in 0.2s;
     -o-animation: fade-in 0.2s;
     animation: fade-in 0.2s; }
+  input[type=submit].approved:before,
+  button.approved:before,
+  .button.approved:before {
+    background: url("../assets/img/icon-button_check.svg") no-repeat center center; }
   input[type=submit].outline-button,
   button.outline-button,
   .button.outline-button {
@@ -1321,6 +1328,11 @@ button,
 .no-svg button.share:before,
 .no-svg .button.share:before {
   background: url("../assets/img/icon-button_share.png") no-repeat center center; }
+
+.no-svg input[type=submit].approved:before,
+.no-svg button.approved:before,
+.no-svg .button.approved:before {
+  background: url("../assets/img/icon-button_check.png") no-repeat center center; }
 
 button.secondary-cta,
 a.secondary-cta {

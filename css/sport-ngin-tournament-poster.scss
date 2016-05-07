@@ -820,7 +820,8 @@ button,
 	&.back,
 	&.email,
 	&.download,
-	&.share {
+	&.share,
+	&.approved {
 		&:before {
 			content:"";
 			display: inline-block;
@@ -873,6 +874,11 @@ button,
 			}
 		}
 	}
+	&.approved {
+		&:before {
+			background: url('../assets/img/icon-button_check.svg') no-repeat center center;
+		}
+	}
 	&.outline-button {
 		display: inline-block;
 		width: auto;
@@ -923,6 +929,11 @@ button,
 	&.share {
 		&:before {
 			background: url('../assets/img/icon-button_share.png') no-repeat center center;
+		}
+	}
+	&.approved {
+		&:before {
+			background: url('../assets/img/icon-button_check.png') no-repeat center center;
 		}
 	}
 }
