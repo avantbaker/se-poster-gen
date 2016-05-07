@@ -1526,16 +1526,19 @@ a.secondary-cta {
   .poster-canvas .template-element {
     overflow: hidden; }
     .poster-canvas .template-element span {
-      transform: scale(1);
+      display: inline-block;
       text-shadow: none;
-      -webkit-transition: transform 0.2s, text-shadow 0.2s;
-      -moz-transition: transform 0.2s, text-shadow 0.2s;
-      -ms-transition: transform 0.2s, text-shadow 0.2s;
-      -o-transition: transform 0.2s, text-shadow 0.2s;
-      transition: transform 0.2s, text-shadow 0.2s; }
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      -webkit-transition: text-shadow 0.3s, transform 0.3;
+      -moz-transition: text-shadow 0.3s, transform 0.3;
+      -ms-transition: text-shadow 0.3s, transform 0.3;
+      -o-transition: text-shadow 0.3s, transform 0.3;
+      transition: text-shadow 0.3s, transform 0.3; }
       .poster-canvas .template-element span.highlight {
-        transform: scale(1.1);
-        text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.5); }
+        transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8), 0 1px 8px #00bbb9; }
 
 footer {
   position: fixed;

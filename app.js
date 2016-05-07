@@ -302,6 +302,90 @@ sportNgin.factory('SNjquery', function(){
 				   $( ".poster-preview-toggle" ).removeClass("stuck");
 			    }, 100);
 			});
+			
+			//Highlight poster element on associated input hover
+			var allElements = $('.template-wrapper');
+			var tourneyName = $('#tournament-name');
+			var tourneyHost = $('#host_organization');
+			var tourneyCity = $('#tournament_city');
+			var tourneyState = $('#tournament_state');
+			var tourneyStart = $('#start_date');
+			var tourneyEnd = $('#end_date');
+			var tourneyDescription = $('#tournament_description');
+			var tourneyTeams = $('#team_number');
+			var tourneyGames = $('#minimum_games');
+			var tourneyFee = $('#entry_fee');
+			var tourneyDeadline = $('#entry_deadline');
+			var tourneyDirectorFirst = $('#director_first');
+			var tourneyDirectorLast = $('#director_last');
+			var tourneyEmail = $('#tournament_email');
+			var tourneyPhone = $('#tournament_phone');
+			var tourneyWebsite = $('#tournament_website');
+						
+			tourneyName.hover(function() {
+				$( '.poster-canvas .tournament-name span' ).toggleClass("highlight");
+			});
+			
+			tourneyHost.hover(function() {
+				$( '.poster-canvas .host-name span' ).toggleClass("highlight");
+			});
+			
+			tourneyCity.hover(function() {
+				$( '.poster-canvas .tournament-city' ).toggleClass("highlight");
+			});
+			
+			tourneyState.hover(function() {
+				$( '.poster-canvas .tournament-state' ).toggleClass("highlight");
+			});
+			
+			tourneyStart.hover(function() {
+				$( '.poster-canvas .start-date' ).toggleClass("highlight");
+			});
+			
+			tourneyEnd.hover(function() {
+				$( '.poster-canvas .end-date' ).toggleClass("highlight");
+			});
+			
+			tourneyDescription.hover(function() {
+				$( '.poster-canvas .tournament-description' ).toggleClass("highlight");
+			});
+			
+			tourneyTeams.hover(function() {
+				$( '.poster-canvas .tournament-teams' ).toggleClass("highlight");
+			});
+			
+			tourneyGames.hover(function() {
+				$( '.poster-canvas .tournament-minimum-games' ).toggleClass("highlight");
+			});
+			
+			tourneyFee.hover(function() {
+				$( '.poster-canvas .tournament-fee' ).toggleClass("highlight");
+			});
+			
+			tourneyDeadline.hover(function() {
+				$( '.poster-canvas .tournament-deadline' ).toggleClass("highlight");
+			});
+			
+			tourneyDirectorFirst.hover(function() {
+				$( '.poster-canvas .director-first' ).toggleClass("highlight");
+			});
+			
+			tourneyDirectorLast.hover(function() {
+				$( '.poster-canvas .director-last' ).toggleClass("highlight");
+			});
+			
+			tourneyEmail.hover(function() {
+				$( '.poster-canvas .director-email' ).toggleClass("highlight");
+			});
+			
+			tourneyPhone.hover(function() {
+				$( '.poster-canvas .director-phone' ).toggleClass("highlight");
+			});
+			
+			tourneyWebsite.hover(function() {
+				$( '.poster-canvas .tournament-website' ).toggleClass("highlight");
+			});
+
 
 		});
 	};
