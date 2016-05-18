@@ -384,6 +384,7 @@ sportNgin.factory('SNjquery', function(){
 			
 			tourneyWebsite.hover(function() {
 				$( '.poster-canvas .tournament-website' ).toggleClass("highlight");
+				
 			});
 
 
