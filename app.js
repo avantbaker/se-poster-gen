@@ -89,6 +89,94 @@ sportNgin.service('sportNginModel',
 
 });
 
+sportNgin.factory('formStack', [
+	'$rootScope', 
+	'$http', 
+	'$log', 
+	'$cookies',
+	function($rootScope, $http, $log, $cookies){
+
+	var service = this;
+	
+	service.data = {
+		first_name: '',
+		last_name: '',
+		personal_phone: '',
+		personal_email: '',
+		host_organization: '',
+		organization_type: '',
+		organization_role: '',
+		tournament_name: '',
+		tournament_description: '',
+		register_date: '',
+		city: '',
+		state: '',
+		start_time: '',
+		end_time: '',
+		number_of_teams: '',
+		game_minimum: '',
+		entry_fee: '',
+		director_first_name: '',
+		director_last_name: '',
+		tournament_email: '',
+		tournament_phone_number: '',
+		tournament_website_name: ''
+	};
+	
+	/**
+	 * Push to Form formStack
+	 * sends http request to formstack PHP Api to be processed
+	 * @param  {object} service.Data is the user filled data from the form
+	 * @return form submission
+	 */
+	service.pushToFormStack = function() {
+        
+        $http.post('formstack/fs-sportNgin.php', service.data)
+	        .success(function(data, status, headers, config)
+	        {
+	            $log.log(status);
+	            $log.log(headers);
+	            $log.log(data);
+	        })
+	        .error(function(data, status, headers, config)
+	        {
+	            $log.log('error');
+	        });
+        
+    };
+
+    service.populateFormStack = function(formdata) {
+    	service.data.first_name = formdata.firstName;
+		service.data.last_name = formdata.lastName;
+		service.data.tournament_name = formdata.tournamentName;
+	 	service.data.city = formdata.city;
+	 	service.data.state = formdata.state;
+	 	service.data.start_time = formdata.startDate;
+	 	service.data.end_time = formdata.endDate;
+	 	service.data.tournament_description = formdata.description;
+	 	service.data.number_of_teams = formdata.numOfTeams;
+	 	service.data.game_minimum = formdata.gameMin;
+	 	service.data.register_date = formdata.registerBy;
+	 	service.data.entry_fee = formdata.entryFee;
+	 	service.data.tournament_phone_number = formdata.tphone;
+	 	service.data.director_first_name = formdata.dirFirstName;
+	 	service.data.director_last_name = formdata.dirLastName;
+	 	service.data.tournament_email = formdata.tEmail;
+	 	service.data.tournament_website_name = formdata.twebsiteName;
+	 	service.data.personal_email = formdata.personalEmail;
+	 	service.data.personal_phone = formdata.personalPhone;
+	 	service.data.host_organization = formdata.hostOrg;
+	 	service.data.organization_type = formdata.orgType;
+	 	service.data.organization_role = formdata.role;				
+    };
+
+    service.logData = function(){
+    	$log.log(service.data);
+    };
+
+    return service;
+}]);
+
 sportNgin.factory('html2pdf', [
 	'$rootScope', 
 	'$http', 
@@ -99,8 +187,8 @@ sportNgin.factory('html2pdf', [
 	var service = this;
 	
 	var templates = {
-		template1		: ['pdf_templates/poster-letter.php', 'pdf_templates/poster-letter2.php'],
-		template2		: ['pdf_templates/poster-letter.php', 'pdf_templates/poster-letter2.php']
+		template1		: ['pdf_templates/poster-letter.php', 'pdf_templates/poster-tabloid.php'],
+		template2		: ['pdf_templates/poster-letter2.php', 'pdf_templates/poster-tabloid2.php']
 	};
 
 	/**
@@ -594,8 +682,9 @@ sportNgin.controller('homeCntrl', [
 	"$timeout",
 	"SNjquery",
 	"changeTemplate",
-	"$cookies",  
-	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate, $cookies ){
+	"$cookies",
+	"formStack",  
+	function($scope, $log, $rootScope, sportNginModel, html2pdf, $stateParams, $state, $timeout, SNjquery, changeTemplate, $cookies, formStack ){
 	
 	/**
 	 * Initial values for all scope Variables
@@ -750,6 +839,8 @@ sportNgin.controller('homeCntrl', [
 	 * @return {php stdClass object} the return doesnt matter as the data is only being used one way
 	 */
 	$scope.generatePdf = function() {
+		formStack.populateFormStack($scope.Model);
+		formStack.pushToFormStack();
 		$scope.Model.userID = randomString( 10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 		$cookies.put('userID', $scope.Model.userID );
 		angular.element(document).ready(function() {
