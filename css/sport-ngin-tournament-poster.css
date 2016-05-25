@@ -738,7 +738,7 @@ strong {
     transition: all 0.3s;
     overflow: hidden; }
     .sn-share a:hover {
-      box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.5);
+      box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
       transform: scale(1.1);
       -webkit-transform: scale(1.1); }
     .sn-share a.facebook .social-fill,
@@ -1542,11 +1542,11 @@ a.secondary-cta {
       text-shadow: none;
       transform: scale(1);
       -webkit-transform: scale(1);
-      -webkit-transition: text-shadow 0.3s, transform 0.3;
-      -moz-transition: text-shadow 0.3s, transform 0.3;
-      -ms-transition: text-shadow 0.3s, transform 0.3;
-      -o-transition: text-shadow 0.3s, transform 0.3;
-      transition: text-shadow 0.3s, transform 0.3; }
+      -webkit-transition: text-shadow 0.3s, transform 0.3s;
+      -moz-transition: text-shadow 0.3s, transform 0.3s;
+      -ms-transition: text-shadow 0.3s, transform 0.3s;
+      -o-transition: text-shadow 0.3s, transform 0.3s;
+      transition: text-shadow 0.3s, transform 0.3s; }
       .poster-canvas .template-element span.highlight {
         transform: scale(1.05);
         -webkit-transform: scale(1.05);

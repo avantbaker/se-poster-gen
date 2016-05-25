@@ -19,8 +19,8 @@ $red: #81151e;
 $green: #83bf23;
 
 // Fonts
-$template-one-body: 'Titillium Web', sans-serif;
-$template-one-header: 'Oswald', sans-serif;
+$template-one-body: 'Roboto Condensed', sans-serif;
+$template-one-header: 'Roboto', sans-serif;
 
 
 // //////////////////////////
@@ -64,7 +64,6 @@ footer {
 	font-family: $template-one-body;
 	color: #fff;
 	text-align: center;
-	text-transform: uppercase;
 	.template-wrapper {
 		position: relative;
 		width: 100%;
@@ -76,55 +75,92 @@ footer {
 		width: 80%;
 		left: 10%; 
 		&.host-name {
-			top: 10%;
+			top: 6%;
 			color: $gold;
 			font-weight: 700;
-			font-size: 1.5em;
+			font-size: 1em;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 		}
 		&.tournament-name {
-			bottom: 62%;
+			bottom: 70%;
 			font-family: $template-one-header;
-			font-weight: 700;
-			font-size: 3.25em;
+			font-weight: 900;
+			font-size: 3em;
+			text-transform: uppercase;
 		}
-		&.date-and-location {
-			top: 40%;
+		&.tournament-date {
+			top: 31%;
+			.date-wrapper {
+				display: inline-block;
+				padding: .4em 1em;
+				background: #fff;
+				color: #000;
+				font-weight: 700;
+				font-size: 1em;
+			}
+		}
+		&.tournament-location {
+			top: 36%;
 			color: $gold;
 			font-weight: 700;
-			font-size: 1.5em;
+			font-size: 1em;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 		}
 		&.tournament-details {
-			bottom: 25%;
+			bottom: 40%;
 			padding: 0 5%;
 			font-size: 1em;
-			line-height: 1.5em;
 			.tournament-description {
 				display: inline-block;
 				width: 100%;
-				padding-bottom: 2.5%;
-				text-transform: none;
+				padding-bottom: .5%;
+				line-height: 1.5;
 			}
-			.tournament-teams,
-			.tournament-minimum-games,
-			.tournament-deadline,
-			.tournament-fee {
-				font-family: $template-one-header;
+		}
+		&.tournament-deadline {
+			top: 62%;
+			text-transform: uppercase;
+		}
+		&.tournament-callouts {
+			top: 68%;
+			text-align: center;
+			.tournment-callout {
+				display: inline-block;
+				width: 31%;
 				color: $gold;
+				font-weight: 700;
+				font-size: 1em;
+				line-height: 1.25;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				.teams-number,
+				.games-number,
+				.fee {
+					font-family: $template-one-header;
+					font-weight: 900;
+					font-size: 3em;
+					color: #fff; 
+				}
 			}
 		}
 		&.tournament-contact {
-			bottom: 10%;
-			font-weight: 700;
+			bottom: 6%;
+			.contact-information {
+				font-weight: 700;
+				color: $gold;
+				font-size: .75em;
+				text-transform: uppercase;
+			}
 			.tournament-website {
 				display: inline-block;
 				width: 100%;
-				padding-bottom: 2%;
+				padding-top: 2%;
+				color: #fff;
 				font-family: $template-one-header;
 				font-size: 1.75em;
-			}
-			.contact-information {
-				color: $gold;
-				font-size: 1em;
+				font-weight: 900;
 			}
 		}
 	}
@@ -138,9 +174,8 @@ footer {
 	background: url('../assets/img/baseball-template-two_SCREEN.jpg') no-repeat center center;
 	background-size: contain;
 	font-family: $template-one-body;
-	color: #ffffff;
+	color: #fff;
 	text-align: center;
-	text-transform: uppercase;
 	.template-wrapper {
 		position: relative;
 		width: 100%;
@@ -152,53 +187,92 @@ footer {
 		width: 80%;
 		left: 10%; 
 		&.host-name {
-			top: 7%;
+			top: 6%;
+			color: $gold;
 			font-weight: 700;
-			font-size: 1.5em;
+			font-size: 1em;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 		}
 		&.tournament-name {
-			bottom: 76%;
+			bottom: 70%;
 			font-family: $template-one-header;
-			color: $green;
-			font-weight: 700;
-			font-size: 3.25em;
+			font-weight: 900;
+			font-size: 3em;
+			text-transform: uppercase;
 		}
-		&.date-and-location {
-			top: 26%;
+		&.tournament-date {
+			top: 31%;
+			.date-wrapper {
+				display: inline-block;
+				padding: .4em 1em;
+				background: #fff;
+				color: #000;
+				font-weight: 700;
+				font-size: 1em;
+			}
+		}
+		&.tournament-location {
+			top: 36%;
+			color: $gold;
 			font-weight: 700;
-			font-size: 1.5em;
+			font-size: 1em;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 		}
 		&.tournament-details {
-			bottom: 25%;
+			bottom: 40%;
 			padding: 0 5%;
 			font-size: 1em;
-			line-height: 1.5em;
 			.tournament-description {
 				display: inline-block;
 				width: 100%;
-				padding-bottom: 2.5%;
-				text-transform: none;
+				padding-bottom: .5%;
+				line-height: 1.5;
 			}
-			.tournament-teams,
-			.tournament-minimum-games,
-			.tournament-deadline,
-			.tournament-fee {
-				font-family: $template-one-header;
+		}
+		&.tournament-deadline {
+			top: 62%;
+			text-transform: uppercase;
+		}
+		&.tournament-callouts {
+			top: 68%;
+			text-align: center;
+			.tournment-callout {
+				display: inline-block;
+				width: 31%;
+				color: $gold;
+				font-weight: 700;
+				font-size: 1em;
+				line-height: 1.25;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				.teams-number,
+				.games-number,
+				.fee {
+					font-family: $template-one-header;
+					font-weight: 900;
+					font-size: 3em;
+					color: #fff; 
+				}
 			}
 		}
 		&.tournament-contact {
-			bottom: 10%;
-			font-weight: 700;
+			bottom: 6%;
+			.contact-information {
+				font-weight: 700;
+				color: $gold;
+				font-size: .75em;
+				text-transform: uppercase;
+			}
 			.tournament-website {
 				display: inline-block;
 				width: 100%;
-				padding-bottom: 2%;
+				padding-top: 2%;
+				color: #fff;
 				font-family: $template-one-header;
-				color: $green;
 				font-size: 1.75em;
-			}
-			.contact-information {
-				font-size: 1em;
+				font-weight: 900;
 			}
 		}
 	}

@@ -17,10 +17,9 @@ footer {
 .poster-canvas.template-one {
   background: url("../assets/img/baseball-template-one_SCREEN.jpg") no-repeat center center;
   background-size: contain;
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: #fff;
-  text-align: center;
-  text-transform: uppercase; }
+  text-align: center; }
   .poster-canvas.template-one .template-wrapper {
     position: relative;
     width: 100%;
@@ -31,56 +30,87 @@ footer {
     width: 80%;
     left: 10%; }
     .poster-canvas.template-one .template-element.host-name {
-      top: 10%;
+      top: 6%;
       color: #fbb03b;
       font-weight: 700;
-      font-size: 1.5em; }
-    .poster-canvas.template-one .template-element.tournament-name {
-      bottom: 62%;
-      font-family: "Oswald", sans-serif;
-      font-weight: 700;
-      font-size: 3.25em; }
-    .poster-canvas.template-one .template-element.date-and-location {
-      top: 40%;
-      color: #fbb03b;
-      font-weight: 700;
-      font-size: 1.5em; }
-    .poster-canvas.template-one .template-element.tournament-details {
-      bottom: 25%;
-      padding: 0 5%;
       font-size: 1em;
-      line-height: 1.5em; }
+      text-transform: uppercase;
+      letter-spacing: 0.05em; }
+    .poster-canvas.template-one .template-element.tournament-name {
+      bottom: 70%;
+      font-family: "Roboto", sans-serif;
+      font-weight: 900;
+      font-size: 3em;
+      text-transform: uppercase; }
+    .poster-canvas.template-one .template-element.tournament-date {
+      top: 31%; }
+      .poster-canvas.template-one .template-element.tournament-date .date-wrapper {
+        display: inline-block;
+        padding: 0.4em 1em;
+        background: #fff;
+        color: #000;
+        font-weight: 700;
+        font-size: 1em; }
+    .poster-canvas.template-one .template-element.tournament-location {
+      top: 36%;
+      color: #fbb03b;
+      font-weight: 700;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em; }
+    .poster-canvas.template-one .template-element.tournament-details {
+      bottom: 40%;
+      padding: 0 5%;
+      font-size: 1em; }
       .poster-canvas.template-one .template-element.tournament-details .tournament-description {
         display: inline-block;
         width: 100%;
-        padding-bottom: 2.5%;
-        text-transform: none; }
-      .poster-canvas.template-one .template-element.tournament-details .tournament-teams,
-      .poster-canvas.template-one .template-element.tournament-details .tournament-minimum-games,
-      .poster-canvas.template-one .template-element.tournament-details .tournament-deadline,
-      .poster-canvas.template-one .template-element.tournament-details .tournament-fee {
-        font-family: "Oswald", sans-serif;
-        color: #fbb03b; }
+        padding-bottom: .5%;
+        line-height: 1.5; }
+    .poster-canvas.template-one .template-element.tournament-deadline {
+      top: 62%;
+      text-transform: uppercase; }
+    .poster-canvas.template-one .template-element.tournament-callouts {
+      top: 68%;
+      text-align: center; }
+      .poster-canvas.template-one .template-element.tournament-callouts .tournment-callout {
+        display: inline-block;
+        width: 31%;
+        color: #fbb03b;
+        font-weight: 700;
+        font-size: 1em;
+        line-height: 1.25;
+        text-transform: uppercase;
+        letter-spacing: 0.05em; }
+        .poster-canvas.template-one .template-element.tournament-callouts .tournment-callout .teams-number,
+        .poster-canvas.template-one .template-element.tournament-callouts .tournment-callout .games-number,
+        .poster-canvas.template-one .template-element.tournament-callouts .tournment-callout .fee {
+          font-family: "Roboto", sans-serif;
+          font-weight: 900;
+          font-size: 3em;
+          color: #fff; }
     .poster-canvas.template-one .template-element.tournament-contact {
-      bottom: 10%;
-      font-weight: 700; }
+      bottom: 6%; }
+      .poster-canvas.template-one .template-element.tournament-contact .contact-information {
+        font-weight: 700;
+        color: #fbb03b;
+        font-size: .75em;
+        text-transform: uppercase; }
       .poster-canvas.template-one .template-element.tournament-contact .tournament-website {
         display: inline-block;
         width: 100%;
-        padding-bottom: 2%;
-        font-family: "Oswald", sans-serif;
-        font-size: 1.75em; }
-      .poster-canvas.template-one .template-element.tournament-contact .contact-information {
-        color: #fbb03b;
-        font-size: 1em; }
+        padding-top: 2%;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.75em;
+        font-weight: 900; }
 
 .poster-canvas.template-two {
   background: url("../assets/img/baseball-template-two_SCREEN.jpg") no-repeat center center;
   background-size: contain;
-  font-family: "Titillium Web", sans-serif;
-  color: #ffffff;
-  text-align: center;
-  text-transform: uppercase; }
+  font-family: "Roboto Condensed", sans-serif;
+  color: #fff;
+  text-align: center; }
   .poster-canvas.template-two .template-wrapper {
     position: relative;
     width: 100%;
@@ -91,43 +121,77 @@ footer {
     width: 80%;
     left: 10%; }
     .poster-canvas.template-two .template-element.host-name {
-      top: 7%;
+      top: 6%;
+      color: #fbb03b;
       font-weight: 700;
-      font-size: 1.5em; }
-    .poster-canvas.template-two .template-element.tournament-name {
-      bottom: 76%;
-      font-family: "Oswald", sans-serif;
-      color: #83bf23;
-      font-weight: 700;
-      font-size: 3.25em; }
-    .poster-canvas.template-two .template-element.date-and-location {
-      top: 26%;
-      font-weight: 700;
-      font-size: 1.5em; }
-    .poster-canvas.template-two .template-element.tournament-details {
-      bottom: 25%;
-      padding: 0 5%;
       font-size: 1em;
-      line-height: 1.5em; }
+      text-transform: uppercase;
+      letter-spacing: 0.05em; }
+    .poster-canvas.template-two .template-element.tournament-name {
+      bottom: 70%;
+      font-family: "Roboto", sans-serif;
+      font-weight: 900;
+      font-size: 3em;
+      text-transform: uppercase; }
+    .poster-canvas.template-two .template-element.tournament-date {
+      top: 31%; }
+      .poster-canvas.template-two .template-element.tournament-date .date-wrapper {
+        display: inline-block;
+        padding: 0.4em 1em;
+        background: #fff;
+        color: #000;
+        font-weight: 700;
+        font-size: 1em; }
+    .poster-canvas.template-two .template-element.tournament-location {
+      top: 36%;
+      color: #fbb03b;
+      font-weight: 700;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em; }
+    .poster-canvas.template-two .template-element.tournament-details {
+      bottom: 40%;
+      padding: 0 5%;
+      font-size: 1em; }
       .poster-canvas.template-two .template-element.tournament-details .tournament-description {
         display: inline-block;
         width: 100%;
-        padding-bottom: 2.5%;
-        text-transform: none; }
-      .poster-canvas.template-two .template-element.tournament-details .tournament-teams,
-      .poster-canvas.template-two .template-element.tournament-details .tournament-minimum-games,
-      .poster-canvas.template-two .template-element.tournament-details .tournament-deadline,
-      .poster-canvas.template-two .template-element.tournament-details .tournament-fee {
-        font-family: "Oswald", sans-serif; }
+        padding-bottom: .5%;
+        line-height: 1.5; }
+    .poster-canvas.template-two .template-element.tournament-deadline {
+      top: 62%;
+      text-transform: uppercase; }
+    .poster-canvas.template-two .template-element.tournament-callouts {
+      top: 68%;
+      text-align: center; }
+      .poster-canvas.template-two .template-element.tournament-callouts .tournment-callout {
+        display: inline-block;
+        width: 31%;
+        color: #fbb03b;
+        font-weight: 700;
+        font-size: 1em;
+        line-height: 1.25;
+        text-transform: uppercase;
+        letter-spacing: 0.05em; }
+        .poster-canvas.template-two .template-element.tournament-callouts .tournment-callout .teams-number,
+        .poster-canvas.template-two .template-element.tournament-callouts .tournment-callout .games-number,
+        .poster-canvas.template-two .template-element.tournament-callouts .tournment-callout .fee {
+          font-family: "Roboto", sans-serif;
+          font-weight: 900;
+          font-size: 3em;
+          color: #fff; }
     .poster-canvas.template-two .template-element.tournament-contact {
-      bottom: 10%;
-      font-weight: 700; }
+      bottom: 6%; }
+      .poster-canvas.template-two .template-element.tournament-contact .contact-information {
+        font-weight: 700;
+        color: #fbb03b;
+        font-size: .75em;
+        text-transform: uppercase; }
       .poster-canvas.template-two .template-element.tournament-contact .tournament-website {
         display: inline-block;
         width: 100%;
-        padding-bottom: 2%;
-        font-family: "Oswald", sans-serif;
-        color: #83bf23;
-        font-size: 1.75em; }
-      .poster-canvas.template-two .template-element.tournament-contact .contact-information {
-        font-size: 1em; }
+        padding-top: 2%;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.75em;
+        font-weight: 900; }
