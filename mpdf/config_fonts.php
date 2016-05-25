@@ -140,6 +140,19 @@ $this->fontdata = array(
 		'I' => "FreeMonoOblique.ttf",
 		'BI' => "FreeMonoBoldOblique.ttf",
 		),
+	"roboto" => array(
+		'R' => "Roboto-Medium.ttf",
+		'B' => "Roboto-Black.ttf",
+		'I' => "Roboto-MediumItalic.ttf",
+		'BI' => "Roboto-BlackItalic.ttf",
+		),
+	"robotocondensed" => array(
+		'R' => "RobotoCondensed-Regular.ttf",
+		'B' => "RobotoCondensed-Bold.ttf",
+		'I' => "RobotoCondensed-Italic.ttf",
+		'BI' => "RobotoCondensed-Bold.ttf",
+		),
+		
 
 
 /* OCR-B font for Barcodes */

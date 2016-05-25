@@ -36,7 +36,7 @@
 		
 		<!--Webfonts -->
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/737218/772222/css/fonts.css" />
-		<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600|Oswald:700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:900|Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
 		
 		<!--Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/sport-ngin-tournament-poster.css" />
@@ -139,28 +139,49 @@
 						<div class="poster-canvas" ng-class="{ 'template-one': template1, 'template-two': template2 }">
 							<div class="aspect-wrapper">
 								<div class="template-wrapper">
-									<div class="template-element host-name"><span>{{ Model.hostOrg || 'Host Organization' }}</span></div>
-									<div class="template-element tournament-name"><span>{{ Model.tournamentName || 'Tournament Name' }}</span></div>
-									<div class="template-element date-and-location">
-										<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
-										<br>
-										<span class="start-date">{{ Model.startDate | date: "MM/dd/yyyy" }}</span> thru <span class="end-date">{{ Model.endDate | date: "MM/dd/yyyy"}}</span>
+									<div class="template-element host-name">
+										<span>{{ Model.hostOrg || 'Host Organization' }}</span>
 									</div>
+									
+									<div class="template-element tournament-name">
+										<span>{{ Model.tournamentName || 'Tournament Name' }}</span>
+									</div>
+									
+									<div class="template-element tournament-date">
+										<div class="date-wrapper">
+											<span class="start-date">{{ Model.startDate | date: "MM/dd/yyyy" }}</span> THRU <span class="end-date">{{ Model.endDate | date: "MM/dd/yyyy"}}</span>
+										</div>
+									</div>
+									
+									<div class="template-element tournament-location">
+										<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
+									</div>
+									
 									<div class="template-element tournament-details">
 										<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
-										<span class="tournament-teams">Number of teams: <span class="teams-number">{{ Model.numOfTeams || "XXX" }}  | </span></span>
-										<span class="tournament-minimum-games" ng-class="{'hide': excludeGames }">Game minimum: <span class="games-number">{{Model.gameMin || "X" }}</span></span>
-										<br />
-										<span class="tournament-deadline" ng-class="{'hide': excludeDeadline }">Register by: <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }} | </span></span>
-										<span class="tournament-fee" ng-class="{'hide': excludeFee }">Entry Fee: <span class="fee">${{ Model.entryFee || "50"}}</span></span>
+									</div>
+									
+									<div class="template-element tournament-deadline">
+										REGISTER BY <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span>
+									</div>
+									
+									<div class="template-element tournament-callouts">
+										<span class="tournment-callout tournament-teams">TEAMS<br><span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span></span>
+										<span class="tournment-callout tournament-minimum-games" ng-class="{'hide': excludeGames }">GAME MINIMUM<br><span class="games-number">{{Model.gameMin || "X" }}</span></span>
+										<span class="tournment-callout tournament-fee" ng-class="{'hide': excludeFee }">ENTRY FEE<br><span class="fee">${{ Model.entryFee || "50"}}</span></span>
+									</div>
+										
 									</div>
 									<div class="template-element tournament-contact">
-										<span class="tournament-website" ng-class="{'hide': excludeWebsite }">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
-										<br />
 										<span class="contact-information">
-											<span class="director-name" ng-class="{'hide' : excludeFirst && excludeLast}">Contact: <span class="director-first" ng-class="{'hide': excludeFirst }">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last" ng-class="{'hide': excludeLast }">{{ Model.dirLastName || "NAME" }} |</span></span>
+											<span class="director-name" ng-class="{'hide' : excludeFirst && excludeLast}">
+												<span class="director-first" ng-class="{'hide': excludeFirst }">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last" ng-class="{'hide': excludeLast }">{{ Model.dirLastName || "NAME" }} |</span>
+											</span>
+											
 											<span class="director-email"><span class="email" ng-class="{'hide': excludeEmail }">{{ Model.tEmail || "EMAIL@MAIL.COM"}} | </span></span>
 											<span class="director-phone" ng-class="{'hide': excludePhone }">{{ Model.tphone || "111-222-3333" }}</span>
+											<br>
+											<span class="tournament-website" ng-class="{'hide': excludeWebsite }">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
 										</span>
 									</div>
 								</div>		
