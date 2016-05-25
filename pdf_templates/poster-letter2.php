@@ -35,134 +35,257 @@ $phone 					= $request->tphone;
 $cookie 				= $request->userID;
 
 $html = "
+<html>
+<head>
 <style>
-	body {
-		background-image: url(../assets/img/baseball-template-two_8-5x11_FULL.jpg);
-		height: 100%;
-		width: 100%;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
+	
+	@page {
+		size: 8.5in 11in;
+		sheet-size: 8.5in 11in;
+		margin: 0;
+		background-image: url('../assets/img/baseball-template-two_8-5x11_FULL.jpg');
+		background-repeat: no-repeat;
+		background-position: top left;
 		background-image-resize: 6;
 	}
-
-	.template-element {
-		text-align: center;
+	
+	body {
+		margin: 0;
+		margin-collapse: collapse;
 	}
 
 	div.host-name {
-	  position: fixed;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.5em;
-      padding-bottom: 200px;
-      font-family: titillium;
+		position: fixed; 
+		width: 80%;
+		left: 10%;
+		text-align: center;
+		top: 6%;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		color: #fbb03b;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		overflow: hidden;
   	}
 	
 	div.tournament-name {
-      bottom: 62%;
-      font-weight: 700;
-      font-size: 3.25em; 
-      color: #83bf23;
-      font-family: oswald;
+		position: fixed; 
+		width: 80%;
+		left: 10%;
+		text-align: center;
+		bottom: 70%;
+		font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		font-size: 48px;
+		line-height: 1; 
+		color: white;
+		text-transform: uppercase;
+		overflow: hidden;
  	}
 
-    div.date-and-location {
-      top: 40%;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.5em;
-      font-family: titillium;
+    div.tournament-date {
+	    position: fixed; 
+		width: 80%;
+		left: 10%;
+		top: 31%;
+		text-align: center;
+		overflow: hidden;
   	}
-    div.tournament-details {
-      position: fixed;
-      font-size: 1em;
-      line-height: 1.5em; 
-      padding-top: 100px;
-      font-family: titillium;
-  	}
-    div.tournament-description {
-	    position: fixed;
-	    padding-top: 40px;
-	    color: #fff;
-	    font-family: titillium;
-    }
-    span.tournament-teams,
-    span.tournament-minimum-games,
-    span.tournament-details .tournament-deadline,
-    span.tournament-details .tournament-fee {
-        color: #fff;
-        font-weight: 500; 
-    }
-    span.tournament-contact {
-      bottom: 10%;
-      font-weight: 700; 
- 	}
-    div.tournament-contact .tournament-website {
-    	width: 100%;
-		padding-bottom: 2%;
-		font-size: 1.75em; 
-		color: #83bf23;
-		font-family: oswald;
-   	}
-    div.tournament-contact .contact-information {
-        color: #fff;
-        font-size: 1em; 
-    }
-
-    span.tournament-deadline,
-    span.tournament-fee {
-    	color: #fff;
-    	font-weight: 700;
-    }
-
-</style>
-<body style='background-image: url(../assets/img/baseball-template-two_8-5x11_FULL.jpg);
-		height: 100%;
+  	 
+  	div.date-wrapper {
+		display: block;
+		width: 240px;
+		margin: 0 auto;
+		padding: 4px 0;
+		background: #fff;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		color: black;
+		text-align: center;
+		overflow: hidden;
+	}
+  	
+  	div.tournament-location {
+	  	position: fixed; 
+		width: 80%;
+		left: 10%;
+		top: 36%;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		color: #fbb03b;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		overflow: hidden;
+	}
+  	
+  	div.tournament-details {
+	  	position: fixed;
+	  	width: 64%;
+		left: 18%;
+		bottom: 40%;
+		line-height: 1.5;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	span.tournament-description {
+		padding-bottom: 5px;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 16px;
+		font-weight: normal;
+		color: white;
+		text-align: center;
+	}
+	
+	div.tournament-deadline {
+		position: fixed; 
+		width: 80%;
+		left: 10%;
+		top: 62%;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: normal;
+		text-align: center;
+		text-transform: uppercase;
+		color: white;
+		overflow: hidden;
+	}
+	
+	div.tournament-callouts-wrapper {
+		position: fixed; 
+		width: 84%;
+		left: 8%;
+		top: 68%;
+		overflow: hidden;
+	}
+	
+	table.tournament-callouts {
 		width: 100%;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		background-image-resize: 6;'>
-	<div class='gen-content-right'>
-		<div class='poster-canvas template-one'>
-			<div class='aspect-wrapper'>
-				<div class='template-wrapper'>
-					<div class='template-element host-name'><span>{$hostOrg}</span></div>
-					<div class='template-element tournament-name'><span>{$tournamentName}</span></div>
-					<div class='template-element date-and-location'>
-						<span class='tournament-city'>{$city}</span>, <span class='tournament-state'>{$state}</span>
-						<br>
-						<span class='start-date'>{$startDate}</span> thru <span class='end-date'>{$endDate}</span>
-					</div>
-					<div class='template-element tournament-details'>
-						<div class='tournament-description'>{$description}</div>
-						<span class='tournament-teams'>Number of teams: <span class='teams-number'>{$teams}</span> | </span>
-						<span class='tournament-minimum-games'>Game minimum: <span class='games-number'>{$gameMin}</span></span>
-						<br />
-						<span class='tournament-deadline'>Register by: <span class='register-date'>{$register}</span> | </span>
-						<span class='tournament-fee'>Entry Fee: <span class='fee'>$ {$entry}</span></span>
-					</div>
-					<div class='template-element tournament-contact'>";
-					
-if ($excSite === false) :
-	$html .= "<span class='tournament-website'>{$website}</span>";
-endif;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	td.tournment-callout {
+		width: 33.3%;
+		color: #fbb03b;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 1.25;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	
+	span.teams-number,
+	span.games-number,
+	span.fee {
+		font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		font-size: 48px;
+		color: white; 
+	}
+	
+	div.tournament-contact {
+		position: fixed; 
+		width: 80%;
+		left: 10%;
+		bottom: 6%;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	span.contact-information {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: bold;
+		color: #fbb03b;
+		font-size: 16px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	span.tournament-website {
+		display: block;
+		width: 100%;
+		padding-top: 16px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 22px;
+		font-weight: bold;
+		color: white;
+		text-align: center;
+	}
+	
+</style>
+</head>
 
-						$html .= "<br />
-						<span class='contact-information'>Contact: 
-							<span class='director-name'><span class='director-first'>{$dirFName}</span> <span class='director-last'>{$dirLName}</span> |</span>
-							<span class='director-email'><span class='email'>{$email}</span> | </span>
-							<span class='director-phone'>{$phone}</span>
-						</span>
-					</div>
-				</div>		
-			</div>
+<body>
+	
+	<div class='host-name'>
+		<span>{$hostOrg}</span>
+	</div>
+	
+	<div class='tournament-name'>
+		<span>{$tournamentName}</span>
+	</div>
+	
+	<div class='tournament-date'>
+		<div class='date-wrapper'>
+			<span class='start-date'>{$startDate}</span> THRU <span class='end-date'>{$endDate}</span>
 		</div>
 	</div>
+	
+	<div class='tournament-location'>
+		<span class='tournament-city'>{$city}</span>, <span class='tournament-state'>{$state}</span>
+	</div>
+	
+	<div class='tournament-details'>
+		<span class='tournament-description'>{$description}</span>
+	</div>
+	
+	<div class='tournament-deadline'>
+		REGISTER BY <span class='register-date'>{$register}</span>
+	</div>
+	
+	<div class='tournament-callouts-wrapper'>
+	
+		<table class='tournament-callouts' border='0'>
+			<tr>
+				<td align='center' width='33.3%' class='tournment-callout'>
+					TEAMS<br>
+					<span class='teams-number'>{$teams}</span>
+				</td>
+				
+				<td align='center' width='33.3%' class='tournment-callout'>
+					GAME MINIMUM<br>
+					<span class='games-number'>{$gameMin}</span>
+				</td>
+				
+				<td align='center' width='33.3%' class='tournment-callout tournament-fee'>
+					ENTRY FEE<br>
+					<span class='fee'>${$entry}</span>
+				</td>
+			</tr>
+		</table>
+					
+	</div>
+	
+	<div class='tournament-contact'>
+		<span class='contact-information'>
+			<span class='director-name'><span class='director-first'>{$dirFName}</span> <span class='director-last'>{$dirLName}</span> | </span>
+			<span class='director-email'><span class='email'>{$email} | </span></span>
+			<span class='director-phone'>{$phone}</span>
+			<br>";
+				if ($excSite === false) :
+					$html .= "<span class='tournament-website'>{$website}</span>";
+				endif;
+					$html .= "<br>
+		</span>
+	</div>
+		
+			
 </body>
+</html>
 ";
 
 

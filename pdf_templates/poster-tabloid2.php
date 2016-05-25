@@ -1,7 +1,7 @@
 <?php
 
 //==============================================================
-//=========         SPORT NGIN TEMPLATE ONE           ==========
+//=========         SPORT NGIN TEMPLATE TWO           ==========
 //==============================================================
 
 $request = json_decode( file_get_contents("php://input"), false );
@@ -26,7 +26,7 @@ $description 			= $request->description;
 $teams 					= strtoupper($request->numOfTeams);	
 $gameMin 				= $request->gameMin;	
 $register 				= formatDate($request->registerBy);	
-$entry 					= $request->entryFee;
+$entry 					= $request->entryFee;	
 $website 				= strtoupper($request->twebsiteName);	
 $dirFName 				= strtoupper($request->dirFirstName);	
 $dirLName 				= strtoupper($request->dirLastName);	
@@ -40,10 +40,10 @@ $html = "
 <style>
 	
 	@page {
-		size: 8.5in 11in;
-		sheet-size: 8.5in 11in;
+		size: 11in 17in;
+		sheet-size: 11in 17in;
 		margin: 0;
-		background-image: url('../assets/img/baseball-template-one_8-5x11_FULL.jpg');
+		background-image: url('../assets/img/baseball-template-two_11x17_FULL.jpg');
 		background-repeat: no-repeat;
 		background-position: top left;
 		background-image-resize: 6;
@@ -62,7 +62,7 @@ $html = "
 		top: 6%;
 		font-family: 'Roboto Condensed', sans-serif;
 		font-weight: bold;
-		font-size: 16px;
+		font-size: 20px;
 		color: #fbb03b;
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -77,7 +77,7 @@ $html = "
 		bottom: 70%;
 		font-family: 'Roboto', sans-serif;
 		font-weight: bold;
-		font-size: 48px;
+		font-size: 60px;
 		line-height: 1; 
 		color: white;
 		text-transform: uppercase;
@@ -95,13 +95,13 @@ $html = "
   	 
   	div.date-wrapper {
 		display: block;
-		width: 240px;
+		width: 300px;
 		margin: 0 auto;
-		padding: 4px 0;
+		padding: 5px 0;
 		background: #fff;
 		font-family: 'Roboto Condensed', sans-serif;
 		font-weight: bold;
-		font-size: 16px;
+		font-size: 21px;
 		color: black;
 		text-align: center;
 		overflow: hidden;
@@ -114,7 +114,7 @@ $html = "
 		top: 36%;
 		font-family: 'Roboto Condensed', sans-serif;
 		font-weight: bold;
-		font-size: 16px;
+		font-size: 20px;
 		color: #fbb03b;
 		text-align: center;
 		text-transform: uppercase;
@@ -135,7 +135,7 @@ $html = "
 	span.tournament-description {
 		padding-bottom: 5px;
 		font-family: 'Roboto Condensed', sans-serif;
-		font-size: 16px;
+		font-size: 20px;
 		font-weight: normal;
 		color: white;
 		text-align: center;
@@ -173,7 +173,7 @@ $html = "
 		color: #fbb03b;
 		font-family: 'Roboto Condensed', sans-serif;
 		font-weight: bold;
-		font-size: 16px;
+		font-size: 20px;
 		line-height: 1.25;
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -184,7 +184,7 @@ $html = "
 	span.fee {
 		font-family: 'Roboto', sans-serif;
 		font-weight: bold;
-		font-size: 48px;
+		font-size: 60px;
 		color: white; 
 	}
 	
@@ -201,16 +201,16 @@ $html = "
 		font-family: 'Roboto Condensed', sans-serif;
 		font-weight: bold;
 		color: #fbb03b;
-		font-size: 12px;
+		font-size: 16px;
 		text-align: center;
 		text-transform: uppercase;
 	}
 	span.tournament-website {
 		display: block;
 		width: 100%;
-		padding-top: 16px;
+		padding-top: 20px;
 		font-family: 'Roboto', sans-serif;
-		font-size: 22px;
+		font-size: 28px;
 		font-weight: bold;
 		color: white;
 		text-align: center;
@@ -298,7 +298,7 @@ include("../mpdf/mpdf.php");
 $mpdf= new mPDF();
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->WriteHTML($html);
-$mpdf->Output( SPORTNGIN . $cookie .'-sportNgintest.pdf','F');
+$mpdf->Output( SPORTNGIN . $cookie .'-sportNgintest2.pdf','F');
 
 exit;
 //==============================================================
