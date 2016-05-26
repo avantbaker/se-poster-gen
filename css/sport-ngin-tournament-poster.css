@@ -499,6 +499,38 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes move-right {
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0); } }
+
+@-moz-keyframes move-right {
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0); } }
+
+@-o-keyframes move-right {
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0); } }
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0); } }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -892,42 +924,102 @@ strong {
 form {
   padding: 0 5px; }
 
-.gen-formrow {
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s; }
-  .gen-formrow.step-heading {
-    padding: 15px 0; }
-    .gen-formrow.step-heading h4:before {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      margin-right: 6px;
-      background-color: #13759b;
-      font-size: 11px;
-      font-size: 0.6875rem;
-      font-family: "Vitesse A", "Vitesse B", Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      color: #fff;
-      line-height: 18px;
-      text-align: center;
-      transform: translateY(-2px);
-      -webkit-transform: translateY(-2px);
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      background-clip: padding-box; }
-  .gen-formrow.first h4:before {
-    content: "1"; }
-  .gen-formrow.second h4:before {
-    content: "2"; }
-  .gen-formrow.third h4:before {
-    content: "3"; }
-  .gen-formrow.fourth h4:before {
-    content: "4"; }
-  .gen-formrow.fifth h4:before {
-    content: "5"; }
+.gen-formrow.step-heading {
+  padding: 15px 0; }
+  .gen-formrow.step-heading h4:before {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background-color: #13759b;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    font-family: "Vitesse A", "Vitesse B", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    line-height: 18px;
+    text-align: center;
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: padding-box; }
+
+.gen-formrow.first h4:before {
+  content: "1"; }
+
+.gen-formrow.second h4:before {
+  content: "2"; }
+
+.gen-formrow.third h4:before {
+  content: "3"; }
+
+.gen-formrow.fourth h4:before {
+  content: "4"; }
+
+.gen-formrow.fifth h4:before {
+  content: "5"; }
+
+.gen-formstep-wrapper {
+  overflow: hidden; }
+
+#form-views {
+  position: relative; }
+  #form-views.ng-enter {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s; }
+    #form-views.ng-enter > .gen-formstep-wrapper {
+      opacity: 1;
+      -webkit-animation: fade-in 1s;
+      -moz-animation: fade-in 1s;
+      -ms-animation: fade-in 1s;
+      -o-animation: fade-in 1s;
+      animation: fade-in 1s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-one {
+        -webkit-animation: move-right 0.3s;
+        -moz-animation: move-right 0.3s;
+        -ms-animation: move-right 0.3s;
+        -o-animation: move-right 0.3s;
+        animation: move-right 0.3s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-two {
+        -webkit-animation: move-right 0.4s;
+        -moz-animation: move-right 0.4s;
+        -ms-animation: move-right 0.4s;
+        -o-animation: move-right 0.4s;
+        animation: move-right 0.4s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-three {
+        -webkit-animation: move-right 0.5s;
+        -moz-animation: move-right 0.5s;
+        -ms-animation: move-right 0.5s;
+        -o-animation: move-right 0.5s;
+        animation: move-right 0.5s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-four {
+        -webkit-animation: move-right 0.6s;
+        -moz-animation: move-right 0.6s;
+        -ms-animation: move-right 0.6s;
+        -o-animation: move-right 0.6s;
+        animation: move-right 0.6s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-five {
+        -webkit-animation: move-right 0.7s;
+        -moz-animation: move-right 0.7s;
+        -ms-animation: move-right 0.7s;
+        -o-animation: move-right 0.7s;
+        animation: move-right 0.7s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-six {
+        -webkit-animation: move-right 0.8s;
+        -moz-animation: move-right 0.8s;
+        -ms-animation: move-right 0.8s;
+        -o-animation: move-right 0.8s;
+        animation: move-right 0.8s; }
+      #form-views.ng-enter > .gen-formstep-wrapper > .animate-seven {
+        -webkit-animation: move-right 0.9s;
+        -moz-animation: move-right 0.9s;
+        -ms-animation: move-right 0.9s;
+        -o-animation: move-right 0.9s;
+        animation: move-right 0.9s; }
 
 .gen-formfield {
   position: relative;
