@@ -298,7 +298,7 @@ include("../mpdf/mpdf.php");
 $mpdf= new mPDF();
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->WriteHTML($html);
-$mpdf->Output( SPORTNGIN . $cookie .'-sportNgintest11x17.pdf','F');
+$mpdf->Output( SPORTNGIN . $cookie .'-sportNgin11x17.pdf','F');
 
 exit;
 //==============================================================

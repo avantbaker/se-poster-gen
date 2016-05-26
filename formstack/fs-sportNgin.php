@@ -1,7 +1,7 @@
 <?php 
 
 require_once 'formstack-api.php';
-
+require_once 'base.php';
 $formStack = new FormstackApi('f1f1317437cd097662d1f695fbe80751');
 $formId = '2370450';
 
@@ -79,5 +79,32 @@ $field_values = array(
 	$tournament_phone_number,
 	$tournament_website_name
 );
+
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$statement = $pdo->prepare("INSERT INTO poster_generator_form_submit(first_name, last_name, personal_phone, personal_email, host_organization, organization_type, organization_role, tournament_name, tournament_description, register_date, city, state, start_time, end_time, number_of_teams, game_minimum, entry_fee, director_first_name, director_last_name, tournament_email, tournament_phone_number, tournament_website_name) VALUES(:fn, :ln, :pp, :pe, :ho, :ot, :orgr, :tn, :td, :rd, :ct, :st, :strt, :endd, :nt, :gm, :ef, :dfn, :dln, :te, :tpn, :twn)");
+$statement->execute(array(
+	'fn' => $first_name, 
+	'ln' => $last_name, 
+	'pp' => $personal_phone, 
+	'pe' => $personal_email, 
+	'ho' => $host_organization, 
+	'ot' => $organization_type, 
+	'orgr' => $organization_role,
+	'tn' => $tournament_name,
+	'td' => $tournament_description, 
+	'rd' => $register_date, 
+	'ct' => $city, 
+	'st' => $state, 
+	'strt' => $start_time, 
+	'endd' => $end_time, 
+	'nt' => $number_of_teams, 
+	'gm' => $game_minimum, 
+	'ef' => $entry_fee, 
+	'dfn' => $director_first_name, 
+	'dln' => $director_last_name, 
+	'te' => $tournament_email, 
+	'tpn' => $tournament_phone_number, 
+	'twn' => $tournament_website_name
+));
 
 $formStack->submitForm($formId, $field_ids, $field_values);

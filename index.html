@@ -117,11 +117,11 @@
 						<div class="gen-steps-wrapper">					
 							<h5>Steps</h5>
 							<div class="gen-pagi">
-								<a ui-sref=".info" ui-sref-active="active">1</a>
-								<a ui-sref=".templateSelect" ui-sref-active="active">2</a>
-								<a ui-sref=".tournamentInfo" ui-sref-active="active">3</a>
-								<a ui-sref=".tournamentDescription" ui-sref-active="active">4</a>
-								<a ui-sref=".tournamentContact" ui-sref-active="active">5</a>
+								<a id="nav-info" ui-sref=".info" ui-sref-active="active">1</a>
+								<a id="nav-tempSelect" ui-sref=".templateSelect" ui-sref-active="active">2</a>
+								<a id="nav-tournInfo" ui-sref=".tournamentInfo" ui-sref-active="active">3</a>
+								<a id="nav-tournDes" ui-sref=".tournamentDescription" ui-sref-active="active">4</a>
+								<a id="nav-tournCon" ui-sref=".tournamentContact" ui-sref-active="active">5</a>
 							</div>
 						</div>
 													
@@ -161,12 +161,12 @@
 										<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
 									</div>
 									
-									<div class="template-element tournament-deadline">
+									<div class="template-element tournament-deadline"  ng-class="{'hide': excludeDeadline }">
 										REGISTER BY <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span>
 									</div>
 									
 									<div class="template-element tournament-callouts">
-										<span class="tournment-callout tournament-teams">TEAMS<br><span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span></span>
+										<span class="tournment-callout tournament-teams" ng-class="{'hide': excludeNumOfTeams }">TEAMS<br><span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span></span>
 										<span class="tournment-callout tournament-minimum-games" ng-class="{'hide': excludeGames }">GAME MINIMUM<br><span class="games-number">{{Model.gameMin || "X" }}</span></span>
 										<span class="tournment-callout tournament-fee" ng-class="{'hide': excludeFee }">ENTRY FEE<br><span class="fee">${{ Model.entryFee || "50"}}</span></span>
 									</div>
