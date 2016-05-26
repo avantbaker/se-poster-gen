@@ -1,89 +1,91 @@
-<div class="gen-formrow step-heading third">
-	<h4>Basic Tournament Information</h4>
-</div>
-<div class="gen-formrow">
-	<div class="gen-formfield left required" ng-class="{'error': invalid3.tournamentName == false}">
-		<label for="tournament_name">Tournament Name</label>
-		<input 
-			ng-model="Model.tournamentName" 
-			id="tournament-name" 
-			name="tournament-name" 
-			type="text" 
-			tabindex="1" 
-			/>
-		<span class="error-message">Enter tournament name</span>
-	</div>								
-	<div class="gen-formfield right required" ng-class="{'error': invalid3.hostOrg == false}">
-		<label for="host_organization">Host Organization</label>
-		<input 
-			ng-model="Model.hostOrg" 
-			id="host_organization" 
-			name="host_organization" 
-			type="text" 
-			tabindex="2" 
-			/>
-		<span class="error-message">Enter host organization</span>
+<div class="gen-formstep-wrapper">
+	<div class="gen-formrow step-heading third animate-one">
+		<h4>Basic Tournament Information</h4>
 	</div>
-</div>
-
-<div class="gen-formrow">										
-	<div class="gen-formfield left required" ng-class="{'error': invalid3.city == false}">
-		<label for="tournament_city">Tournament City</label>
-		<input 
-			ng-model="Model.city" 
-			id="tournament_city" 
-			name="tournament_city" 
-			type="text" 
-			tabindex="3" 
-			/>
-		<span class="error-message">Enter tournament city</span>
-	</div>									
-	<div class="gen-formfield right required" ng-class="{'error': invalid3.state == false}">
-		<label for="tournament_state">Tournament State</label>
-		<input 
-			ng-model="Model.state" 
-			id="tournament_state" 
-			name="tournament_state" 
-			type="text" 
-			tabindex="4" 
-			/>
-		<span class="error-message">Enter tournament city</span>
+	<div class="gen-formrow animate-two">
+		<div class="gen-formfield left required" ng-class="{'error': invalid3.tournamentName == false}">
+			<label for="tournament_name">Tournament Name</label>
+			<input 
+				ng-model="Model.tournamentName" 
+				id="tournament-name" 
+				name="tournament-name" 
+				type="text" 
+				tabindex="1" 
+				/>
+			<span class="error-message">Enter tournament name</span>
+		</div>								
+		<div class="gen-formfield right required" ng-class="{'error': invalid3.hostOrg == false}">
+			<label for="host_organization">Host Organization</label>
+			<input 
+				ng-model="Model.hostOrg" 
+				id="host_organization" 
+				name="host_organization" 
+				type="text" 
+				tabindex="2" 
+				/>
+			<span class="error-message">Enter host organization</span>
+		</div>
 	</div>
-</div>
-
-<div class="gen-formrow">
-	<div class="gen-formfield left required" ng-class="{'error': invalid3.startDate == false}">
-		<label for="start_date">Start Date</label>
-		<input 
-			ng-model="Model.startDate" 
-			id="start_date" 
-			name="start_date" 
-			type="date" 
-			tabindex="5" 
-			placeholder="mm/dd/yyyy" 
-			min="2016-01-01" 
-			max="2017-12-31" 
-			 />
-		<span class="error-message">Enter start date</span>
-	</div>									
-	<div class="gen-formfield right required" ng-class="{'error': invalid3.endDate == false}">
-		<label for="end_date">End Date</label>
-		<input 
-			ng-model="Model.endDate" 
-			id="end_date" 
-			name="end_date" 
-			type="date" 
-			tabindex="6" 
-			placeholder="mm/dd/yyyy" 
-			min="2016-01-01" 
-			max="2017-12-31"
-			/>
-		<span class="error-message">Enter end date</span>
+	
+	<div class="gen-formrow animate-three">										
+		<div class="gen-formfield left required" ng-class="{'error': invalid3.city == false}">
+			<label for="tournament_city">Tournament City</label>
+			<input 
+				ng-model="Model.city" 
+				id="tournament_city" 
+				name="tournament_city" 
+				type="text" 
+				tabindex="3" 
+				/>
+			<span class="error-message">Enter tournament city</span>
+		</div>									
+		<div class="gen-formfield right required" ng-class="{'error': invalid3.state == false}">
+			<label for="tournament_state">Tournament State</label>
+			<input 
+				ng-model="Model.state" 
+				id="tournament_state" 
+				name="tournament_state" 
+				type="text" 
+				tabindex="4" 
+				/>
+			<span class="error-message">Enter tournament city</span>
+		</div>
 	</div>
-</div>
-
-<div class="gen-formrow">
-	<div class="gen-button">
-		<button class="button full next-step" ng-click="nextStep()">Next Step</button>
+	
+	<div class="gen-formrow animate-four">
+		<div class="gen-formfield left required" ng-class="{'error': invalid3.startDate == false}">
+			<label for="start_date">Start Date</label>
+			<input 
+				ng-model="Model.startDate" 
+				id="start_date" 
+				name="start_date" 
+				type="date" 
+				tabindex="5" 
+				placeholder="mm/dd/yyyy" 
+				min="2016-01-01" 
+				max="2017-12-31" 
+				 />
+			<span class="error-message">Enter start date</span>
+		</div>									
+		<div class="gen-formfield right required" ng-class="{'error': invalid3.endDate == false}">
+			<label for="end_date">End Date</label>
+			<input 
+				ng-model="Model.endDate" 
+				id="end_date" 
+				name="end_date" 
+				type="date" 
+				tabindex="6" 
+				placeholder="mm/dd/yyyy" 
+				min="2016-01-01" 
+				max="2017-12-31"
+				/>
+			<span class="error-message">Enter end date</span>
+		</div>
+	</div>
+	
+	<div class="gen-formrow animate-five">
+		<div class="gen-button">
+			<button class="button full next-step" ng-click="nextStep()">Next Step</button>
+		</div>
 	</div>
 </div>
