@@ -531,7 +531,6 @@ form {
 
 .gen-formrow {
 	@extend %clearfix;
-	@include transition(opacity .3s);
 	&.step-heading {
 		padding: 15px 0;
 		h4 {
@@ -591,10 +590,43 @@ form {
 }
 
 // Transition form rows
-[ui-view].ng-enter, [ui-view].ng-leave {
- 	
+.gen-formstep-wrapper {
+	overflow: hidden;
 }
 
+#form-views {
+	position: relative;
+	&.ng-enter {
+		@include transition(all 1s);
+		> .gen-formstep-wrapper {
+			opacity: 1;
+			@include animation(fade-in 1s);
+			> .animate-one {
+				@include animation(move-right .3s);
+			}
+			> .animate-two {
+				@include animation(move-right .4s);
+			}
+			> .animate-three {
+				@include animation(move-right .5s);
+			}
+			> .animate-four {
+				@include animation(move-right .6s);
+			}
+			> .animate-five {
+				@include animation(move-right .7s);
+			}
+			> .animate-six {
+				@include animation(move-right .8s);
+			}
+			> .animate-seven {
+				@include animation(move-right .9s);
+			}
+		}
+	}
+}
+
+// Form Layout
 .gen-formfield {
 	position: relative;
 	float: left;
