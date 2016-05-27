@@ -123,6 +123,9 @@ main, header, footer, section {
 			width: 100%;
 		}
 	}
+	&.full {
+		width: 100%;
+	}
 	&.pad-left {
 		padding-left: 20px;
 	}
@@ -484,11 +487,6 @@ strong {
 		border: 1px solid $ltgray;
 		@include border-radius(50%);
 		@include transition(all .2s);
-		&:hover {
-			background: $blue;
-			border: 1px solid $blue;
-			color: #fff;
-		}
 		&:before {
 			content:"";
 			display: block;
@@ -515,6 +513,11 @@ strong {
 			background: $ltgray;
 			border: 1px solid $ltgray;
 			color: #fff;
+			&:hover {
+				background: $blue;
+				border: 1px solid $blue;
+				color: #fff;
+			}
 		}
 	}
 }
@@ -973,6 +976,31 @@ button,
 button.secondary-cta,
 a.secondary-cta {
 	@include secondary-cta;
+	&.refresh {
+		display: inline-block;
+		&:before {
+			content:"";
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-right: 5px;
+			background: url('../assets/img/icon-refresh_blue.svg') no-repeat center center;
+			transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			@include transition(transform .3s);
+		}
+		&:hover {
+			&:before {
+				transform: rotate(-180deg);
+				-webkit-transform: rotate(-180deg);
+			}
+		}
+		span {
+			display: inline-block;
+			transform: translateY(-3px);
+			-webkit-transform: translateY(-3px);
+		}
+	}
 }
 
 
@@ -1472,8 +1500,8 @@ footer {
 			
 			.preloader-icon {
 				position: relative;
-				width: 140px;
-				height: 140px;
+				width: 80px;
+				height: 80px;
 				background: url('../assets/img/sn-mark_light.svg') no-repeat left center;
 				&:before {
 					content: "";
@@ -1518,6 +1546,7 @@ footer {
 
 .download-page .poster-builder-app {
 	min-height: 720px;
+	min-height: 100vh;
 }
 
 .download-row {
@@ -1569,7 +1598,7 @@ footer {
 			vertical-align: bottom;
 			@include vertical {
 				vertical-align: initial;
-				padding: 0 0 0 15px;
+				padding: 15px 0 0 0;
 			}
 		}
 	}
