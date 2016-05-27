@@ -4,14 +4,20 @@
 //=========         SPORT NGIN TEMPLATE ONE           ==========
 //==============================================================
 
-$request = json_decode( file_get_contents("php://input"), false );
+// $request = json_decode( file_get_contents("php://input"), false );
 
 require_once('date-conversion.php');
 
-$tournamentName 		= strtoupper($request->tournamentName);		
-$startDate 				= formatDate($request->startDate); 	
-$endDate 				= formatDate($request->endDate);
-$cookie 				= $request->userID;
+// $tournamentName 		= strtoupper($request->tournamentName);		
+// $startDate 				= formatDate($request->startDate); 	
+// $endDate 				= formatDate($request->endDate);
+// $cookie 				= $request->userID;
+
+$tournamentName 		= "TOURNAMENT NAME";		
+$startDate 				= "May 30th 2016"; 	
+$endDate 				= "June 2nd 2016";
+$cookie 				= "12KI8JCK";
+
 
 $html = "
 <html>
