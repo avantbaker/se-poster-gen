@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="sportNgin" class="no-scroll">
+	
+	<head>
+		<meta charset="UTF-8">
+	
+		<title>Sport Ngin: Tournament Poster Generator</title>
+		
+		<!-- Meta Layout data -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1,minimum-scale=1,width=device-width">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<!-- Meta SEO data -->
+		<meta name="title" content="Sport Ngin: Baseball Tournament Poster Generator" />
+		<meta name="description" content="Promote your tourney with style, in minutes FOR FREE." />
+		<meta name="keywords" content="tournament poster, poster generator, youth sports, amateur sports" />
+		<meta name="classification" content="Youth and amateur sports tournament experts" />
+		<meta name="author" content="Sport Ngin" />
+		
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Sport Ngin: Baseball Tournament Poster Generator">
+		<meta property="og:type" content="article">
+		<meta property="og:image" content="assets/img/sn-tourney-builder-og-soccer.jpg">
+		<meta property="og:description" content="Promote your tourney with style, in minutes FOR FREE.">
+		<meta property="og:site_name" content="Sport Ngin" />
+		
+		<!-- Twitter Card data -->
+		<meta name="twitter:title" content="Sport Ngin: Baseball Tournament Poster Generator">
+		<meta name="twitter:description" content="Promote your tourney with style, in minutes FOR FREE." >
+		<meta name="twitter:creator" content="@SportNgin">
+		<meta name="twitter:image" content="assets/img/sn-tourney-builder-twitter-soccer.jpg">
+		
+		<!--Favicon -->
+		<link href="assets/img/favicon.png" type="image/png" rel="icon">
+		
+		<!--Webfonts -->
+		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/737218/772222/css/fonts.css" />
+		<link href='https://fonts.googleapis.com/css?family=Roboto:900|Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+		
+		<!--Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="css/sport-ngin-tournament-poster.css" />
+		<link rel="stylesheet" type="text/css" href="css/sport-ngin-tournament-poster_baseball-poster.css" />
+		
+		<!--[if lt IE 9]>
+	      <script type="text/javascript" src="js/html5shiv.js"></script>
+	      <script type="text/javascript" src="js/selectivizr.js"></script>
+	      <script type="text/javascript" src="js/respond.js"></script>
+		<![endif]-->
+	        
+		<!--Scripts -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/modernizr.js"></script>
+		<script type="text/javascript" src="js/sport-ngin-tournament-preloder.js"></script>
+		
+	</head>
+	
+	<body class="static no-scroll">
+		
+		<!----------- Mobile preview toggle -->
+		<nav class="poster-preview-toggle">
+			<div class="toggle-wrapper">
+				<span id="builder-trigger" class="toggle-button toggle-builder">Back</span>
+				<span id="preview-trigger" class="toggle-button toggle-preview">Preview Poster</span>
+			</div>
+		</nav>
+		
+		<!----------- Poster Intro -->
+		<header class="poster-builder-intro">
+				
+			<div class="container masthead">
+				
+				<h1 class="masthead-logo">Sport Ngin</h1>
+				
+				<aside class="sn-share header-share">
+					<h5>Share</h5>
+					<a class="facebook" href="#" onClick="window.open('https://www.facebook.com/dialog/share?app_id=464791073711834&display=iframe&href=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&redirect_uri=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&picture=<?php echo rawurlencode('http://www.vertserver.com/dev/sportNgin/assets/img/sn-tourney-builder-og-soccer.jpg');?>&name=Sport%20Ngin%20Baseball%20Tournament%20Poster%20Generator&description=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE.'); ?>&caption=Sport%20Ngin%20', 'Share', 'height=450, width=650'); ga('send', 'event', 'button', 'share', 'shareFacebook');">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+							<path class="social-fill" d="M0,0V25H25V0H0ZM15.81,10L15.64,12.2h-2.3V20H10.43V12.2H8.88V10h1.55V8.45a4,4,0,0,1,.5-2.32A2.76,2.76,0,0,1,13.34,5a9.75,9.75,0,0,1,2.78.28l-0.39,2.3a5.24,5.24,0,0,0-1.25-.19,0.94,0.94,0,0,0-1.14.82V10h2.47Z"/>
+						</svg>
+					</a>
+					<a class="twitter" href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE with the Tournament Poster Generator. http://www.vertserver.com/dev/sportNgin'); ?>" target="_blank" onclick="ga('send', 'event', 'button', 'share', 'shareTwitter');">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+							<path class="social-fill" d="M0,0V25H25V0H0ZM18.46,9.44c0,0.13,0,.26,0,0.4A8.75,8.75,0,0,1,5,17.21a6.22,6.22,0,0,0,4.56-1.28A3.08,3.08,0,0,1,6.68,13.8a3.05,3.05,0,0,0,.58.05,3,3,0,0,0,.81-0.11,3.08,3.08,0,0,1-2.47-3v0A3.08,3.08,0,0,0,7,11.08,3.08,3.08,0,0,1,6,7a8.74,8.74,0,0,0,6.34,3.22,3.08,3.08,0,0,1,5.24-2.81,6.15,6.15,0,0,0,2-.75,3.08,3.08,0,0,1-1.35,1.7A6.16,6.16,0,0,0,20,7.85,6.24,6.24,0,0,1,18.46,9.44Z"/>
+						</svg>
+					</a>
+				</aside>
+				
+			</div>
+			
+			<div class="container intro-content">
+				<h2>Baseball Tournament Poster Generator</h2>
+				<p class="intro">Promote your tourney with style, in minutes... <strong>FOR FREE</strong>. Walk through the steps below to customize a downloadable baseball or softball tournament flyer and poster.</p>
+			</div>
+			
+		</header>
+		
+		<!----------- Poster Hero -->	
+		<div class="poster-builder-hero"></div>
+		
+		<!----------- Poster Builder -->
+		<main class="page-wrapper">
+
+			<!----------- Poster Builder -->	
+			<section class="poster-builder-app">
+							
+				<div class="container gen-container">
+									
+					<!-- Steps delieverd from partials -->
+					<div class="gen-content-left">
+	
+						<div class="gen-intro-wrapper">
+							<h3>Customize your poster</h3>
+							<p>Fill in your tournament Information below to generate customized template</p>
+						</div>
+						
+						<div class="gen-steps-wrapper">					
+							<h5>Steps</h5>
+							<div class="gen-pagi" ng-controller="homeCntrl as home">
+								<a id="nav-info" ui-sref=".info" ng-click="navStep1()" ui-sref-active="active">1</a>
+								<a id="nav-tempSelect" ng-click="navStep2()">2</a>
+								<a id="nav-tournInfo" ng-click="navStep3()">3</a>
+								<a id="nav-tournDes" ng-click="navStep4()">4</a>
+								<a id="nav-tournCon" ng-click="navStep5()">5</a>
+							</div>
+						</div>
+													
+						<form name="sportNgin-form" ng-submit='' accept-charset="utf-8" novalidate>
+							
+							<ui-view id="form-views"></ui-view>
+
+						</form>
+													
+					</div>
+								
+					<!-- Poster layout -->
+					<div class="gen-content-right" ng-controller="pdfCntrl as pdf">
+						<div class="poster-canvas" ng-class="{ 'template-one': template1, 'template-two': template2 }">
+							<div class="aspect-wrapper">
+								<div class="template-wrapper">
+									<div class="template-element host-name">
+										<span>{{ Model.hostOrg || 'Host Organization' }}</span>
+									</div>
+									
+									<div class="template-element tournament-name">
+										<span>{{ Model.tournamentName || 'Tournament Name' }}</span>
+									</div>
+									
+									<div class="template-element tournament-date">
+										<div class="date-wrapper">
+											<span class="start-date">{{ Model.startDate | date: "MM/dd/yyyy" }}</span> THRU <span class="end-date">{{ Model.endDate | date: "MM/dd/yyyy"}}</span>
+										</div>
+									</div>
+									
+									<div class="template-element tournament-location">
+										<span class="tournament-city">{{ Model.city || 'CITY' }} </span>, <span class="tournament-state">{{ Model.state || 'STATE' }}</span>
+									</div>
+									
+									<div class="template-element tournament-details">
+										<span class="tournament-description">{{ Model.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ligula nisi, blandit iaculis enim mattis in. Nunc commodo ultrices cursus. Fusce turpis orci, pellentesque vitae tempus ac, pharetra ut dui." }}</span>
+									</div>
+									
+									<div class="template-element tournament-deadline"  ng-class="{'hide': excludeDeadline }">
+										REGISTER BY <span class="register-date">{{ Model.registerBy | date: "MM/dd/yyyy" }}</span>
+									</div>
+									
+									<div class="template-element tournament-callouts">
+										<span class="tournment-callout tournament-teams" ng-class="{'hide': excludeNumOfTeams }">TEAMS<br><span class="teams-number">{{ Model.numOfTeams || "XXX" }}</span></span>
+										<span class="tournment-callout tournament-minimum-games" ng-class="{'hide': excludeGames }">GAME MINIMUM<br><span class="games-number">{{Model.gameMin || "X" }}</span></span>
+										<span class="tournment-callout tournament-fee" ng-class="{'hide': excludeFee }">ENTRY FEE<br><span class="fee">${{ Model.entryFee || "50"}}</span></span>
+									</div>
+										
+									</div>
+									<div class="template-element tournament-contact">
+										<span class="contact-information">
+											<span class="director-name" ng-class="{'hide' : excludeFirst && excludeLast}">
+												<span class="director-first" ng-class="{'hide': excludeFirst }">{{ Model.dirFirstName || "HOST"}}</span> <span class="director-last" ng-class="{'hide': excludeLast }">{{ Model.dirLastName || "NAME" }} |</span>
+											</span>
+											
+											<span class="director-email"><span class="email" ng-class="{'hide': excludeEmail }">{{ Model.tEmail || "EMAIL@MAIL.COM"}} | </span></span>
+											<span class="director-phone" ng-class="{'hide': excludePhone }">{{ Model.tphone || "111-222-3333" }}</span>
+											<br>
+											<span class="tournament-website" ng-class="{'hide': excludeWebsite }">{{ Model.twebsiteName || "YOURURL.COM" }}</span>
+										</span>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<!----------- Poster CTA -->
+		<div class="poster-builder-cta-spacer"></div>
+		
+		<footer class="poster-builder-cta">
+			
+			<div class="container">
+				
+				<h3>Need more help with your tournament?</h3>
+				<p>One of our tournament-management experts can help. Schedule some time.</p>
+				<a class="button" href="http://www.sportngin.com/get-started/" target="_blank">Schedule Chat</a>
+				
+				<aside class="sn-share mobile-share">
+					<h5>Share this App</h5>
+					<a class="facebook" href="#" onClick="window.open('https://www.facebook.com/dialog/share?app_id=464791073711834&display=iframe&href=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&redirect_uri=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&picture=<?php echo rawurlencode('http://www.vertserver.com/dev/sportNgin/assets/img/sn-tourney-builder-og-soccer.jpg');?>&name=Sport%20Ngin%20Baseball%20Tournament%20Poster%20Generator&description=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE.'); ?>&caption=Sport%20Ngin%20', 'Share', 'height=450, width=650'); ga('send', 'event', 'button', 'share', 'shareFacebook');">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+							<path class="social-fill" d="M0,0V25H25V0H0ZM15.81,10L15.64,12.2h-2.3V20H10.43V12.2H8.88V10h1.55V8.45a4,4,0,0,1,.5-2.32A2.76,2.76,0,0,1,13.34,5a9.75,9.75,0,0,1,2.78.28l-0.39,2.3a5.24,5.24,0,0,0-1.25-.19,0.94,0.94,0,0,0-1.14.82V10h2.47Z"/>
+						</svg>
+					</a>
+					<a class="twitter" href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE with the Tournament Poster Generator. http://www.vertserver.com/dev/sportNgin'); ?>" target="_blank" onclick="ga('send', 'event', 'button', 'share', 'shareTwitter');">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+							<path class="social-fill" d="M0,0V25H25V0H0ZM18.46,9.44c0,0.13,0,.26,0,0.4A8.75,8.75,0,0,1,5,17.21a6.22,6.22,0,0,0,4.56-1.28A3.08,3.08,0,0,1,6.68,13.8a3.05,3.05,0,0,0,.58.05,3,3,0,0,0,.81-0.11,3.08,3.08,0,0,1-2.47-3v0A3.08,3.08,0,0,0,7,11.08,3.08,3.08,0,0,1,6,7a8.74,8.74,0,0,0,6.34,3.22,3.08,3.08,0,0,1,5.24-2.81,6.15,6.15,0,0,0,2-.75,3.08,3.08,0,0,1-1.35,1.7A6.16,6.16,0,0,0,20,7.85,6.24,6.24,0,0,1,18.46,9.44Z"/>
+						</svg>
+					</a>
+				</aside>
+				
+			</div>
+			
+		</footer>
+		
+		<!---------- Approval & Preview Container -->
+		<div class="approval-container">
+			<div class="container approval-inner">
+				<div class="approval-modal" ng-controller="homeCntrl">
+					<h3>Approve Your Poster</h3>
+					<p>Give this one last look before we run it through the poster generator.</p>
+					<button id="approval-close" class="full back">Wait! I see a change</button>
+					<br><br>
+					<button class="full approved" ng-click="generatePdf()">Approved!</button>
+				</div>
+			</div>
+		</div>
+		
+		<!---------- Transition Overlay -->
+		<div class="preloader-overlay"></div>
+		
+		<!---------- Scripts -->
+		<script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+		<script src="bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+		<script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script src="app.js" type="text/javascript"></script>
+		<script src="js/sport-ngin-tournament-poster.js"></script>
+
+	</body>
+</html>

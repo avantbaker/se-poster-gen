@@ -12,31 +12,17 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
 		<!-- Meta SEO data -->
-		<meta name="title" content="Sport Ngin: Tournament Poster Generator" />
-		<meta name="description" content="Lorem ipsum." />
+		<meta name="title" content="Sport Ngin: Baseball Tournament Poster Generator" />
+		<meta name="description" content="Promote your tourney with style, in minutes FOR FREE." />
 		<meta name="keywords" content="tournament poster, poster generator, youth sports, amateur sports" />
 		<meta name="classification" content="Youth and amateur sports tournament experts" />
 		<meta name="author" content="Sport Ngin" />
-		
-		<!-- Open Graph data -->
-		<meta property="og:title" content="Sport Ngin: Tournament Poster Generator">
-		<meta property="og:type" content="article">
-		<meta property="og:image" content="link to hero image">
-		<meta property="og:description" content="Lorem ipsum">
-		<meta property="og:site_name" content="Sport Ngin" />
-		
-		<!-- Twitter Card data -->
-		<meta name="twitter:title" content="Sport Ngin: Tournament Poster Generator">
-		<meta name="twitter:description" content="" >
-		<meta name="twitter:creator" content="@SportNgin">
-		<meta name="twitter:image" content="link to hero image">
 		
 		<!--Favicon -->
 		<link href="../assets/img/favicon.png" type="image/png" rel="icon">
 		
 		<!--Webfonts -->
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/737218/772222/css/fonts.css" />
-		<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600|Oswald:700' rel='stylesheet' type='text/css'>
 		
 		<!--Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="../css/sport-ngin-tournament-poster.css" />
@@ -78,12 +64,12 @@
 				
 				<aside class="sn-share header-share">
 					<h5>Share</h5>
-					<a class="facebook" href="#">
+					<a class="facebook" href="#" onClick="window.open('https://www.facebook.com/dialog/share?app_id=464791073711834&display=iframe&href=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&redirect_uri=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&picture=<?php echo rawurlencode('http://www.vertserver.com/dev/sportNgin/assets/img/sn-tourney-builder-og-soccer.jpg');?>&name=Sport%20Ngin%20Baseball%20Tournament%20Poster%20Generator&description=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE.'); ?>&caption=Sport%20Ngin%20', 'Share', 'height=450, width=650'); ga('send', 'event', 'button', 'share', 'shareFacebook');">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
 							<path class="social-fill" d="M0,0V25H25V0H0ZM15.81,10L15.64,12.2h-2.3V20H10.43V12.2H8.88V10h1.55V8.45a4,4,0,0,1,.5-2.32A2.76,2.76,0,0,1,13.34,5a9.75,9.75,0,0,1,2.78.28l-0.39,2.3a5.24,5.24,0,0,0-1.25-.19,0.94,0.94,0,0,0-1.14.82V10h2.47Z"/>
 						</svg>
 					</a>
-					<a class="twitter" href="#">
+					<a class="twitter" href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE with the Tournament Poster Generator. http://www.vertserver.com/dev/sportNgin'); ?>" target="_blank" onclick="ga('send', 'event', 'button', 'share', 'shareTwitter');">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
 							<path class="social-fill" d="M0,0V25H25V0H0ZM18.46,9.44c0,0.13,0,.26,0,0.4A8.75,8.75,0,0,1,5,17.21a6.22,6.22,0,0,0,4.56-1.28A3.08,3.08,0,0,1,6.68,13.8a3.05,3.05,0,0,0,.58.05,3,3,0,0,0,.81-0.11,3.08,3.08,0,0,1-2.47-3v0A3.08,3.08,0,0,0,7,11.08,3.08,3.08,0,0,1,6,7a8.74,8.74,0,0,0,6.34,3.22,3.08,3.08,0,0,1,5.24-2.81,6.15,6.15,0,0,0,2-.75,3.08,3.08,0,0,1-1.35,1.7A6.16,6.16,0,0,0,20,7.85,6.24,6.24,0,0,1,18.46,9.44Z"/>
 						</svg>
@@ -126,7 +112,7 @@
 						</div>
 						<div class="col two-thirds button-col">
 							<a id="small-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgin8x11.pdf" target="_blank">Download</a>
-							<button id="small-poster-email" class="outline-button spaced email">Email</button>
+							<!-- <button id="small-poster-email" class="outline-button spaced email">Email</button> -->
 						</div>
 					</div>
 					
@@ -136,7 +122,7 @@
 						</div>
 						<div class="col two-thirds button-col">
 							<a id="large-poster-download" class="button outline-button spaced download" href="../mpdf/tmp/{{ userId }}-sportNgin11x17.pdf" target="_blank">Download</a>
-							<button id="large-poster-email" class="outline-button spaced email">Email</button>
+							<!--  <button id="large-poster-email" class="outline-button spaced email">Email</button> -->
 						</div>
 					</div>
 					
@@ -146,7 +132,7 @@
 						</div>
 						<div class="col two-thirds button-col">
 							<a id="social-image-download" class="button outline-button spaced download">Download</a>
-							<button id="social-image-email" class="outline-button spaced email">Email</button>
+							<!-- <button id="social-image-email" class="outline-button spaced email">Email</button> -->
 							<button id="social-image-share" class="outline-button spaced share">Share</button>
 						</div>
 					</div>
@@ -172,16 +158,16 @@
 				
 				<h3>Need more help with your tournament?</h3>
 				<p>One of our tournament-management experts can help. Schedule some time.</p>
-				<a class="button" href="#">Schedule Chat</a>
+				<a class="button" href="http://www.sportngin.com/get-started/" target="_blank">Schedule Chat</a>
 				
 				<aside class="sn-share mobile-share">
 					<h5>Share this App</h5>
-					<a class="facebook" href="#">
+					<a class="facebook" href="#" onClick="window.open('https://www.facebook.com/dialog/share?app_id=464791073711834&display=iframe&href=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&redirect_uri=http%3A%2F%2Fvertserver.com%2Fdev%2FsportNgin&picture=<?php echo rawurlencode('http://www.vertserver.com/dev/sportNgin/assets/img/sn-tourney-builder-og-soccer.jpg');?>&name=Sport%20Ngin%20Baseball%20Tournament%20Poster%20Generator&description=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE.'); ?>&caption=Sport%20Ngin%20', 'Share', 'height=450, width=650'); ga('send', 'event', 'button', 'share', 'shareFacebook');">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
 							<path class="social-fill" d="M0,0V25H25V0H0ZM15.81,10L15.64,12.2h-2.3V20H10.43V12.2H8.88V10h1.55V8.45a4,4,0,0,1,.5-2.32A2.76,2.76,0,0,1,13.34,5a9.75,9.75,0,0,1,2.78.28l-0.39,2.3a5.24,5.24,0,0,0-1.25-.19,0.94,0.94,0,0,0-1.14.82V10h2.47Z"/>
 						</svg>
 					</a>
-					<a class="twitter" href="#">
+					<a class="twitter" href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode('Promote your tourney with style, in minutes FOR FREE with the Tournament Poster Generator. http://www.vertserver.com/dev/sportNgin'); ?>" target="_blank" onclick="ga('send', 'event', 'button', 'share', 'shareTwitter');">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
 							<path class="social-fill" d="M0,0V25H25V0H0ZM18.46,9.44c0,0.13,0,.26,0,0.4A8.75,8.75,0,0,1,5,17.21a6.22,6.22,0,0,0,4.56-1.28A3.08,3.08,0,0,1,6.68,13.8a3.05,3.05,0,0,0,.58.05,3,3,0,0,0,.81-0.11,3.08,3.08,0,0,1-2.47-3v0A3.08,3.08,0,0,0,7,11.08,3.08,3.08,0,0,1,6,7a8.74,8.74,0,0,0,6.34,3.22,3.08,3.08,0,0,1,5.24-2.81,6.15,6.15,0,0,0,2-.75,3.08,3.08,0,0,1-1.35,1.7A6.16,6.16,0,0,0,20,7.85,6.24,6.24,0,0,1,18.46,9.44Z"/>
 						</svg>

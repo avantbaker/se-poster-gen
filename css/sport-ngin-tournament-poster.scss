@@ -484,11 +484,6 @@ strong {
 		border: 1px solid $ltgray;
 		@include border-radius(50%);
 		@include transition(all .2s);
-		&:hover {
-			background: $blue;
-			border: 1px solid $blue;
-			color: #fff;
-		}
 		&:before {
 			content:"";
 			display: block;
@@ -515,6 +510,11 @@ strong {
 			background: $ltgray;
 			border: 1px solid $ltgray;
 			color: #fff;
+			&:hover {
+				background: $blue;
+				border: 1px solid $blue;
+				color: #fff;
+			}
 		}
 	}
 }
