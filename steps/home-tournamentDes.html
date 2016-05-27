@@ -1,3 +1,4 @@
+
 <div class="gen-formstep-wrapper">
 	<div class="gen-formrow step-heading fourth animate-one">
 		<h4>Tournament Description</h4>
@@ -26,7 +27,9 @@
 		</div>									
 		<div class="gen-formfield field-check secondary">
 			<input 
-				id="include_team_number" 
+				ng-model="excludeNumOfTeams"
+				ng-change="numberOfTeamsToggle()"
+				id="include_team_number"
 				name="include_team_number" 
 				type="checkbox" 
 				tabindex="3" />
@@ -49,6 +52,7 @@
 			<input 
 				ng-model="excludeGames" 
 				ng-change="gamesToggle()" 
+				id="include_games"
 				name="include_games" 
 				type="checkbox" 
 				tabindex="5" />

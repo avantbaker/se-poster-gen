@@ -78,6 +78,7 @@ sportNgin.service('sportNginModel',
 				 	excludeEmail 		: false,
 				 	excludePhone 		: false,
 				 	excludeWebsite 		: false,
+				 	excludeNumOfTeams 	: false,
 				 	template 			: "one",
 				 	orgType				: "",
 				 	role				: ""
@@ -244,78 +245,6 @@ sportNgin.factory('SNjquery', function(){
 
 	snJquery.init = function(){
 		angular.element(document).ready(function () {
-
-			// Explicitly set class for mobile and desktop browsers
-		  	var isMobile = {
-				Android: function() {
-				    return navigator.userAgent.match(/Android/i);
-				},
-				BlackBerry: function() {
-				    return navigator.userAgent.match(/BlackBerry/i);
-				},
-				iOS: function() {
-				    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-				},
-				Opera: function() {
-				    return navigator.userAgent.match(/Opera Mini/i);
-				},
-				Windows: function() {
-				    return navigator.userAgent.match(/IEMobile/i);
-				},
-				any: function() {
-				    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-				}
-			};
-
-
-			if(isMobile.any()) {
-				$("body").addClass("mobile");
-			}
-			else {
-				$("body").addClass("desktop");
-			}
-
-		  	// Replace img SVG with PNG on unsupported browsers
-		  	if(!Modernizr.svg) {
-			    $('img[src*="svg"]').attr('src', function() {
-			      return $(this).attr('src').replace('.svg', '.png');
-			    });
-		  	}
-			
-			//Match Hero height to header
-			var headerHeight = $("header").outerHeight();
-			$( ".poster-builder-hero").height(headerHeight + "px");
-			
-			// Parallax effect on hero
-			$(window).scroll(function() {
-		      var s = $(window).scrollTop();
-		      $( ".poster-builder-hero" ).css("-webkit-transform", "translateY(" + -(s*.25) + "px)");
-		      $( ".poster-builder-hero" ).css("transform", "translateY(" + -(s*.25) + "px)");
-		    })
-		    
-		    // Adjust font-size in poster based on size in container 
-		    setTimeout(function() {
-			    var posterWidth = $( ".poster-canvas" ).width();
-				var fontPercent = (posterWidth / 612) * 100
-		    	$( ".poster-canvas" ).css('font-size', fontPercent + "%");
-			}, 200);
-			
-			$(window).resize(function(){
-				setTimeout(function() {
-			    	var posterWidth = $( ".poster-canvas" ).width();
-					var fontPercent = (posterWidth / 612) * 100
-			    	$( ".poster-canvas" ).css('font-size', fontPercent + "%");
-				}, 50);
-			});
-			
-			// Add spacer height for fixed footer
-			var footerHeight = $("footer").outerHeight();
-			$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
-			
-			$(window).resize(function(){
-		    	var footerHeight = $("footer").outerHeight();
-				$( ".page-wrapper" ).css('margin-bottom', footerHeight + "px");
-			});
 			
 			// Slide in toggle nav on scroll (mobile-only)
 			$(window).scroll(function () {
@@ -325,6 +254,7 @@ sportNgin.factory('SNjquery', function(){
 					$( ".poster-preview-toggle" ).removeClass("viewable");
 				}
 			});
+			
 			var windowWidth = $(window).width();
 			if(windowWidth < 900){
 				// setTimeout(function(){
@@ -365,31 +295,6 @@ sportNgin.factory('SNjquery', function(){
 				    }, 100);
 				});	
 			}
-			
-			// Preview State
-			$( '#preview-trigger' ).on('click', function(e) {
-			    e.preventDefault();
-			    var offsetY = window.pageYOffset
-			    $( ".poster-preview-toggle" ).addClass("stuck");
-			    $( "body" ).css({'top': -offsetY + 'px'});
-			    $( "body, html" ).addClass("no-scroll");
-			    setTimeout(function(){
-				   $( "body" ).addClass("preview-state"); 
-			    }, 100);
-			});
-			
-			$( '#builder-trigger' ).on('click', function(e) {
-			    e.preventDefault();
-			    var x = $('body').css('top');
-			    var y = x.replace(/-/gi, '');
-			    var pagePos = y.replace(/px/gi, '');
-			    $( "body, html" ).removeClass("no-scroll");
-			    $(window).scrollTop(pagePos);
-			    $( "body" ).removeClass("preview-state");
-			     setTimeout(function(){
-				   $( ".poster-preview-toggle" ).removeClass("stuck");
-			    }, 100);
-			});
 			
 			//Highlight poster element on associated input hover
 			var allElements = $('.template-wrapper');
@@ -479,13 +384,43 @@ sportNgin.factory('SNjquery', function(){
 		});
 	};
 
+	snJquery.launchModal = function(){
+					
+			var windowWidth = $(window).width();
+			
+		    if( windowWidth > 900) {
+			    var offsetY = window.pageYOffset
+			    var posterWidth = $( '.poster-canvas' ).outerWidth();
+				$( "body" ).css({'top': -offsetY + 'px'});
+			    $( "body, html" ).addClass("no-scroll");
+			    $( ".poster-canvas").css('width', posterWidth + "px");
+			    setTimeout(function(){
+				   $( "body" ).addClass("approval-state"); 
+			    }, 100);
+			    setTimeout(function(){
+				   var posterHeight = $( '.poster-canvas' ).outerHeight();
+				   $( ".approval-inner").css('min-height', posterHeight + "px");
+				}, 400);
+			} else {
+				var offsetY = window.pageYOffset
+			    $( ".poster-preview-toggle" ).addClass("stuck");
+			    $( "body" ).css({'top': -offsetY + 'px'});
+			    $( "body, html" ).addClass("no-scroll");
+			    setTimeout(function(){
+				   $( "body" ).addClass("approval-state"); 
+			    }, 100);
+			}
+
+	}
+
 	return snJquery;
 });
 
 sportNgin.factory('changeTemplate', [
 	'$rootScope',
-	'$log', 
-	function($rootScope, $log){
+	'$log',
+	'SNjquery', 
+	function($rootScope, $log, SNjquery){
 
 	var service = this;
 	
@@ -507,19 +442,34 @@ sportNgin.factory('changeTemplate', [
 	 	excludeLast 		: false,
 	 	excludeEmail 		: false,
 	 	excludePhone 		: false,
-	 	excludeWebsite 		: false
+	 	excludeWebsite 		: false,
+	 	excludeNumOfTeams 	: false
 	};
 
 	service.prepForBroadcast = function() {
-		if( service.props.template1 === true ) {
+		if( service.props.template1 === true) {
+			service.props.template1 = true;
+			service.props.template2 = false;
+			service.props.activeTemplate = 'one';
+			service.changeTemplate();
+		} else if (service.props.template1 === false ) {
+			service.props.template1 = true;
+			service.props.template2 = false;
+			service.props.activeTemplate = 'one';
+			service.changeTemplate();
+		}
+	};
+
+	service.prepForBroadcast2 = function() {
+		if( service.props.template2 === true) {
 			service.props.template1 = false;
 			service.props.template2 = true;
 			service.props.activeTemplate = 'two';
 			service.changeTemplate();
-		} else {
-			service.props.template1 = true;
-			service.props.template2 = false;
-			service.props.activeTemplate = 'one';
+		} else if ( service.props.template2 === false ) {
+			service.props.template1 = false;
+			service.props.template2 = true;
+			service.props.activeTemplate = 'two';
 			service.changeTemplate();
 		}
 	};
@@ -533,6 +483,7 @@ sportNgin.factory('changeTemplate', [
 			service.toggle_include();
 		}
 	};
+
 
 	service.prepForBroadcast_DeadlineDisplay = function() {
 		if( service.props.excludeDeadline === false) {
@@ -604,6 +555,16 @@ sportNgin.factory('changeTemplate', [
 		}
 	};
 
+	service.prepForBroadcast_NumberOfTeamsDisplay = function() {
+		if( service.props.excludeNumOfTeams === false) {
+			service.props.excludeNumOfTeams = true;
+			$rootScope.$broadcast('toggleInclude');
+		} else {
+			service.props.excludeNumOfTeams = false;
+			$rootScope.$broadcast('toggleInclude');
+		}
+	};
+
 	service.changeTemplate = function() {
 		$rootScope.$broadcast('templateChange');
 	};
@@ -641,6 +602,8 @@ sportNgin.controller('pdfCntrl', [
 	 	$scope.excludeEmail = false; 			
 	 	$scope.excludePhone = false; 			
 	 	$scope.excludeWebsite = false;
+	 	$scope.excludeNumOfTeams = false;
+
 	 	/**
 	 	 * Template Change Event Response to update Variables Cross Controller
 	 	 * @return {[type]}   updates the variables on this scope based on the values of the corresponding
@@ -667,7 +630,8 @@ sportNgin.controller('pdfCntrl', [
 		 	$scope.excludeLast = changeTemplate.props.excludeLast; 			
 		 	$scope.excludeEmail = changeTemplate.props.excludeEmail; 			
 		 	$scope.excludePhone = changeTemplate.props.excludePhone; 			
-		 	$scope.excludeWebsite = changeTemplate.props.excludeWebsite; 
+		 	$scope.excludeWebsite = changeTemplate.props.excludeWebsite;
+		 	$scope.excludeNumOfTeams = changeTemplate.props.excludeNumOfTeams;
 	    });
 }]);
 
@@ -700,7 +664,8 @@ sportNgin.controller('homeCntrl', [
  	$scope.excludeLast = false; 			
  	$scope.excludeEmail = false; 			
  	$scope.excludePhone = false; 			
- 	$scope.excludeWebsite = false; 			
+ 	$scope.excludeWebsite = false; 
+ 	$scope.excludeNumOfTeams = false;	
  	
  	/**
  	 * Template Change Event Response to update Variables Cross Controller
@@ -730,6 +695,7 @@ sportNgin.controller('homeCntrl', [
 	 	$scope.excludeEmail = changeTemplate.props.excludeEmail; 			
 	 	$scope.excludePhone = changeTemplate.props.excludePhone; 			
 	 	$scope.excludeWebsite = changeTemplate.props.excludeWebsite; 
+	 	$scope.excludeNumOfTeams = changeTemplate.props.excludeNumOfTeams;
 	 	$scope.Model.excludeFee = changeTemplate.props.excludeFee
 	 	$scope.Model.excludeDeadline = changeTemplate.props.excludeDeadline
 	 	$scope.Model.excludeGames = changeTemplate.props.excludeGames
@@ -738,6 +704,7 @@ sportNgin.controller('homeCntrl', [
 	 	$scope.Model.excludeEmail =	changeTemplate.props.excludeEmail	
 	 	$scope.Model.excludePhone =	changeTemplate.props.excludePhone
 	 	$scope.Model.excludeWebsite = changeTemplate.props.excludeWebsite
+	 	$scope.Model.excludeNumOfTeams = changeTemplate.props.excludeNumOfTeams
     });
 
 	/**
@@ -752,17 +719,27 @@ sportNgin.controller('homeCntrl', [
 	 * elements, i just set it in here with one function that checks the current state,
 	 * and passes the chosen template as a param.
 	 */
+
 	$scope.nextStep = function(){
 		var current = $state.current.name;
 
 		if (current == 'templateSelect') {
 			$state.go('tournamentInfo', {template: $scope.activeTemplate}, true);
+			
+			angular.element(document).find('#nav-info').addClass('previous');
+			angular.element(document).find('#nav-tempSelect').addClass('previous');
+			angular.element(document).find('#nav-tournInfo').addClass('active');
+			
 		} else if ( current == 'tournamentInfo') {
 			var fieldValues = _.values($scope.updated3IF);
 			if ( _.contains(fieldValues, false) ) {
 				$scope.invalid3 = $scope.updated3IF;
 			} else {
 				$state.go('tournamentDescription', {template: $scope.activeTemplate}, true);
+				angular.element(document).find('#nav-info').addClass('previous');
+				angular.element(document).find('#nav-tempSelect').addClass('previous');
+				angular.element(document).find('#nav-tournInfo').addClass('previous');
+				angular.element(document).find('#nav-tournDes').addClass('active');
 			}
 		} else if ( current == 'tournamentDescription') {
 			var fieldValues = _.values($scope.updated4IF);
@@ -770,6 +747,11 @@ sportNgin.controller('homeCntrl', [
 				$scope.invalid4 = $scope.updated4IF;
 			} else {
 				$state.go('tournamentContact', {template: $scope.activeTemplate}, true);
+				angular.element(document).find('#nav-info').addClass('previous');
+				angular.element(document).find('#nav-tempSelect').addClass('previous');
+				angular.element(document).find('#nav-tournInfo').addClass('previous');
+				angular.element(document).find('#nav-tournDes').addClass('previous');
+				angular.element(document).find('#nav-tournCon').addClass('active');
 			}
 		} else if ( current == 'info') {
 			var fieldValues = _.values($scope.updated1IF);
@@ -777,44 +759,91 @@ sportNgin.controller('homeCntrl', [
 				$scope.invalid1 = $scope.updated1IF;
 			} else {
 				$state.go('templateSelect', {template: $scope.activeTemplate}, true);
+				angular.element(document).find('#nav-info').addClass('previous');
+				angular.element(document).find('#nav-tempSelect').addClass('active');
 			}
 		} else if (current == 'tournamentContact') {
 			var fieldValues = _.values($scope.updated5IF);
 			if ( _.contains(fieldValues, false) ) {
 				$scope.invalid5 = $scope.updated5IF;
 			} else {
-				angular.element(document).ready(function(){
-					var windowWidth = $(window).width();
-					if(windowWidth > 900){
-							$( '#approval-trigger' ).on('click', function(e) {
-						    e.preventDefault();
-						    var offsetY = window.pageYOffset
-						    var posterWidth = $( '.poster-canvas' ).outerWidth();
-							$( "body" ).css({'top': -offsetY + 'px'});
-						    $( "body, html" ).addClass("no-scroll");
-						    $( ".poster-canvas").css('width', posterWidth + "px");
-						    setTimeout(function(){
-							   $( "body" ).addClass("approval-state"); 
-						    }, 100);
-						    setTimeout(function(){
-							   var posterHeight = $( '.poster-canvas' ).outerHeight();
-							   $( ".approval-inner").css('min-height', posterHeight + "px");
-							}, 400);
-						});
-					} else {
-						$( '#approval-trigger' ).on('click', function(e) {
-						    e.preventDefault();
-						    var offsetY = window.pageYOffset
-						    $( ".poster-preview-toggle" ).addClass("stuck");
-						    $( "body" ).css({'top': -offsetY + 'px'});
-						    $( "body, html" ).addClass("no-scroll");
-						    setTimeout(function(){
-							   $( "body" ).addClass("approval-state"); 
-						    }, 100);
-						});
-					}
-				});
+				SNjquery.launchModal();
 			}
+		}
+	};
+
+	$scope.navStep1 = function() {
+		$state.go('info', {template: $scope.activeTemplate}, true);
+		
+		angular.element(document).find('.gen-pagi > a.active').removeClass('active');
+		angular.element(document).find('.gen-pagi > a.previous').removeClass('previous');
+
+		angular.element(document).find('#nav-info').addClass('active');
+	};
+
+	$scope.navStep2 = function() {
+		var fieldValues = _.values($scope.updated1IF);
+		if ( _.contains(fieldValues, false) ) {
+			$scope.invalid1 = $scope.updated1IF;
+		} else {
+			$state.go('templateSelect', {template: $scope.activeTemplate}, true);
+			
+			angular.element(document).find('.gen-pagi > a.active').removeClass('active');
+			angular.element(document).find('.gen-pagi > a.previous').removeClass('previous');
+
+			angular.element(document).find('#nav-info').addClass('previous');
+			angular.element(document).find('#nav-tempSelect').addClass('active');
+		}
+	};
+
+	$scope.navStep3 = function() {
+		var fieldValues = _.values($scope.updated1IF);
+		if ( _.contains(fieldValues, false) ) {
+			$scope.invalid1 = $scope.updated1IF;
+		} else {
+			$state.go('tournamentInfo', {template: $scope.activeTemplate}, true);
+			
+			angular.element(document).find('.gen-pagi > a.active').removeClass('active');
+			angular.element(document).find('.gen-pagi > a.previous').removeClass('previous');
+
+			angular.element(document).find('#nav-info').addClass('previous');
+			angular.element(document).find('#nav-tempSelect').addClass('previous');
+			angular.element(document).find('#nav-tournInfo').addClass('active');
+		}
+	};
+
+	$scope.navStep4 = function() {
+		var fieldValues = _.values($scope.updated3IF);
+		if ( _.contains(fieldValues, false) ) {
+			$scope.invalid3 = $scope.updated3IF;
+		} else {
+			$state.go('tournamentDescription', {template: $scope.activeTemplate}, true);
+			
+			angular.element(document).find('.gen-pagi > a.active').removeClass('active');
+			angular.element(document).find('.gen-pagi > a.previous').removeClass('previous');
+
+			angular.element(document).find('#nav-info').addClass('previous');
+			angular.element(document).find('#nav-tempSelect').addClass('previous');
+			angular.element(document).find('#nav-tournInfo').addClass('previous');
+			angular.element(document).find('#nav-tournDes').addClass('active');
+		}
+	};
+
+	$scope.navStep5 = function() {
+		var fieldValues = _.values($scope.updated4IF);
+		if ( _.contains(fieldValues, false) ) {
+			$scope.invalid4 = $scope.updated4IF;
+		} else {
+			$state.go('tournamentContact', {template: $scope.activeTemplate}, true);
+			
+			angular.element(document).find('.gen-pagi > a.active').removeClass('active');
+			angular.element(document).find('.gen-pagi > a.previous').removeClass('previous');
+
+			angular.element(document).find('#nav-info').addClass('previous');
+			angular.element(document).find('#nav-tempSelect').addClass('previous');
+			angular.element(document).find('#nav-tournInfo').addClass('previous');
+			angular.element(document).find('#nav-tournDes').addClass('previous');
+			angular.element(document).find('#nav-tournCon').addClass('active');
 		}
 	};
 
@@ -828,6 +857,10 @@ sportNgin.controller('homeCntrl', [
 	 */
 	$scope.activeButton = function() {
 		changeTemplate.prepForBroadcast();
+	}
+
+	$scope.activeButton2 = function() {
+		changeTemplate.prepForBroadcast2();
 	}
 
 	/**
@@ -923,6 +956,13 @@ sportNgin.controller('homeCntrl', [
 	$scope.websiteToggle = function() {
 		changeTemplate.prepForBroadcast_SiteDisplay();
 	};
+	/**
+	 * Number of Teams Toggle
+	 */
+	$scope.numberOfTeamsToggle = function() {
+		changeTemplate.prepForBroadcast_NumberOfTeamsDisplay();
+	};
+
 
 	/**
 	 * Validation For each Individual State
