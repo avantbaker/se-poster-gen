@@ -584,6 +584,8 @@ main, header, footer, section {
     @media all and (max-width: 900px) {
       .col.three-fourths {
         width: 100%; } }
+  .col.full {
+    width: 100%; }
   .col.pad-left {
     padding-left: 20px; }
   .col.pad-right {
@@ -1434,6 +1436,33 @@ a.secondary-cta {
   font-weight: 500;
   color: #13759b;
   text-transform: uppercase; }
+  button.secondary-cta.refresh,
+  a.secondary-cta.refresh {
+    display: inline-block; }
+    button.secondary-cta.refresh:before,
+    a.secondary-cta.refresh:before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      background: url("../assets/img/icon-refresh_blue.svg") no-repeat center center;
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -webkit-transition: transform 0.3s;
+      -moz-transition: transform 0.3s;
+      -ms-transition: transform 0.3s;
+      -o-transition: transform 0.3s;
+      transition: transform 0.3s; }
+    button.secondary-cta.refresh:hover:before,
+    a.secondary-cta.refresh:hover:before {
+      transform: rotate(-180deg);
+      -webkit-transform: rotate(-180deg); }
+    button.secondary-cta.refresh span,
+    a.secondary-cta.refresh span {
+      display: inline-block;
+      transform: translateY(-3px);
+      -webkit-transform: translateY(-3px); }
 
 .template-selector {
   position: relative;
@@ -1973,8 +2002,8 @@ footer {
         display: inline-block; }
       .preloader-overlay .preloader-wrapper .preloader-container .preloader-icon {
         position: relative;
-        width: 140px;
-        height: 140px;
+        width: 80px;
+        height: 80px;
         background: url("../assets/img/sn-mark_light.svg") no-repeat left center; }
         .preloader-overlay .preloader-wrapper .preloader-container .preloader-icon:before {
           content: "";
@@ -2007,7 +2036,8 @@ footer {
   min-height: 0; }
 
 .download-page .poster-builder-app {
-  min-height: 720px; }
+  min-height: 720px;
+  min-height: 100vh; }
 
 .download-row {
   display: table;
@@ -2059,7 +2089,7 @@ footer {
       @media all and (max-width: 900px) {
         .download-row .col.bottom {
           vertical-align: initial;
-          padding: 0 0 0 15px; } }
+          padding: 15px 0 0 0; } }
 
 .download-callout {
   background: #f2f3f4;

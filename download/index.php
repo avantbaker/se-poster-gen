@@ -79,8 +79,8 @@
 			</div>
 			
 			<div class="container intro-content">
-				<h2>Baseball Tournament Poster Generator</h2>
-				<p class="intro">Promote your tourney with style, in minutes... <strong>FOR FREE</strong>. Walk through the steps below to customize a downloadable soccer tournament flyer and poster.</p>
+				<h2>Your Downloads Are Ready!</h2>
+				<p class="intro">Use the buttons below to download your flyer, poster and social media image.</p>
 			</div>
 			
 		</header>
@@ -97,12 +97,8 @@
 				<div class="container gen-container">
 					
 					<div class="download-row header">
-						<div class="col two-thirds">
-							<h3>Your downloads are ready!</h3>
-							<p>Use the buttons below to download or email yourself the flyer, poster and social media image below.</p>
-						</div>
-						<div class="col one-third button-col bottom">
-							<a class="secondary-cta" href="../index.html">Generate another poster</a>
+						<div class="col full button-col bottom">
+							<a class="secondary-cta refresh" href="../index.html"><span>Generate another poster</span></a>
 						</div>
 					</div>
 					
