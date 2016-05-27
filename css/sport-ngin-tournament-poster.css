@@ -237,7 +237,8 @@ select {
  *    `input` and others.
  */
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -418,7 +419,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
-
 @-moz-keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -426,7 +426,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
-
 @-o-keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -434,7 +433,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
-
 @keyframes image-zoom {
   0% {
     transform: scale(1);
@@ -442,7 +440,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: scale(1.1);
     -webkit-transform: scale(1.1); } }
-
 @-webkit-keyframes preload-pseudo {
   0% {
     width: 0; }
@@ -450,7 +447,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
     width: 0; }
   100% {
     width: 100%; } }
-
 @-moz-keyframes preload-pseudo {
   0% {
     width: 0; }
@@ -458,7 +454,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
     width: 0; }
   100% {
     width: 100%; } }
-
 @-o-keyframes preload-pseudo {
   0% {
     width: 0; }
@@ -466,7 +461,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
     width: 0; }
   100% {
     width: 100%; } }
-
 @keyframes preload-pseudo {
   0% {
     width: 0; }
@@ -474,31 +468,26 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
     width: 0; }
   100% {
     width: 100%; } }
-
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-
 @-moz-keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-
 @-o-keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-
 @keyframes fade-in {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-
 @-webkit-keyframes move-right {
   0% {
     transform: translateX(-100%);
@@ -506,7 +495,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: translateX(0);
     -webkit-transform: translateX(0); } }
-
 @-moz-keyframes move-right {
   0% {
     transform: translateX(-100%);
@@ -514,7 +502,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: translateX(0);
     -webkit-transform: translateX(0); } }
-
 @-o-keyframes move-right {
   0% {
     transform: translateX(-100%);
@@ -522,7 +509,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: translateX(0);
     -webkit-transform: translateX(0); } }
-
 @keyframes move-right {
   0% {
     transform: translateX(-100%);
@@ -530,7 +516,6 @@ main, header, footer, section, .container, .sn-share, .gen-steps-wrapper, .gen-s
   100% {
     transform: translateX(0);
     -webkit-transform: translateX(0); } }
-
 body, html {
   margin: 0;
   padding: 0;
@@ -773,8 +758,7 @@ strong {
       box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
       transform: scale(1.1);
       -webkit-transform: scale(1.1); }
-    .sn-share a.facebook .social-fill,
-    .sn-share a.twitter .social-fill {
+    .sn-share a.facebook .social-fill, .sn-share a.twitter .social-fill {
       -webkit-transition: fill 0.3s;
       -moz-transition: fill 0.3s;
       -ms-transition: fill 0.3s;
@@ -791,10 +775,8 @@ strong {
 
 .no-svg .sn-share a.facebook {
   background: url("../assets/img/social-icon_facebook.png") no-repeat center center; }
-
 .no-svg .sn-share a.twitter {
   background: url("../assets/img/social-icon_twitter.png") no-repeat center center; }
-
 .no-svg .sn-share a svg {
   display: none; }
 
@@ -944,19 +926,14 @@ form {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background-clip: padding-box; }
-
 .gen-formrow.first h4:before {
   content: "1"; }
-
 .gen-formrow.second h4:before {
   content: "2"; }
-
 .gen-formrow.third h4:before {
   content: "3"; }
-
 .gen-formrow.fourth h4:before {
   content: "4"; }
-
 .gen-formrow.fifth h4:before {
   content: "5"; }
 
@@ -1270,11 +1247,7 @@ button,
       background: url("../assets/img/icon-arrow_white-left.svg") no-repeat center center;
       transform: translateY(2px);
       -webkit-transform: translateY(2px); }
-  input[type=submit].back:before,
-  input[type=submit].email:before,
-  input[type=submit].download:before,
-  input[type=submit].share:before,
-  input[type=submit].approved:before,
+  input[type=submit].back:before, input[type=submit].email:before, input[type=submit].download:before, input[type=submit].share:before, input[type=submit].approved:before,
   button.back:before,
   button.email:before,
   button.download:before,
@@ -1316,8 +1289,7 @@ button,
   button.email:before,
   .button.email:before {
     background: url("../assets/img/icon-button_email.svg") no-repeat center center; }
-  input[type=submit].email:hover:before,
-  input[type=submit].email:focus:before,
+  input[type=submit].email:hover:before, input[type=submit].email:focus:before,
   button.email:hover:before,
   button.email:focus:before,
   .button.email:hover:before,
@@ -1332,8 +1304,7 @@ button,
   button.download:before,
   .button.download:before {
     background: url("../assets/img/icon-button_download.svg") no-repeat center center; }
-  input[type=submit].download:hover:before,
-  input[type=submit].download:focus:before,
+  input[type=submit].download:hover:before, input[type=submit].download:focus:before,
   button.download:hover:before,
   button.download:focus:before,
   .button.download:hover:before,
@@ -1348,8 +1319,7 @@ button,
   button.share:before,
   .button.share:before {
     background: url("../assets/img/icon-button_share.svg") no-repeat center center; }
-  input[type=submit].share:hover:before,
-  input[type=submit].share:focus:before,
+  input[type=submit].share:hover:before, input[type=submit].share:focus:before,
   button.share:hover:before,
   button.share:focus:before,
   .button.share:hover:before,
@@ -1380,8 +1350,7 @@ button,
     border-radius: 3px;
     background-clip: padding-box;
     box-shadow: none; }
-    input[type=submit].outline-button:hover,
-    input[type=submit].outline-button:focus,
+    input[type=submit].outline-button:hover, input[type=submit].outline-button:focus,
     button.outline-button:hover,
     button.outline-button:focus,
     .button.outline-button:hover,
@@ -1400,27 +1369,22 @@ button,
 .no-svg button.next-step:after,
 .no-svg .button.next-step:after {
   background: url("../assets/img/icon-arrow_white-left.png") no-repeat center center; }
-
 .no-svg input[type=submit].back:before,
 .no-svg button.back:before,
 .no-svg .button.back:before {
   background: url("../assets/img/icon-arrow_white-right.png") no-repeat center center; }
-
 .no-svg input[type=submit].email:before,
 .no-svg button.email:before,
 .no-svg .button.email:before {
   background: url("../assets/img/icon-button_email.png") no-repeat center center; }
-
 .no-svg input[type=submit].download:before,
 .no-svg button.download:before,
 .no-svg .button.download:before {
   background: url("../assets/img/icon-button_download.png") no-repeat center center; }
-
 .no-svg input[type=submit].share:before,
 .no-svg button.share:before,
 .no-svg .button.share:before {
   background: url("../assets/img/icon-button_share.png") no-repeat center center; }
-
 .no-svg input[type=submit].approved:before,
 .no-svg button.approved:before,
 .no-svg .button.approved:before {
@@ -1566,8 +1530,7 @@ a.secondary-cta {
     border: 1px solid #ea322f;
     background: #ea322f;
     background: rgba(234, 50, 47, 0.05); }
-    .gen-formfield.error input[type="text"]:hover,
-    .gen-formfield.error input[type="text"]:focus,
+    .gen-formfield.error input[type="text"]:hover, .gen-formfield.error input[type="text"]:focus,
     .gen-formfield.error input[type="number"]:hover,
     .gen-formfield.error input[type="number"]:focus,
     .gen-formfield.error input[type="email"]:hover,
@@ -1683,8 +1646,7 @@ footer {
       -webkit-transform: translateY(-100%);
       z-index: 20; } }
   @media all and (max-width: 900px) {
-    .poster-preview-toggle.viewable,
-    .poster-preview-toggle.stuck {
+    .poster-preview-toggle.viewable, .poster-preview-toggle.stuck {
       opacity: 1;
       filter: alpha(opacity=100);
       transform: translateY(0);
@@ -1839,7 +1801,6 @@ footer {
     opacity: 1;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%); } }
-
 @media all and (max-width: 900px) {
   .approval-state .poster-builder-hero,
   .preview-state .poster-builder-hero {
@@ -1867,7 +1828,6 @@ footer {
         overflow: visible;
         transform: translate(0, 0);
         -webkit-transform: translate(0, 0); } }
-
 .approval-state .poster-canvas {
   position: fixed;
   width: 50%;
@@ -1889,7 +1849,6 @@ footer {
       transform: scale(1);
       -webkit-transform: scale(1);
       z-index: initial; } }
-
 .approval-state .poster-preview-toggle {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -1911,7 +1870,6 @@ footer {
     -webkit-transform: translateX(0);
     opacity: 1;
     filter: alpha(opacity=100); }
-
 .preview-state .approval-container {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -2072,3 +2030,5 @@ footer {
 
 .hide {
   display: none !important; }
+
+/*# sourceMappingURL=sport-ngin-tournament-poster.css.map */

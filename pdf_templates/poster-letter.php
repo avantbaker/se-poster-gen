@@ -8,13 +8,16 @@ $request = json_decode( file_get_contents("php://input"), false );
 
 require_once('date-conversion.php');
 
-$excSite 				= $request->excludeWebsite;
-$excPhone 				= $request->excludePhone;
-$excLast 				= $request->excludeLast;
-$excGames 				= $request->excludeGames;
-$excFirst 				= $request->excludeFirst;
-$excFee 				= $request->excludeFee;
-$excEmail 				= $request->excludeEmail;
+$excFee 				= $request->excludeFee; 		
+$excDeadline 			= $request->excludeDeadline; 	
+$excGames 				= $request->excludeGames;  		
+$excFirst 				= $request->excludeFirst;		
+$excLast 				= $request->excludeLast; 		
+$excEmail 				= $request->excludeEmail; 		
+$excPhone 				= $request->excludePhone; 		
+$excSite 				= $request->excludeWebsite; 		
+$excNumOfTeams 			= $request->excludeNumOfTeams;	
+
 
 $hostOrg 				= strtoupper($request->hostOrg);
 $tournamentName 		= strtoupper($request->tournamentName);	
@@ -33,6 +36,32 @@ $dirLName 				= strtoupper($request->dirLastName);
 $email 					= strtoupper($request->tEmail);	
 $phone 					= $request->tphone;	
 $cookie 				= $request->userID;
+
+
+$width = null;
+$tableWidth = "width = '100%'";
+
+$exclusionArr = array(
+	$excNumOfTeams,
+	$excGames,
+	$excFee
+);
+
+$count = count(array_filter($exclusionArr));
+
+switch ($count) {
+    case 1:
+        $width = "50%";
+        $tableWidth = "width = '390px'";
+        break;
+    case 2:
+        $width = "100%";
+        break;
+    default:
+        $width = "33.3%";
+}
+
+
 
 $html = "
 <html>
@@ -159,11 +188,11 @@ $html = "
 		width: 84%;
 		left: 8%;
 		top: 68%;
+		text-align: center;
 		overflow: hidden;
 	}
 	
 	table.tournament-callouts {
-		width: 100%;
 		text-align: center;
 		overflow: hidden;
 	}
@@ -241,45 +270,79 @@ $html = "
 	
 	<div class='tournament-details'>
 		<span class='tournament-description'>{$description}</span>
-	</div>
-	
-	<div class='tournament-deadline'>
-		REGISTER BY <span class='register-date'>{$register}</span>
-	</div>
-	
-	<div class='tournament-callouts-wrapper'>
-	
-		<table class='tournament-callouts' border='0'>
-			<tr>
-				<td align='center' width='33.3%' class='tournment-callout'>
-					TEAMS<br>
-					<span class='teams-number'>{$teams}</span>
-				</td>
-				
-				<td align='center' width='33.3%' class='tournment-callout'>
-					GAME MINIMUM<br>
-					<span class='games-number'>{$gameMin}</span>
-				</td>
-				
-				<td align='center' width='33.3%' class='tournment-callout tournament-fee'>
-					ENTRY FEE<br>
-					<span class='fee'>${$entry}</span>
-				</td>
-			</tr>
-		</table>
+	</div>";
+
+if( $excDeadline === false ) :			
+	$html .= "<div class='tournament-deadline'>
+				REGISTER BY <span class='register-date'>{$register}</span>
+			 </div>";
+endif;
+
+	$html .= "<div class='tournament-callouts-wrapper'>
+				<table class='tournament-callouts' {$tableWidth} border='0' align='center'>
+					<tr>";
+
+
+
+		if( $excNumOfTeams === false ) :        
+					$html .=	"<td align='center' width='{$width}' class='tournment-callout'>
+									TEAMS<br>
+									<span class='teams-number'>{$teams}</span>
+								</td>";
+		endif;
+
+		if( $excGames === false ) :				
+					$html .=	"<td align='center' width='{$width}' class='tournment-callout'>
+									GAME MINIMUM<br>
+									<span class='games-number'>{$gameMin}</span>
+								</td>";
+		endif;
+
+		if( $excFee === false ) :				
+					$html .=	"<td align='center' width='{$width}' class='tournment-callout tournament-fee'>
+									ENTRY FEE<br>
+									<span class='fee'>&#36;{$entry}</span>
+								</td>";
+		endif;		
+
+
+
+			$html .=   "</tr>
+				</table>
 					
-	</div>
+			</div>
 	
 	<div class='tournament-contact'>
 		<span class='contact-information'>
-			<span class='director-name'><span class='director-first'>{$dirFName}</span> <span class='director-last'>{$dirLName}</span> | </span>
-			<span class='director-email'><span class='email'>{$email} | </span></span>
-			<span class='director-phone'>{$phone}</span>
-			<br>";
-				if ($excSite === false) :
-					$html .= "<span class='tournament-website'>{$website}</span>";
-				endif;
-					$html .= "<br>
+			<span class='director-name'>";
+
+if( $excFirst === false ) :
+			$html .=  "<span class='director-first'>{$dirFName} </span>"; 
+endif;
+
+if( $excLast === false ) :
+			$html .=  "<span class='director-last'>{$dirLName}</span>"; 
+endif;
+			$html .=  " | ";
+			
+			$html .= "</span>
+			
+			<span class='director-email'>";
+if( $excEmail === false ) :
+			$html .= "<span class='email'>{$email}</span>";
+endif;
+			$html .= " | ";
+			
+			$html .= "</span>";
+if( $excPhone === false ) :
+			$html .= "<span class='director-phone'>{$phone}</span>";
+endif;			
+			$html .= "<br>";
+				
+if ($excSite === false) :
+	$html .= "<span class='tournament-website'>{$website}</span>";
+endif;
+	$html .= "<br>
 		</span>
 	</div>
 		
